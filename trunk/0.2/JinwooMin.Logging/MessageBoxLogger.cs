@@ -5,8 +5,14 @@ using System.Windows.Forms;
 
 namespace JinwooMin.Logging
 {
+    /// <summary>
+    /// TODO
+    /// </summary>
     public class MessageBoxLogger : AbstractLogger
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
         protected override void Log(string prefix, string msg)
         {
             if (prefix == LOG_PREFIX_FATAL)

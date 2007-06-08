@@ -6,12 +6,17 @@ using System.IO;
 
 namespace JinwooMin.Cryptography
 {
-	public class DESCrypto
+    /// <summary>
+    /// TODO
+    /// </summary>
+    public class DESCrypto
 	{
         #region Password En/Decryption
 
-        // ref.: http://www.dotnetspider.com/qa/Question741.aspx
-
+        /// <summary>
+        /// TODO
+        /// ref.: http://www.dotnetspider.com/qa/Question741.aspx
+        /// </summary>
         public static string EncryptPasswd(string strPasswd, string strKey, byte[] byIV)
         {
             if (strPasswd == null)
@@ -31,6 +36,9 @@ namespace JinwooMin.Cryptography
             return Convert.ToBase64String(ms.ToArray());
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static string DecryptPasswd(string strPasswd, string strKey, byte[] byIV)
         {
             if (strPasswd == null)

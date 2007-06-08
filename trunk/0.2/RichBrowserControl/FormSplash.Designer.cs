@@ -1,5 +1,8 @@
 namespace JinwooMin.RichBrowserControl
 {
+    /// <summary>
+    /// TODO
+    /// </summary>
     partial class FormSplash
     {
         /// <summary>

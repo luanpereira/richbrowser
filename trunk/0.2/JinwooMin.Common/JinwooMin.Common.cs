@@ -8,10 +8,44 @@ using System.Diagnostics;
 
 namespace JinwooMin.Common
 {
-    public enum VersionStage { Stable = 0, Alpha = 1, Beta = 2, RC = 3, Patch = 4 };
+    /// <summary>
+    /// TODO
+    /// </summary>
+    public enum VersionStage {
+        /// <summary>
+        /// TODO
+        /// </summary>
+        Stable = 0,
 
+        /// <summary>
+        /// TODO
+        /// </summary>
+        Alpha = 1,
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        Beta = 2,
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        RC = 3,
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        Patch = 4
+    };
+
+    /// <summary>
+    /// TODO
+    /// </summary>
     public class VersionInfo
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static string GetBuildNumber()
         {
             string buildNumber = "";
@@ -30,6 +64,9 @@ namespace JinwooMin.Common
             return buildNumber;
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static string GetVersionOnly()
         {
             Version appVersion = new Version(Application.ProductVersion);
@@ -37,6 +74,9 @@ namespace JinwooMin.Common
                 + appVersion.Minor.ToString();
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static string GetVersionStage()
         {
             Version appVersion = new Version(Application.ProductVersion);
@@ -67,6 +107,9 @@ namespace JinwooMin.Common
             return stageStr + appVersion.Revision.ToString();
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static string GetVersion()
         {
             Version appVersion = new Version(Application.ProductVersion);
@@ -87,10 +130,16 @@ namespace JinwooMin.Common
         }
     }
 
+    /// <summary>
+    /// TODO
+    /// </summary>
     public class ProcessUtils
     {
 
-        // ref: http://www.pcreview.co.uk/forums/thread-1393522.php
+        /// <summary>
+        /// TODO
+        /// ref: http://www.pcreview.co.uk/forums/thread-1393522.php
+        /// </summary>
         static public bool IsThisLaunched()
         {
             Process[] ps = Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName);

@@ -15,11 +15,17 @@ namespace JinwooMin.RichBrowserControl
     {
         private PluginLoader m_pluginLoader;
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public PluginLoader PluginLoader
         {
             set { m_pluginLoader = value; }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public FormInformation()
         {
             InitializeComponent();

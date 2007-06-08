@@ -8,6 +8,9 @@ using System.Reflection;
 
 namespace JinwooMin.RichBrowserInterface
 {
+    /// <summary>
+    /// TODO
+    /// </summary>
     public class PluginLoader
     {
         private List<IPlugin> m_plugins = new List<IPlugin>(); 
@@ -16,6 +19,9 @@ namespace JinwooMin.RichBrowserInterface
         private string m_pluginPath;
         private string m_searchOption;
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public PluginLoader(ILogger logger, IPluginHost pluginHost, string pluginPath, string searchOption)
         {
             m_logger = logger;
@@ -24,6 +30,9 @@ namespace JinwooMin.RichBrowserInterface
             m_searchOption = searchOption;
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public PluginResult Load()
         {
             try
@@ -34,7 +43,7 @@ namespace JinwooMin.RichBrowserInterface
                 {
                     m_logger.Debug("dir=" + dir);
 
-                    // deprecated, 
+                    // Yes, I know it's DEPRECATED.
                     AppDomain.CurrentDomain.AppendPrivatePath(dir);
 
                     #region Test Code
@@ -65,6 +74,9 @@ namespace JinwooMin.RichBrowserInterface
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public PluginResult Unload()
         {
             foreach (IPlugin plugin in m_plugins)

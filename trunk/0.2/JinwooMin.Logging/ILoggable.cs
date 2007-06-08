@@ -4,8 +4,14 @@ using System.Text;
 
 namespace JinwooMin.Logging
 {
+    /// <summary>
+    /// TODO
+    /// </summary>
     public interface ILoggable
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
         ILogger Logger { set; }
     }
 }

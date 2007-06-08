@@ -23,6 +23,9 @@ namespace JinwooMin.RichBrowserControl
 
         private LogManager m_logger;
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public LogManager Logger
         {
             get { return m_logger; }
@@ -30,7 +33,10 @@ namespace JinwooMin.RichBrowserControl
         }
 
         #region Show/Hide Toolbars
-        
+
+        /// <summary>
+        /// TODO
+        /// </summary>
         public bool ShowWebToolbar
         {
             get { return toolStripWeb.Visible; }
@@ -41,6 +47,9 @@ namespace JinwooMin.RichBrowserControl
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public bool ShowAddressToolbar
         {
             get { return toolStripAddress.Visible; }
@@ -52,12 +61,18 @@ namespace JinwooMin.RichBrowserControl
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public bool ShowMenubar
         {
             get { return menuStripMain.Visible; }
             set { menuStripMain.Visible = value; }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public bool ShowTabToolbar
         {
             get { return toolStripTab.Visible; }
@@ -74,6 +89,9 @@ namespace JinwooMin.RichBrowserControl
 
         #region Constructor
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public RichBrowserControl()
         {
             FormSplash.ShowForm();
@@ -101,6 +119,9 @@ namespace JinwooMin.RichBrowserControl
 
         #region IPluginHost Members
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public cEXWB ActiveWebBrowser
         {
             get
@@ -113,31 +134,49 @@ namespace JinwooMin.RichBrowserControl
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public ToolStripContainer ToolStripContainer
         {
             get { return toolStripContainerMain; }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public MenuStrip MenuStrip
         {
             get { return menuStripMain; }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public DockPanel DockPanel
         {
             get { return dockPanelMain; }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public ContainerControl ContainerControl
         {
             get { return this; }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void NewWebBrowser()
         {
             MakeNewWebBrowser();
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public cEXWB Navigate(string url)
         {
             WebBrowserDockContent webDC = null;
@@ -168,6 +207,9 @@ namespace JinwooMin.RichBrowserControl
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public ToolStripMenuItem GetTopMenuItem(TopMenuItem topMenuItem)
         {
             ToolStripMenuItem menuItem = null;
@@ -194,6 +236,9 @@ namespace JinwooMin.RichBrowserControl
             return menuItem;
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void AddMenuItem(ToolStripMenuItem menuItem)
         {
             // view menu 다음에 추가한다.
@@ -245,7 +290,7 @@ namespace JinwooMin.RichBrowserControl
             FormSplash.CloseForm();
         }
 
-        public void parentForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void parentForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Logger.Info(Properties.Resources.MSG_RBP_FINISHING);
 
@@ -269,11 +314,17 @@ namespace JinwooMin.RichBrowserControl
 
         #region WebBrowser features
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void GoAddress()
         {
             GoAddress(toolStripTextBoxAddress.Text);
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void GoAddress(string url)
         {
             WebBrowserDockContent webDC = dockPanelMain.ActiveDocument as WebBrowserDockContent;
@@ -340,25 +391,26 @@ namespace JinwooMin.RichBrowserControl
 
         #region WebBrowser event handling
 
-        public void webBrowser_BeforeNavigate2(object sender, BeforeNavigate2EventArgs e)
+        private void webBrowser_BeforeNavigate2(object sender, BeforeNavigate2EventArgs e)
         {
             Logger.Debug("webBrowser_BeforeNavigate2.");
             toolStripProgressBarMain.Visible = true;
         }
 
-        public void webBrowser_DocumentComplete(object sender, DocumentCompleteEventArgs e)
+        private void webBrowser_DocumentComplete(object sender, DocumentCompleteEventArgs e)
         {
             //
             Logger.Debug("documentcompleted. e=" + e.url);
             toolStripTextBoxAddress.Text = e.url;
         }
-        public void webBrowser_NavigateComplete2(object sender, NavigateComplete2EventArgs e)
+
+        private void webBrowser_NavigateComplete2(object sender, NavigateComplete2EventArgs e)
         {
             Logger.Debug("location=" + e.url);
             toolStripProgressBarMain.Visible = false;
         }
 
-        public void webBrowser_ProgressChange(object sender, ProgressChangeEventArgs e)
+        private void webBrowser_ProgressChange(object sender, ProgressChangeEventArgs e)
         {
             Logger.Debug("progresschange=" + e.progress);
             if (e.progress >= 0 && e.progress <= 100)
@@ -368,13 +420,13 @@ namespace JinwooMin.RichBrowserControl
             //toolStripProgressBarMain.Visible = (e.progress == 100) ? false : true;
         }
 
-        public void webBrowser_StatusTextChange(object sender, StatusTextChangeEventArgs e)
+        private void webBrowser_StatusTextChange(object sender, StatusTextChangeEventArgs e)
         {
             Logger.Debug("webBrowser_StatusTextChange=" + e.text);
             toolStripStatusLabelMessage.Text = e.text;
         }
 
-        public void webBrowser_CommandStateChange(object sender, CommandStateChangeEventArgs e)
+        private void webBrowser_CommandStateChange(object sender, CommandStateChangeEventArgs e)
         {
             Logger.Debug("command=" + e.command.ToString());
             if (dockPanelMain.ActiveDocument is WebBrowserDockContent)

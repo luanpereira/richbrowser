@@ -12,14 +12,26 @@ namespace JinwooMin.RichBrowserControl
 {
     public partial class FormSplash : Form, ILogger
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static FormSplash ms_frmSplash = null;
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public FormSplash()
         {
             InitializeComponent();
+
+            // resources
+            this.Text = Properties.Resources.LABEL_LOADING;
         }
 
-        // A static entry point to launch FormSplash.
+        
+        /// <summary>
+        /// A static entry point to launch FormSplash.
+        /// </summary>
         static public void ShowForm()
         {
             Application.DoEvents();
@@ -28,7 +40,9 @@ namespace JinwooMin.RichBrowserControl
             //Application.Run(ms_frmSplash);
         }
 
-        // A static method to close the FormSplash
+        /// <summary>
+        /// A static method to close the FormSplash
+        /// </summary>
         static public void CloseForm()
         {
             Application.DoEvents();
@@ -36,6 +50,10 @@ namespace JinwooMin.RichBrowserControl
             ms_frmSplash.Close();
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <returns></returns>
         static public ILogger GetLogger()
         {
             return ms_frmSplash;
@@ -51,6 +69,9 @@ namespace JinwooMin.RichBrowserControl
 
         #region ILogger Members
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public LogOptions Options
         {
             get
@@ -63,26 +84,41 @@ namespace JinwooMin.RichBrowserControl
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void Fatal(string msg)
         {
             AddItem(msg);
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void Error(string msg)
         {
             AddItem(msg);
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void Info(string msg)
         {
             AddItem(msg);
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void Warn(string msg)
         {
             //AddItem(msg);
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void Debug(string msg)
         {
             //AddItem(msg);

@@ -8,7 +8,10 @@ using JinwooMin.Logging;
 
 namespace JinwooMin.Net
 {
-	public class ConfluenceClient2
+    /// <summary>
+    /// TODO
+    /// </summary>
+    public class ConfluenceClient2
 	{
         #region Constants
         
@@ -18,6 +21,9 @@ namespace JinwooMin.Net
 
         #region Public methods
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static void DownloadFileWithLogin(ILogger logger, string urlLogin, string urlDownload, string filename, object progressBar)
         {
             // using cookie
@@ -84,6 +90,9 @@ namespace JinwooMin.Net
             resDown.Close();
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static void UploadFile(ILogger logger, string urlLogin, string urlUpload, string filename, object progressBar)
         {
             // ref: http://episteme.arstechnica.com/eve/forums/a/tpc/f/6330927813/m/146000692831

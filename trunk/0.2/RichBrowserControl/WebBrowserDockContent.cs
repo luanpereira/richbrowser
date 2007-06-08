@@ -10,13 +10,22 @@ using csExWB;
 
 namespace JinwooMin.RichBrowserControl
 {
+    /// <summary>
+    /// TODO
+    /// </summary>
     public partial class WebBrowserDockContent : DockContent
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
         public cEXWB WebBrowser 
         {
             get { return cEXWB; }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public WebBrowserDockContent()
         {
             InitializeComponent();

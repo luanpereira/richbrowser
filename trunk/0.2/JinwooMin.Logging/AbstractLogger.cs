@@ -4,20 +4,51 @@ using System.Text;
 
 namespace JinwooMin.Logging
 {
+    /// <summary>
+    /// TODO
+    /// </summary>
     public abstract class AbstractLogger : ILogger
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
         protected LogOptions m_options;
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static string LOG_PREFIX_FATAL = "FATAL";
+
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static string LOG_PREFIX_ERROR = "ERROR";
+
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static string LOG_PREFIX_INFO = "INFO ";
+
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static string LOG_PREFIX_WARN = "WARN ";
+
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static string LOG_PREFIX_DEBUG = "DEBUG";
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         abstract protected void Log(string prefix, string msg);
 
         #region ILogger Members
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void Fatal(string msg)
         {
             if ((Options & LogOptions.FATAL) == LogOptions.FATAL)
@@ -26,6 +57,9 @@ namespace JinwooMin.Logging
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void Error(string msg)
         {
             if ((Options & LogOptions.ERROR) == LogOptions.ERROR)
@@ -34,6 +68,9 @@ namespace JinwooMin.Logging
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void Info(string msg)
         {
             if ((Options & LogOptions.INFO) == LogOptions.INFO)
@@ -42,6 +79,9 @@ namespace JinwooMin.Logging
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void Warn(string msg)
         {
             if ((Options & LogOptions.WARN) == LogOptions.WARN)
@@ -50,6 +90,9 @@ namespace JinwooMin.Logging
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public void Debug(string msg)
         {
             if ((Options & LogOptions.DEBUG) == LogOptions.DEBUG)
@@ -58,6 +101,9 @@ namespace JinwooMin.Logging
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public LogOptions Options
         {
             get { return m_options; }

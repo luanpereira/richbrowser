@@ -8,32 +8,103 @@ using JinwooMin.Logging;
 
 namespace JinwooMin.RichBrowserInterface
 {
-    public enum PluginResult { None, Success, Fail, Cancel }
-    public enum TopMenuItem { File, View, Tools, Help }
+    /// <summary>
+    /// TODO
+    /// </summary>
+    public enum PluginResult {
 
+        /// <summary>
+        /// TODO
+        /// </summary>
+        None,
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        Success,
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        Fail,
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        Cancel
+    }
+
+    /// <summary>
+    /// TODO
+    /// </summary>
+    public enum TopMenuItem {
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        File,
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        View,
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        Tools,
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        Help
+    }
+
+    /// <summary>
+    /// TODO
+    /// </summary>
     public interface IPlugin : ILoggable
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
         IPluginHost PluginHost
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         string PluginPath
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         void Init();
+
+        /// <summary>
+        /// TODO
+        /// </summary>
         void Deinit();
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         PluginResult InitResult
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         PluginResult DeinitResult
         {
             get;
@@ -41,28 +112,46 @@ namespace JinwooMin.RichBrowserInterface
         }
     }
 
+    /// <summary>
+    /// TODO
+    /// </summary>
     public interface IPluginHost
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
         cEXWB ActiveWebBrowser
         {
             get;
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         ContainerControl ContainerControl
         {
             get;
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         ToolStripContainer ToolStripContainer
         {
             get;
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         MenuStrip MenuStrip
         {
             get;
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         DockPanel DockPanel
         {
             get;

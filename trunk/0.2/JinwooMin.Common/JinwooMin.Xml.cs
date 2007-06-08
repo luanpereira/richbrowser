@@ -8,8 +8,14 @@ using JinwooMin.Logging;
 
 namespace JinwooMin.Xml
 {
+    /// <summary>
+    /// TODO
+    /// </summary>
     public class TreeViewXmlSerializer
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static void SaveToXml(ILogger logger, string filename, Type rootNodeType, object rootNode)
         {
             FileStream fs = new FileStream(filename, FileMode.Create);
@@ -35,6 +41,9 @@ namespace JinwooMin.Xml
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public static object LoadFromXml(ILogger logger, string filename, Type rootNodeType)
         {
             FileStream fs = new FileStream(filename, FileMode.Open);

@@ -5,20 +5,40 @@ using JinwooMin.Logging;
 
 namespace JinwooMin.RichBrowserInterface
 {
+    /// <summary>
+    /// TODO
+    /// </summary>
     public abstract class AbstractPlugin : IPlugin
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
         protected IPluginHost m_pluginHost;
+
+        /// <summary>
+        /// TODO
+        /// </summary>
         protected string m_pluginPath;
+
+        /// <summary>
+        /// TODO
+        /// </summary>
         protected ILogger m_logger;
 
         #region IPlugin Members
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public IPluginHost PluginHost
         {
             get { return m_pluginHost; }
             set { m_pluginHost = value; }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public string PluginPath
         {
             get
@@ -33,6 +53,9 @@ namespace JinwooMin.RichBrowserInterface
 
         private PluginResult m_initResult;
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public PluginResult InitResult
         {
             get
@@ -45,8 +68,14 @@ namespace JinwooMin.RichBrowserInterface
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         private PluginResult m_deinitResult;
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public PluginResult DeinitResult
         {
             get
@@ -59,14 +88,23 @@ namespace JinwooMin.RichBrowserInterface
             }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public abstract void Init();
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public abstract void Deinit();
 
         #endregion
 
         #region ILoggable Members
 
+        /// <summary>
+        /// TODO
+        /// </summary>
         public ILogger Logger
         {
             get { return m_logger; }

@@ -24,13 +24,16 @@ using System.Runtime.InteropServices;
 namespace aejw
 {
 
+    /// <summary>
+    /// cINI - INI API Legacy Class (Ascii)
+    /// </summary>
 	public class cIni
 	{
 
 		/// <summary>
 		/// cINI Constructor
 		/// </summary>
-		/// <param name="IniFilename">File location of ini / inf file</param>
+		/// <param name="iniFilename">File location of ini / inf file</param>
 		public cIni(string iniFilename)
 		{
 			this._iniFilename = iniFilename;
@@ -65,9 +68,9 @@ namespace aejw
 		/// <summary>
 		/// Read value from INI File
 		/// </summary>
-		/// <param name="Section">Section to read value from</param>
-		/// <param name="Key">Key name to read value from</param>
-		/// <param name="Default">Default value returned if key is not found</param>
+		/// <param name="section">Section to read value from</param>
+		/// <param name="key">Key name to read value from</param>
+		/// <param name="defaultValue">Default value returned if key is not found</param>
 		public string ReadValue(string section, string key, string defaultValue)
 		{
 			
@@ -79,8 +82,8 @@ namespace aejw
 		/// <summary>
 		/// Read value from INI File, default = ""
 		/// </summary>
-		/// <param name="Section">Section to read value from</param>
-		/// <param name="Key">Key name to read value from</param>
+		/// <param name="section">Section to read value from</param>
+		/// <param name="key">Key name to read value from</param>
 		public string ReadValue(string section, string key)
 		{
 			
@@ -92,9 +95,9 @@ namespace aejw
 		/// <summary>
 		/// Write value to INI File
 		/// </summary>
-		/// <param name="Section">Section to write value to</param>
-		/// <param name="Key">Key name to write value to</param>
-		/// <param name="Value">Value to write to key / setting</param>
+		/// <param name="section">Section to write value to</param>
+		/// <param name="key">Key name to write value to</param>
+		/// <param name="value">Value to write to key / setting</param>
 		public void WriteValue(string section, string key, string value)
 		{
 			
@@ -106,8 +109,8 @@ namespace aejw
 		/// <summary>
 		/// Remove value from INI File
 		/// </summary>
-		/// <param name="Section">Section to remove key from</param>
-		/// <param name="Key">Key name to remove</param>
+		/// <param name="section">Section to remove key from</param>
+		/// <param name="key">Key name to remove</param>
 		public void RemoveValue(string section, string key)
 		{
 
@@ -119,7 +122,7 @@ namespace aejw
 		/// <summary>
 		/// Read values in a section from Ini/Inf File
 		/// </summary>
-		/// <param name="Section">Section to read value names from</param>		
+		/// <param name="section">Section to read value names from</param>		
 		/// <returns>Array of keys names within Ini/Inf</returns>
 		public string[] ReadKeys(string section)
 		{
@@ -144,7 +147,7 @@ namespace aejw
 		/// <summary>
 		/// Remove section from INI File
 		/// </summary>
-		/// <param name="Section">Section to remove</param>
+		/// <param name="section">Section to remove</param>
 		public void RemoveSection(string section)
 		{
 
