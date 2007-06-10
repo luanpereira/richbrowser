@@ -104,13 +104,13 @@ namespace JinwooMin.RichBrowserControl
             }
             Logger.AddLogger(new ConsoleLogger(), LogOptions.ALL);
             Logger.AddLogger(new TextFileLogger(Environment.GetFolderPath(Environment.SpecialFolder.Personal).ToString() + "\\richbrowser.log"),
-                LogOptions.FATAL | LogOptions.ERROR | LogOptions.INFO);
+                LogOptions.FATAL | LogOptions.ERROR | LogOptions.WARN | LogOptions.INFO);
             Logger.AddLogger(new ToolStripItemLogger(toolStripStatusLabelMessage),
-                LogOptions.FATAL | LogOptions.ERROR | LogOptions.INFO);
+                LogOptions.FATAL | LogOptions.ERROR | LogOptions.WARN | LogOptions.INFO);
             Logger.AddLogger(new MessageBoxLogger(), LogOptions.FATAL | LogOptions.ERROR);
 
             Logger.AddLogger(FormSplash.GetLogger(),
-                LogOptions.FATAL | LogOptions.ERROR | LogOptions.INFO);
+                LogOptions.FATAL | LogOptions.ERROR | LogOptions.WARN | LogOptions.INFO);
 
             Logger.Info(Properties.Resources.MSG_RBP_STARTING);
         }
