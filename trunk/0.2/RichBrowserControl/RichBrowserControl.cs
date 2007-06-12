@@ -20,6 +20,9 @@ namespace JinwooMin.RichBrowserControl
         #region Members
 
         private PluginLoader m_pluginLoader = null;
+        private PluginLoader m_customPluginLoader = null;
+
+        private string PLATFORM_DATA_PATH =Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).ToString() + "\\RichBrowserPlatform";
 
         private LogManager m_logger;
 
@@ -103,8 +106,9 @@ namespace JinwooMin.RichBrowserControl
                 Logger = new LogManager();
             }
             Logger.AddLogger(new ConsoleLogger(), LogOptions.ALL);
-            Logger.AddLogger(new TextFileLogger(Environment.GetFolderPath(Environment.SpecialFolder.Personal).ToString() + "\\richbrowser.log"),
-                LogOptions.FATAL | LogOptions.ERROR | LogOptions.WARN | LogOptions.INFO);
+            Logger.AddLogger(new TextFileLogger(PLATFORM_DATA_PATH + "\\richbrowserplatform.log"),
+                LogOptions.FATAL | LogOptions.ERROR | LogOptions.WARN | LogOptions.INFO 
+                | ((Properties.Settings.Default.DebugLogEnabled == true) ? LogOptions.DEBUG : LogOptions.NONE));
             Logger.AddLogger(new ToolStripItemLogger(toolStripStatusLabelMessage),
                 LogOptions.FATAL | LogOptions.ERROR | LogOptions.WARN | LogOptions.INFO);
             Logger.AddLogger(new MessageBoxLogger(), LogOptions.FATAL | LogOptions.ERROR);
@@ -177,6 +181,8 @@ namespace JinwooMin.RichBrowserControl
         /// <summary>
         /// TODO
         /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public cEXWB Navigate(string url)
         {
             WebBrowserDockContent webDC = null;
@@ -190,6 +196,29 @@ namespace JinwooMin.RichBrowserControl
                 dockPanelMain.Refresh();
             }
             webDC.WebBrowser.Navigate(url);
+
+            return webDC.WebBrowser;
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="postData"></param>
+        /// <returns></returns>
+        public cEXWB Navigate(string url, byte[] postData)
+        {
+            WebBrowserDockContent webDC = null;
+            if (dockPanelMain.ActiveDocument is WebBrowserDockContent)
+            {
+                webDC = dockPanelMain.ActiveDocument as WebBrowserDockContent;
+            }
+            else
+            {
+                webDC = MakeNewWebBrowser();
+                dockPanelMain.Refresh();
+            }
+            webDC.WebBrowser.Navigate(url, postData);
 
             return webDC.WebBrowser;
         }
@@ -280,9 +309,17 @@ namespace JinwooMin.RichBrowserControl
 
             SetToolbar();
 
-            m_pluginLoader = new PluginLoader(m_logger, this, Application.StartupPath + "\\Plugins", "*Plugin.dll");
+            // base plugins
+            m_pluginLoader = new PluginLoader(m_logger, PLATFORM_DATA_PATH, this, Application.StartupPath + "\\Plugins", "*Plugin.dll");
             m_pluginLoader.Load();
-            //LoadPlugins(dockPanelMain);
+
+            // custom plugins
+            if (Properties.Settings.Default.CustomPluginsPath != "NULL")
+            {
+                m_customPluginLoader = new PluginLoader(m_logger, PLATFORM_DATA_PATH, this, string.Format(Properties.Settings.Default.CustomPluginsPath, PLATFORM_DATA_PATH), "*Plugin.dll");
+                m_customPluginLoader.Load();
+            }
+            Properties.Settings.Default.Save();
 
             Logger.Info(Properties.Resources.MSG_RBP_STARTED);
 
@@ -300,6 +337,17 @@ namespace JinwooMin.RichBrowserControl
                 e.Cancel = true;
                 Logger.Info(Properties.Resources.MSG_RBP_FINISHING_CANCELED);
                 return;
+            }
+
+            // custom plugins
+            if (Properties.Settings.Default.CustomPluginsPath != "NULL")
+            {
+                if (m_customPluginLoader.Unload() == PluginResult.Cancel)
+                {
+                    e.Cancel = true;
+                    Logger.Info(Properties.Resources.MSG_RBP_FINISHING_CANCELED);
+                    return;
+                }
             }
 
             while (dockPanelMain.Contents.Count > 0)
@@ -345,7 +393,7 @@ namespace JinwooMin.RichBrowserControl
             webDC.WebBrowser.ProgressChange += new ProgressChangeEventHandler(webBrowser_ProgressChange);
             webDC.WebBrowser.StatusTextChange += new StatusTextChangeEventHandler(webBrowser_StatusTextChange);
             webDC.Show(dockPanelMain, DockState.Document);
-
+            
             return webDC;
         }
 

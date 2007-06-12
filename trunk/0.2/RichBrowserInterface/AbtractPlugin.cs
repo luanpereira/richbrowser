@@ -25,6 +25,11 @@ namespace JinwooMin.RichBrowserInterface
         /// </summary>
         protected ILogger m_logger;
 
+        /// <summary>
+        /// TODO
+        /// </summary>
+        protected string m_platformDataPath;
+
         #region IPlugin Members
 
         /// <summary>
@@ -48,6 +53,21 @@ namespace JinwooMin.RichBrowserInterface
             set
             {
                 m_pluginPath = value;
+            }
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public string PlatformDataPath
+        {
+            get
+            {
+                return m_platformDataPath;
+            }
+            set
+            {
+                m_platformDataPath = value;
             }
         }
 

@@ -86,6 +86,15 @@ namespace JinwooMin.RichBrowserInterface
         /// <summary>
         /// TODO
         /// </summary>
+        string PlatformDataPath
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
         void Init();
 
         /// <summary>
@@ -170,6 +179,15 @@ namespace JinwooMin.RichBrowserInterface
         /// <returns>웹브라우저 객체. 어떤 웹브라우저 콘트롤을 쓰느냐에 따라 달라질 수 있다.</returns>
         /// 
         cEXWB Navigate(string url);
+
+        /// <summary>
+        /// 웹 페이지를 연다. 만약, 현재 활성화된 도큐먼트(Document)가 웹브라우저(WebBrowser)가 아니라면 웹브라우저를 새로 열고 웹 페이지를 연다.
+        /// </summary>
+        /// <param name="url">URL</param>		
+        /// <param name="postData">Post Data</param>		
+        /// <returns>웹브라우저 객체. 어떤 웹브라우저 콘트롤을 쓰느냐에 따라 달라질 수 있다.</returns>
+        /// 
+        cEXWB Navigate(string url, byte[] postData);
 
         /// <summary>
         /// 최 상위 메뉴아이템(ToolStripMenuItem) 을 가져온다.

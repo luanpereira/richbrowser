@@ -25,6 +25,12 @@ namespace JinwooMin.Logging
         /// </summary>
         protected override void Log(string prefix, string msg)
         {
+            // check path exists
+            if (Directory.Exists(Path.GetDirectoryName(m_filename)) == false)
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(m_filename));
+            }
+
             StreamWriter writer = File.AppendText(m_filename);
             writer.WriteLine("[" + prefix + "] " + msg);
             writer.Close();

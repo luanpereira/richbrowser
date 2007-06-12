@@ -17,16 +17,18 @@ namespace JinwooMin.RichBrowserInterface
         private ILogger m_logger;
         private IPluginHost m_pluginHost;
         private string m_pluginPath;
+        private string m_platformDataPath;
         private string m_searchOption;
 
         /// <summary>
         /// TODO
         /// </summary>
-        public PluginLoader(ILogger logger, IPluginHost pluginHost, string pluginPath, string searchOption)
+        public PluginLoader(ILogger logger, string platformDataPath, IPluginHost pluginHost, string pluginPath, string searchOption)
         {
             m_logger = logger;
             m_pluginHost = pluginHost;
             m_pluginPath = pluginPath;
+            m_platformDataPath = platformDataPath;
             m_searchOption = searchOption;
         }
 
@@ -35,6 +37,8 @@ namespace JinwooMin.RichBrowserInterface
         /// </summary>
         public PluginResult Load()
         {
+            m_logger.Debug("plugin path=" + m_pluginPath);
+
             try
             {
                 string[] dirs = Directory.GetDirectories(m_pluginPath);
@@ -51,7 +55,6 @@ namespace JinwooMin.RichBrowserInterface
                     // 아래는 작동 안함.
                     // ref: http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=745624&SiteID=1
                     m_logger.Debug("privatebinpath=" + AppDomain.CurrentDomain.SetupInformation.PrivateBinPath);
-
                     //binPaths = dir + ";" + binPaths;
                     //AppDomain.CurrentDomain.SetupInformation.PrivateBinPath = binPaths;
 
@@ -131,6 +134,7 @@ namespace JinwooMin.RichBrowserInterface
                             IPlugin plugin = obj as IPlugin;
                             plugin.PluginHost = m_pluginHost;
                             plugin.PluginPath = Path.GetDirectoryName(filename);
+                            plugin.PlatformDataPath = m_platformDataPath;
                             plugin.Logger = m_logger;
                             plugin.Init();
 

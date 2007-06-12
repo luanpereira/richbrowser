@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JinwooMin.RichBrowserInterface.Properties {
+namespace JinwooMin.RichBrowserControl.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,13 +25,25 @@ namespace JinwooMin.RichBrowserInterface.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("{0}\\RichBrowserPlatform")]
-        public string DataPath {
+        [global::System.Configuration.DefaultSettingValueAttribute("{0}\\CustomPlugins")]
+        public string CustomPluginsPath {
             get {
-                return ((string)(this["DataPath"]));
+                return ((string)(this["CustomPluginsPath"]));
             }
             set {
-                this["DataPath"] = value;
+                this["CustomPluginsPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DebugLogEnabled {
+            get {
+                return ((bool)(this["DebugLogEnabled"]));
+            }
+            set {
+                this["DebugLogEnabled"] = value;
             }
         }
     }
