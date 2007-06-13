@@ -649,6 +649,12 @@ namespace JinwooMin.RichBrowserControl
             if (dockPanelMain.ActiveDocument != null)
             {
                 dockPanelMain.ActiveDocument.DockHandler.Close();
+
+                // 남은 document가 있다면 focus를 준다.
+                if (dockPanelMain.ActiveDocument != null)
+                {
+                    dockPanelMain.ActiveDocument.DockHandler.Form.Focus();
+                }
             }
         }
 

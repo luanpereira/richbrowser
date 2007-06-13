@@ -148,7 +148,7 @@ namespace JinwooMin.Common
             {
                 MessageBox.Show(
                     string.Format(Properties.Resources.MSG_ALREADY_RUNNING, Application.ProductName),
-                    Properties.Resources.LABEL_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LogUtils.LogOptionString(LogOptions.ERROR), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return true;
             }
 

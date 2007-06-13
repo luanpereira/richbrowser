@@ -17,19 +17,19 @@ namespace JinwooMin.Logging
         {
             if (prefix == LOG_PREFIX_FATAL)
             {
-                MessageBox.Show(msg, Properties.Resources.LABEL_FATAL, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msg, LogUtils.LogOptionString(LogOptions.FATAL), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (prefix == LOG_PREFIX_ERROR)
             {
-                MessageBox.Show(msg, Properties.Resources.LABEL_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msg, LogUtils.LogOptionString(LogOptions.ERROR), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (prefix == LOG_PREFIX_WARN)
             {
-                MessageBox.Show(msg, Properties.Resources.LABEL_WARN, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(msg, LogUtils.LogOptionString(LogOptions.WARN), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (prefix == LOG_PREFIX_INFO)
             {
-                MessageBox.Show(msg, Properties.Resources.LABEL_INFO, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(msg, LogUtils.LogOptionString(LogOptions.INFO), MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
