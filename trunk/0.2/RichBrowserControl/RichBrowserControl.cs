@@ -32,7 +32,6 @@ namespace JinwooMin.RichBrowserControl
         public LogManager Logger
         {
             get { return m_logger; }
-            set { m_logger = value; }
         }
 
         #region Show/Hide Toolbars
@@ -103,7 +102,7 @@ namespace JinwooMin.RichBrowserControl
 
             if (Logger == null)
             {
-                Logger = new LogManager();
+                m_logger = new LogManager();
             }
             Logger.AddLogger(new ConsoleLogger(), LogOptions.ALL);
             Logger.AddLogger(new TextFileLogger(PLATFORM_DATA_PATH + "\\richbrowserplatform.log"),
@@ -185,12 +184,19 @@ namespace JinwooMin.RichBrowserControl
         /// <returns></returns>
         public cEXWB Navigate(string url)
         {
+            // found webbrowser
             WebBrowserDockContent webDC = null;
-            if (dockPanelMain.ActiveDocument is WebBrowserDockContent)
+            foreach (DockContent dc in dockPanelMain.Contents)
             {
-                webDC = dockPanelMain.ActiveDocument as WebBrowserDockContent;
+                if (dc is WebBrowserDockContent)
+                {
+                    webDC = dc as WebBrowserDockContent;
+                    webDC.Show();
+                    break;
+                }
             }
-            else
+
+            if (webDC == null)
             {
                 webDC = MakeNewWebBrowser();
                 dockPanelMain.Refresh();

@@ -20,7 +20,7 @@ namespace JinwooMin.RichBrowserControl
         /// </summary>
         public cEXWB WebBrowser 
         {
-            get { return cEXWB; }
+            get { return cEXWBMain; }
         }
 
         /// <summary>
@@ -28,26 +28,28 @@ namespace JinwooMin.RichBrowserControl
         /// </summary>
         public WebBrowserDockContent()
         {
+            #region DLL Register
+            // dll register
+            // ref: http://www.msjogren.net/dotnet/eng/samples/dotnet_dynpinvoke.asp
+            DllRegServer regsvr = new DllRegServer("csExWBDLMan.dll");
+            regsvr.Register(); 
+            #endregion
+
             InitializeComponent();
+
+            #region WebBrowser event handlers
+            cEXWBMain.TitleChange += new TitleChangeEventHandler(cEXWB_TitleChange);
+            #endregion
         }
 
         private void WebBrowserDockContent_Load(object sender, EventArgs e)
         {
-            cEXWB.Dock = DockStyle.Fill;
-        }
-
-        private void cEXWB_DocumentComplete(object sender, DocumentCompleteEventArgs e)
-        {
+            cEXWBMain.Dock = DockStyle.Fill;
         }
 
         private void cEXWB_TitleChange(object sender, TitleChangeEventArgs e)
         {
             this.TabText = e.title;
-        }
-
-        private void cEXWB_LocationChanged(object sender, EventArgs e)
-        {
-            //ToolStrip
         }
     }
 }

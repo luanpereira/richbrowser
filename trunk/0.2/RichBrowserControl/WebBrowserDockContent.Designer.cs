@@ -28,37 +28,48 @@ namespace JinwooMin.RichBrowserControl
         /// </summary>
         private void InitializeComponent()
         {
-            this.cEXWB = new csExWB.cEXWB();
+            this.cEXWBMain = new csExWB.cEXWB();
             this.SuspendLayout();
             // 
-            // cEXWB
+            // cEXWBMain
             // 
-            this.cEXWB.Location = new System.Drawing.Point(24, 23);
-            this.cEXWB.LocationUrl = "about:blank";
-            this.cEXWB.Name = "cEXWB";
-            this.cEXWB.OffLine = false;
-            this.cEXWB.RegisterAsBrowser = false;
-            this.cEXWB.RegisterAsDropTarget = false;
-            this.cEXWB.RegisterForInternalDragDrop = true;
-            this.cEXWB.SendSourceOnDocumentCompleteWBEx = false;
-            this.cEXWB.Silent = false;
-            this.cEXWB.Size = new System.Drawing.Size(206, 173);
-            this.cEXWB.TabIndex = 0;
-            this.cEXWB.Text = "cEXWB1";
-            this.cEXWB.TextSize = IfacesEnumsStructsClasses.TextSizeWB.Medium;
-            this.cEXWB.WBDOCDOWNLOADCTLFLAG = 112;
-            this.cEXWB.WBDOCHOSTUIDBLCLK = IfacesEnumsStructsClasses.DOCHOSTUIDBLCLK.DEFAULT;
-            this.cEXWB.WBDOCHOSTUIFLAG = 262276;
-            this.cEXWB.TitleChange += new csExWB.TitleChangeEventHandler(this.cEXWB_TitleChange);
-            this.cEXWB.LocationChanged += new System.EventHandler(this.cEXWB_LocationChanged);
-            this.cEXWB.DocumentComplete += new csExWB.DocumentCompleteEventHandler(this.cEXWB_DocumentComplete);
+            this.cEXWBMain.Border3DEnabled = false;
+            this.cEXWBMain.DocumentSource = "<HTML><HEAD></HEAD>\r\n<BODY></BODY></HTML>";
+            this.cEXWBMain.DocumentTitle = "";
+            this.cEXWBMain.DownloadActiveX = true;
+            this.cEXWBMain.DownloadFrames = true;
+            this.cEXWBMain.DownloadImages = true;
+            this.cEXWBMain.DownloadJava = true;
+            this.cEXWBMain.DownloadScripts = true;
+            this.cEXWBMain.DownloadSounds = true;
+            this.cEXWBMain.DownloadVideo = true;
+            this.cEXWBMain.FileDownloadDirectory = "C:\\Documents and Settings\\mio\\My Documents\\";
+            this.cEXWBMain.Location = new System.Drawing.Point(31, 43);
+            this.cEXWBMain.LocationUrl = "about:blank";
+            this.cEXWBMain.Name = "cEXWBMain";
+            this.cEXWBMain.ObjectForScripting = null;
+            this.cEXWBMain.OffLine = false;
+            this.cEXWBMain.RegisterAsBrowser = false;
+            this.cEXWBMain.RegisterAsDropTarget = false;
+            this.cEXWBMain.RegisterForInternalDragDrop = true;
+            this.cEXWBMain.ScrollBarsEnabled = true;
+            this.cEXWBMain.SendSourceOnDocumentCompleteWBEx = false;
+            this.cEXWBMain.Silent = false;
+            this.cEXWBMain.Size = new System.Drawing.Size(215, 181);
+            this.cEXWBMain.TabIndex = 0;
+            this.cEXWBMain.Text = "cEXWBMain";
+            this.cEXWBMain.TextSize = IfacesEnumsStructsClasses.TextSizeWB.Medium;
+            this.cEXWBMain.UseInternalDownloadManager = true;
+            this.cEXWBMain.WBDOCDOWNLOADCTLFLAG = 112;
+            this.cEXWBMain.WBDOCHOSTUIDBLCLK = IfacesEnumsStructsClasses.DOCHOSTUIDBLCLK.DEFAULT;
+            this.cEXWBMain.WBDOCHOSTUIFLAG = 262276;
             // 
             // WebBrowserDockContent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 266);
-            this.Controls.Add(this.cEXWB);
+            this.Controls.Add(this.cEXWBMain);
             this.Name = "WebBrowserDockContent";
             this.TabText = "WebBrowserDockContent";
             this.Text = "WebBrowserDockContent";
@@ -69,6 +80,7 @@ namespace JinwooMin.RichBrowserControl
 
         #endregion
 
-        private csExWB.cEXWB cEXWB;
+        private csExWB.cEXWB cEXWBMain;
+
     }
 }

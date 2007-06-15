@@ -29,9 +29,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="csExWB, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="csExWB, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libraries\csExWB.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\AppsData\DotNETComponents\csEXWB 1.0.0.3\csExWB\csExWB\bin\Debug\csExWB.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -44,6 +44,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DllRegServer.cs" />
     <Compile Include="FormInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +207,11 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Resources\BeMW_circle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="csExWBDLMan.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
