@@ -29,7 +29,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="csExWB, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="csExWB, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libraries\csExWB.dll</HintPath>
     </Reference>
