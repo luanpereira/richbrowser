@@ -37,6 +37,8 @@ namespace JinwooMin.RichBrowserControl
 
             InitializeComponent();
 
+            this.Icon = Icon.FromHandle(Properties.Resources.web_16.GetHicon());
+
             #region WebBrowser event handlers
             cEXWBMain.TitleChange += new TitleChangeEventHandler(cEXWB_TitleChange);
             #endregion

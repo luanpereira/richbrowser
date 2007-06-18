@@ -565,5 +565,12 @@ namespace JinwooMin.RichBrowserControl.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap web_16 {
+            get {
+                object obj = ResourceManager.GetObject("web_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
