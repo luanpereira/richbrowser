@@ -320,9 +320,9 @@ namespace JinwooMin.RichBrowserControl
             m_pluginLoader.Load();
 
             // custom plugins
-            if (Properties.Settings.Default.CustomPluginsPath != "NULL")
+            //if (Properties.Settings.Default.CustomPluginsPath != "NULL")
             {
-                m_customPluginLoader = new PluginLoader(m_logger, PLATFORM_DATA_PATH, this, string.Format(Properties.Settings.Default.CustomPluginsPath, PLATFORM_DATA_PATH), "*Plugin.dll");
+                m_customPluginLoader = new PluginLoader(m_logger, PLATFORM_DATA_PATH, this, Application.StartupPath + "\\CustomPlugins", "*Plugin.dll");
                 m_customPluginLoader.Load();
             }
             Properties.Settings.Default.Save();
