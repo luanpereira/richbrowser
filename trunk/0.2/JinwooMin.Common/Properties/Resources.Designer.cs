@@ -88,6 +88,15 @@ namespace JinwooMin.Common.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Downloading....
+        /// </summary>
+        internal static string LABEL_DOWNLOADING {
+            get {
+                return ResourceManager.GetString("LABEL_DOWNLOADING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string LABEL_ERROR {
@@ -106,6 +115,15 @@ namespace JinwooMin.Common.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Question.
+        /// </summary>
+        internal static string LABEL_QUESTION {
+            get {
+                return ResourceManager.GetString("LABEL_QUESTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to rc.
         /// </summary>
         internal static string LABEL_RC {
@@ -120,6 +138,15 @@ namespace JinwooMin.Common.Properties {
         internal static string MSG_ALREADY_RUNNING {
             get {
                 return ResourceManager.GetString("MSG_ALREADY_RUNNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} {1} is updated. Do you want to upgrade?.
+        /// </summary>
+        internal static string MSG_NEW_VERSION_HERE {
+            get {
+                return ResourceManager.GetString("MSG_NEW_VERSION_HERE", resourceCulture);
             }
         }
     }

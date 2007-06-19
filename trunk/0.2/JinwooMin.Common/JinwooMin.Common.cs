@@ -15,11 +15,6 @@ namespace JinwooMin.Common
         /// <summary>
         /// TODO
         /// </summary>
-        Stable = 0,
-
-        /// <summary>
-        /// TODO
-        /// </summary>
         Alpha = 1,
 
         /// <summary>
@@ -35,7 +30,12 @@ namespace JinwooMin.Common
         /// <summary>
         /// TODO
         /// </summary>
-        Patch = 4
+        Patch = 4,
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        Stable = 5,
     };
 
     /// <summary>
@@ -46,7 +46,7 @@ namespace JinwooMin.Common
         /// <summary>
         /// TODO
         /// </summary>
-        public static string GetBuildNumber()
+        public static string GetPublishBuildNumber()
         {
             string buildNumber = "";
 
@@ -62,6 +62,14 @@ namespace JinwooMin.Common
             }
 
             return buildNumber;
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public static string GetBuildNumber()
+        {
+            return "(" + Properties.Resources.LABEL_BUILD + "#" + new Version(Application.ProductVersion).Revision.ToString() + ")";
         }
 
         /// <summary>
@@ -104,13 +112,46 @@ namespace JinwooMin.Common
                     break;
             }
 
+            return stageStr;
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public static string GetPublishVersionStage()
+        {
+            Version appVersion = new Version(Application.ProductVersion);
+            string stageStr = "";
+            VersionStage stage = (VersionStage)appVersion.Build;
+            switch (stage)
+            {
+                case VersionStage.Stable:
+                    break;
+
+                case VersionStage.Alpha:
+                    stageStr = Properties.Resources.LABEL_ALPHA;
+                    break;
+
+                case VersionStage.Beta:
+                    stageStr = Properties.Resources.LABEL_BETA;
+                    break;
+
+                case VersionStage.RC:
+                    stageStr = Properties.Resources.LABEL_RC;
+                    break;
+
+                case VersionStage.Patch:
+                    stageStr = Properties.Resources.LABEL_PATCH;
+                    break;
+            }
+
             return stageStr + appVersion.Revision.ToString();
         }
 
         /// <summary>
         /// TODO
         /// </summary>
-        public static string GetVersion()
+        public static string GetPublishVersion()
         {
             Version appVersion = new Version(Application.ProductVersion);
             VersionStage stage = (VersionStage)appVersion.Build;
@@ -122,6 +163,27 @@ namespace JinwooMin.Common
             }
 
             if (stage != VersionStage.Stable)
+            {
+                appFullVersion = appFullVersion + " " + GetBuildNumber();
+            }
+
+            return appFullVersion;
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public static string GetVersion()
+        {
+            Version appVersion = new Version(Application.ProductVersion);
+            VersionStage stage = (VersionStage)appVersion.Build;
+
+            string appFullVersion = GetVersionOnly();
+            if (GetVersionStage() != "")
+            {
+                appFullVersion = appFullVersion + " " + GetVersionStage() + " " + GetBuildNumber();
+            }
+            else
             {
                 appFullVersion = appFullVersion + " " + GetBuildNumber();
             }

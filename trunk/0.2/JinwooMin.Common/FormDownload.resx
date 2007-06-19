@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,34 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LABEL_ALPHA" xml:space="preserve">
-    <value>alpha</value>
-  </data>
-  <data name="LABEL_BETA" xml:space="preserve">
-    <value>beta</value>
-  </data>
-  <data name="LABEL_BUILD" xml:space="preserve">
-    <value>build</value>
-  </data>
-  <data name="LABEL_DOWNLOADING" xml:space="preserve">
-    <value>Downloading...</value>
-  </data>
-  <data name="LABEL_ERROR" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="LABEL_PATCH" xml:space="preserve">
-    <value>patch</value>
-  </data>
-  <data name="LABEL_QUESTION" xml:space="preserve">
-    <value>Question</value>
-  </data>
-  <data name="LABEL_RC" xml:space="preserve">
-    <value>rc</value>
-  </data>
-  <data name="MSG_ALREADY_RUNNING" xml:space="preserve">
-    <value>{0} is aleady running.</value>
-  </data>
-  <data name="MSG_NEW_VERSION_HERE" xml:space="preserve">
-    <value>{0} {1} is updated. Do you want to upgrade?</value>
-  </data>
 </root>

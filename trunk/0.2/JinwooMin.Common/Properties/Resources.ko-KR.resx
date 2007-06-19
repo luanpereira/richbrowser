@@ -126,16 +126,25 @@
   <data name="LABEL_BUILD" xml:space="preserve">
     <value>빌드</value>
   </data>
+  <data name="LABEL_DOWNLOADING" xml:space="preserve">
+    <value>다운로드 중...</value>
+  </data>
   <data name="LABEL_ERROR" xml:space="preserve">
     <value>오류</value>
   </data>
   <data name="LABEL_PATCH" xml:space="preserve">
     <value>패치</value>
   </data>
+  <data name="LABEL_QUESTION" xml:space="preserve">
+    <value>질문</value>
+  </data>
   <data name="LABEL_RC" xml:space="preserve">
     <value>rc</value>
   </data>
   <data name="MSG_ALREADY_RUNNING" xml:space="preserve">
     <value>{0}(은)는 이미 실행 중입니다.</value>
+  </data>
+  <data name="MSG_NEW_VERSION_HERE" xml:space="preserve">
+    <value>{0} {1} 이(가) 업데이트 되었습니다. 업그레이드 하시겠습니까?</value>
   </data>
 </root>
