@@ -126,6 +126,9 @@
   <data name="LABEL_BUILD" xml:space="preserve">
     <value>build</value>
   </data>
+  <data name="LABEL_CANCEL" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
   <data name="LABEL_DOWNLOADING" xml:space="preserve">
     <value>Downloading...</value>
   </data>
@@ -144,7 +147,16 @@
   <data name="MSG_ALREADY_RUNNING" xml:space="preserve">
     <value>{0} is aleady running.</value>
   </data>
+  <data name="MSG_COMPLETED" xml:space="preserve">
+    <value>Completed.</value>
+  </data>
+  <data name="MSG_CONNECTING" xml:space="preserve">
+    <value>Connecting... (Skip in {0}sec.)</value>
+  </data>
+  <data name="MSG_DOWNLOADED" xml:space="preserve">
+    <value>Downloading...{0} ({1}%)</value>
+  </data>
   <data name="MSG_NEW_VERSION_HERE" xml:space="preserve">
-    <value>{0} {1} is updated. Do you want to upgrade?</value>
+    <value>New version '{0} {1}' is here. Do you want to upgrade?</value>
   </data>
 </root>

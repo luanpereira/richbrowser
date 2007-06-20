@@ -191,7 +191,7 @@ namespace JinwooMin.RichBrowserControl.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;Cloase.
+        ///   Looks up a localized string similar to &amp;Close.
         /// </summary>
         internal static string LABEL_CLOSE_TAB {
             get {

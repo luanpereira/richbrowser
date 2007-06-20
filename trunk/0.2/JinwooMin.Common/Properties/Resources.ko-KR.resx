@@ -126,6 +126,9 @@
   <data name="LABEL_BUILD" xml:space="preserve">
     <value>빌드</value>
   </data>
+  <data name="LABEL_CANCEL" xml:space="preserve">
+    <value>취소(&amp;C)</value>
+  </data>
   <data name="LABEL_DOWNLOADING" xml:space="preserve">
     <value>다운로드 중...</value>
   </data>
@@ -144,7 +147,16 @@
   <data name="MSG_ALREADY_RUNNING" xml:space="preserve">
     <value>{0}(은)는 이미 실행 중입니다.</value>
   </data>
+  <data name="MSG_COMPLETED" xml:space="preserve">
+    <value>다운로드 완료.</value>
+  </data>
+  <data name="MSG_CONNECTING" xml:space="preserve">
+    <value>서버에 연결 중입니다... (남은 대기시간: {0}초)</value>
+  </data>
+  <data name="MSG_DOWNLOADED" xml:space="preserve">
+    <value>다운로드 중입니다...{0} ({1}%)</value>
+  </data>
   <data name="MSG_NEW_VERSION_HERE" xml:space="preserve">
-    <value>{0} {1} 이(가) 업데이트 되었습니다. 업그레이드 하시겠습니까?</value>
+    <value>새 버전'{0} {1}'이(가) 나왔습니다. 업그레이드 하시겠습니까?</value>
   </data>
 </root>

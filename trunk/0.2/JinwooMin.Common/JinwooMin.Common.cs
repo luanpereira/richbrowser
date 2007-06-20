@@ -69,7 +69,27 @@ namespace JinwooMin.Common
         /// </summary>
         public static string GetBuildNumber()
         {
-            return "(" + Properties.Resources.LABEL_BUILD + "#" + new Version(Application.ProductVersion).Revision.ToString() + ")";
+            return GetBuildNumberFrom(Application.ProductVersion);
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="versionStr"></param>
+        /// <returns></returns>
+        public static string GetBuildNumberFrom(string versionStr)
+        {
+            return GetBuildNumberFrom(new Version(versionStr));
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="version"></param>
+        /// <returns></returns>
+        public static string GetBuildNumberFrom(Version version)
+        {
+            return "(" + Properties.Resources.LABEL_BUILD + "#" + version.Revision.ToString() + ")";
         }
 
         /// <summary>
@@ -77,19 +97,58 @@ namespace JinwooMin.Common
         /// </summary>
         public static string GetVersionOnly()
         {
-            Version appVersion = new Version(Application.ProductVersion);
-            return appVersion.Major.ToString() + "."
-                + appVersion.Minor.ToString();
+            return GetVersionOnlyFrom(Application.ProductVersion);
         }
 
         /// <summary>
         /// TODO
         /// </summary>
+        /// <param name="versionStr"></param>
+        /// <returns></returns>
+        public static string GetVersionOnlyFrom(string versionStr)
+        {
+            return GetVersionFrom(new Version(versionStr));
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="version"></param>
+        /// <returns></returns>
+        public static string GetVersionOnlyFrom(Version version)
+        {
+            return version.Major.ToString() + "."
+                + version.Minor.ToString();
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// 
         public static string GetVersionStage()
         {
-            Version appVersion = new Version(Application.ProductVersion);
+            return GetVersionStageFrom(Application.ProductVersion);
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="versionStr"></param>
+        /// <returns></returns>
+        public static string GetVersionStageFrom(string versionStr)
+        {
+            return GetVersionStageFrom(new Version(versionStr));
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="version"></param>
+        /// <returns></returns>
+        public static string GetVersionStageFrom(Version version)
+        {
             string stageStr = "";
-            VersionStage stage = (VersionStage)appVersion.Build;
+            VersionStage stage = (VersionStage)version.Build;
             switch (stage)
             {
                 case VersionStage.Stable:
@@ -175,21 +234,41 @@ namespace JinwooMin.Common
         /// </summary>
         public static string GetVersion()
         {
-            Version appVersion = new Version(Application.ProductVersion);
-            VersionStage stage = (VersionStage)appVersion.Build;
+            return GetVersionFrom(Application.ProductVersion);
+        }
 
-            string appFullVersion = GetVersionOnly();
-            if (GetVersionStage() != "")
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="versionStr"></param>
+        /// <returns></returns>
+        public static string GetVersionFrom(string versionStr)
+        {
+            return GetVersionFrom(new Version(versionStr));
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="version"></param>
+        /// <returns></returns>
+        public static string GetVersionFrom(Version version)
+        {
+            VersionStage stage = (VersionStage)version.Build;
+
+            string appFullVersion = GetVersionOnlyFrom(version);
+            if (GetVersionStageFrom(version) != "")
             {
-                appFullVersion = appFullVersion + " " + GetVersionStage() + " " + GetBuildNumber();
+                appFullVersion = appFullVersion + " " + GetVersionStageFrom(version) + " " + GetBuildNumberFrom(version);
             }
             else
             {
-                appFullVersion = appFullVersion + " " + GetBuildNumber();
+                appFullVersion = appFullVersion + " " + GetBuildNumberFrom(version);
             }
 
             return appFullVersion;
         }
+
     }
 
     /// <summary>

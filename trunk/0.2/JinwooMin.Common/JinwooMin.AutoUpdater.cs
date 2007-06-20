@@ -25,6 +25,7 @@ namespace JinwooMin.Common
         /// TODO
         /// </summary>
         /// <param name="mainForm"></param>
+        /// <param name="updateUrl"></param>
         /// <param name="updateDir"></param>
         /// <param name="progressBar"></param>
         public AutoUpdater(Form mainForm, string updateUrl, string updateDir, object progressBar)
@@ -74,7 +75,7 @@ namespace JinwooMin.Common
                 if (destVer.CompareTo(srcVer) > 0)
                 {
                     if (MessageBox.Show(
-                        string.Format(Properties.Resources.MSG_NEW_VERSION_HERE, Application.ProductName, Application.ProductVersion),
+                        string.Format(Properties.Resources.MSG_NEW_VERSION_HERE, Application.ProductName, VersionInfo.GetVersionFrom(destVerStr)),
                         Properties.Resources.LABEL_QUESTION,
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
@@ -82,13 +83,13 @@ namespace JinwooMin.Common
 
                         Directory.CreateDirectory(m_updateDir);
                         FormDownload dlg = new FormDownload(m_updateUrl + "/" + m_setupFile, m_updateDir + "\\" + m_setupFile);
-                        dlg.ShowDialog();
-
-                        Process process = new Process();
-                        process.StartInfo.FileName = m_updateDir + "\\" + m_setupFile;
-                        process.Start();
-
-                        return true;
+                        if (dlg.ShowDialog() == DialogResult.OK)
+                        {
+                            Process process = new Process();
+                            process.StartInfo.FileName = m_updateDir + "\\" + m_setupFile;
+                            process.Start();
+                            return true;
+                        }
                     }
                 }
             }

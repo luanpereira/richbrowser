@@ -88,6 +88,15 @@ namespace JinwooMin.Common.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;Cancel.
+        /// </summary>
+        internal static string LABEL_CANCEL {
+            get {
+                return ResourceManager.GetString("LABEL_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Downloading....
         /// </summary>
         internal static string LABEL_DOWNLOADING {
@@ -142,7 +151,34 @@ namespace JinwooMin.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} {1} is updated. Do you want to upgrade?.
+        ///   Looks up a localized string similar to Completed..
+        /// </summary>
+        internal static string MSG_COMPLETED {
+            get {
+                return ResourceManager.GetString("MSG_COMPLETED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connecting... (Skip in {0}sec.).
+        /// </summary>
+        internal static string MSG_CONNECTING {
+            get {
+                return ResourceManager.GetString("MSG_CONNECTING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading...{0} ({1}%).
+        /// </summary>
+        internal static string MSG_DOWNLOADED {
+            get {
+                return ResourceManager.GetString("MSG_DOWNLOADED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New version &apos;{0} {1}&apos; is here. Do you want to upgrade?.
         /// </summary>
         internal static string MSG_NEW_VERSION_HERE {
             get {

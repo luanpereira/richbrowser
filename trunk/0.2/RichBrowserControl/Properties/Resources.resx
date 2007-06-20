@@ -173,7 +173,7 @@
     <value>Back</value>
   </data>
   <data name="LABEL_CLOSE_TAB" xml:space="preserve">
-    <value>&amp;Cloase</value>
+    <value>&amp;Close</value>
   </data>
   <data name="LABEL_FORWARD" xml:space="preserve">
     <value>Forward</value>
