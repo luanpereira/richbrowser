@@ -12,6 +12,6 @@ namespace JinwooMin.Logging
         /// <summary>
         /// TODO
         /// </summary>
-        ILogger Logger { set; }
+        ILogger Logger { get; set; }
     }
 }
