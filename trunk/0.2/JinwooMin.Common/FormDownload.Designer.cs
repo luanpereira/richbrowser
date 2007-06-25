@@ -39,14 +39,14 @@ namespace JinwooMin.Common
             // 
             this.progressBarMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBarMain.Location = new System.Drawing.Point(12, 24);
+            this.progressBarMain.Location = new System.Drawing.Point(12, 33);
             this.progressBarMain.Name = "progressBarMain";
             this.progressBarMain.Size = new System.Drawing.Size(502, 23);
             this.progressBarMain.TabIndex = 1;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(225, 55);
+            this.buttonCancel.Location = new System.Drawing.Point(225, 62);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 2;
@@ -71,7 +71,7 @@ namespace JinwooMin.Common
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 90);
+            this.ClientSize = new System.Drawing.Size(526, 92);
             this.ControlBox = false;
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.buttonCancel);

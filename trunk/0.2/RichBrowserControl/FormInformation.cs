@@ -31,7 +31,7 @@ namespace JinwooMin.RichBrowserControl
             InitializeComponent();
 
             labelProductName.Text = Application.ProductName;
-            labelProductVersion.Text = "v" + VersionInfo.GetVersionOnly() + " " + VersionInfo.GetVersionStage() + VersionInfo.GetBuildNumber();
+            labelProductVersion.Text = "v" + VersionInfo.GetVersion(); // VersionInfo.GetVersionOnly() + " " + VersionInfo.GetVersionStage() + VersionInfo.GetBuildNumber();
 
             Assembly asm = Assembly.GetAssembly(typeof(RichBrowserControl));
             string asmVersion = (asm.GetCustomAttributes(typeof(AssemblyFileVersionAttribute), false)[0] as AssemblyFileVersionAttribute).Version;
