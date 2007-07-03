@@ -112,6 +112,7 @@ namespace JinwooMin.RichBrowserInterface
 
                         bool isPlugin = false;
                         string asmTitle = "";
+                        string pluginName = "";
                         foreach (Type ifoftype in type.GetInterfaces())
                         {
                             m_logger.Debug(String.Format("interface={0}", ifoftype.FullName));
@@ -120,7 +121,8 @@ namespace JinwooMin.RichBrowserInterface
                                 // ref: http://vbcity.com/forums/faq.asp?fid=30&cat=System
                                 asmTitle = (asm.GetCustomAttributes(typeof(AssemblyTitleAttribute), false)[0] as AssemblyTitleAttribute).Title;
                                 string asmVersion = (asm.GetCustomAttributes(typeof(AssemblyFileVersionAttribute), false)[0] as AssemblyFileVersionAttribute).Version;
-                                m_logger.Info(String.Format(Properties.Resources.MSG_FOUND_PLUGIN, asmTitle) + " v" + asmVersion);
+                                pluginName = asmTitle + " v" + asmVersion;
+                                m_logger.Info(string.Format(Properties.Resources.MSG_FOUND_PLUGIN, pluginName));
                                 isPlugin = true;
                                 break;
                             }
@@ -128,7 +130,7 @@ namespace JinwooMin.RichBrowserInterface
 
                         if (isPlugin == true)
                         {
-                            m_logger.Info(Properties.Resources.MSG_INITING_PLUGIN);
+                            m_logger.Info(string.Format(Properties.Resources.MSG_INITING_PLUGIN, pluginName));
                             Object obj = Activator.CreateInstance(type);
 
                             IPlugin plugin = obj as IPlugin;
@@ -138,7 +140,7 @@ namespace JinwooMin.RichBrowserInterface
                             plugin.Logger = m_logger;
                             plugin.Init();
 
-                            m_logger.Info(Properties.Resources.MSG_INITED_PLUGIN);
+                            m_logger.Info(string.Format(Properties.Resources.MSG_INITED_PLUGIN, pluginName));
 
                             m_plugins.Add(plugin);
                         }

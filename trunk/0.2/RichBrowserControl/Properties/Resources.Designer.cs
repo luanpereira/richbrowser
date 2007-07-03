@@ -432,7 +432,7 @@ namespace JinwooMin.RichBrowserControl.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Initialized..
+        ///   Looks up a localized string similar to Initialized...{0}.
         /// </summary>
         internal static string MSG_INITED_PLUGIN {
             get {
@@ -441,7 +441,7 @@ namespace JinwooMin.RichBrowserControl.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Initializing....
+        ///   Looks up a localized string similar to Initializing...{0}.
         /// </summary>
         internal static string MSG_INITING_PLUGIN {
             get {

@@ -96,7 +96,16 @@ namespace JinwooMin.RichBrowserControl
         /// </summary>
         public RichBrowserControl()
         {
-            FormSplash.ShowForm();
+            string splashFile = "splash.png";
+            if (File.Exists(splashFile) == true)
+            {
+                Bitmap bitmap = new Bitmap(splashFile);
+                FormSplash.ShowForm(bitmap);
+            }
+            else
+            {
+                FormSplash.ShowForm();
+            }
 
             InitializeComponent();
 
@@ -177,13 +186,13 @@ namespace JinwooMin.RichBrowserControl
             MakeNewWebBrowser();
         }
 
-        /// <summary>
-        /// TODO
-        /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
-        public cEXWB Navigate(string url)
+        private WebBrowserDockContent FoundWebDC()
         {
+            if (dockPanelMain.ActiveDocument is WebBrowserDockContent)
+            {
+                return dockPanelMain.ActiveDocument as WebBrowserDockContent;
+            }
+
             // found webbrowser
             WebBrowserDockContent webDC = null;
             foreach (DockContent dc in dockPanelMain.Contents)
@@ -201,6 +210,19 @@ namespace JinwooMin.RichBrowserControl
                 webDC = MakeNewWebBrowser();
                 dockPanelMain.Refresh();
             }
+
+            return webDC;
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public cEXWB Navigate(string url)
+        {
+            // found webbrowser
+            WebBrowserDockContent webDC = FoundWebDC();
             webDC.WebBrowser.Navigate(url);
 
             return webDC.WebBrowser;
@@ -214,16 +236,7 @@ namespace JinwooMin.RichBrowserControl
         /// <returns></returns>
         public cEXWB Navigate(string url, byte[] postData)
         {
-            WebBrowserDockContent webDC = null;
-            if (dockPanelMain.ActiveDocument is WebBrowserDockContent)
-            {
-                webDC = dockPanelMain.ActiveDocument as WebBrowserDockContent;
-            }
-            else
-            {
-                webDC = MakeNewWebBrowser();
-                dockPanelMain.Refresh();
-            }
+            WebBrowserDockContent webDC = FoundWebDC();
             webDC.WebBrowser.Navigate(url, postData);
 
             return webDC.WebBrowser;

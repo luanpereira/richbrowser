@@ -254,10 +254,10 @@
     <value>Found plugin: {0}</value>
   </data>
   <data name="MSG_INITED_PLUGIN" xml:space="preserve">
-    <value>Initialized.</value>
+    <value>Initialized...{0}</value>
   </data>
   <data name="MSG_INITING_PLUGIN" xml:space="preserve">
-    <value>Initializing...</value>
+    <value>Initializing...{0}</value>
   </data>
   <data name="MSG_RBP_FINISHED" xml:space="preserve">
     <value>RichBrowserPlatform finished.</value>

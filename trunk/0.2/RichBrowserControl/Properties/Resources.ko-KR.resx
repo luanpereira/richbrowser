@@ -202,10 +202,10 @@
     <value>찾은 플러그인: {0}</value>
   </data>
   <data name="MSG_INITED_PLUGIN" xml:space="preserve">
-    <value>플러그인 초기화 완료.</value>
+    <value>플러그인 초기화 완료...{0}</value>
   </data>
   <data name="MSG_INITING_PLUGIN" xml:space="preserve">
-    <value>플러그인 초기화 중...</value>
+    <value>플러그인 초기화 중...{0}</value>
   </data>
   <data name="MSG_RBP_FINISHED" xml:space="preserve">
     <value>리치 브라우저 플랫폼 종료.</value>

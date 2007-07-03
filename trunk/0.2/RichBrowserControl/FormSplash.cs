@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using JinwooMin.Logging;
 using System.Threading;
+using JinwooMin.Common;
 
 namespace JinwooMin.RichBrowserControl
 {
@@ -28,7 +29,20 @@ namespace JinwooMin.RichBrowserControl
             this.Text = Properties.Resources.LABEL_LOADING;
         }
 
-        
+        /// <summary>
+        /// A static entry point to launch FormSplash.
+        /// </summary>
+        static public void ShowForm(Image image)
+        {
+            Application.DoEvents();
+            ms_frmSplash = new FormSplash();
+            ms_frmSplash.pictureBoxMain.Image = image;
+            ms_frmSplash.Width = image.Width;
+            ms_frmSplash.Height = image.Height + ms_frmSplash.progressBarMain.Height;
+            ms_frmSplash.Show();
+            //Application.Run(ms_frmSplash);
+        }
+
         /// <summary>
         /// A static entry point to launch FormSplash.
         /// </summary>
@@ -65,6 +79,10 @@ namespace JinwooMin.RichBrowserControl
             ms_frmSplash.Focus();
             ms_frmSplash.listBoxLog.Items.Add(msg);
             ms_frmSplash.listBoxLog.SelectedIndex = ms_frmSplash.listBoxLog.Items.Count - 1;
+
+            ms_frmSplash.labelTitle.Text = Application.ProductName + " " + VersionInfo.GetVersion(); 
+            ms_frmSplash.labelMessage.Text = msg;
+            ms_frmSplash.pictureBoxMain.Refresh();
         }
 
         #region ILogger Members
@@ -125,5 +143,19 @@ namespace JinwooMin.RichBrowserControl
         }
 
         #endregion
+
+        private void pictureBoxMain_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawString(
+                ms_frmSplash.labelTitle.Text,
+                ms_frmSplash.labelTitle.Font, Brushes.Black,
+                ms_frmSplash.labelTitle.Left,
+                ms_frmSplash.labelTitle.Top);
+            e.Graphics.DrawString(
+                ms_frmSplash.labelMessage.Text,
+                ms_frmSplash.labelMessage.Font, Brushes.Black,
+                ms_frmSplash.labelMessage.Left,
+                ms_frmSplash.labelMessage.Top);
+        }
     }
 }
