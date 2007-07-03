@@ -96,7 +96,7 @@ namespace JinwooMin.RichBrowserControl
         /// </summary>
         public RichBrowserControl()
         {
-            string splashFile = "splash.png";
+            string splashFile = Application.StartupPath + "\\splash.png";
             if (File.Exists(splashFile) == true)
             {
                 Bitmap bitmap = new Bitmap(splashFile);
