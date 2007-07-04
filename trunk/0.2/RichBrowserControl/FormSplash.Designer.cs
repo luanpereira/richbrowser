@@ -66,13 +66,11 @@ namespace JinwooMin.RichBrowserControl
             // 
             this.progressBarMain.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.progressBarMain.Location = new System.Drawing.Point(0, 116);
-            this.progressBarMain.MarqueeAnimationSpeed = 200;
-            this.progressBarMain.Maximum = 50;
+            this.progressBarMain.MarqueeAnimationSpeed = 30;
             this.progressBarMain.Name = "progressBarMain";
             this.progressBarMain.Size = new System.Drawing.Size(386, 23);
             this.progressBarMain.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBarMain.TabIndex = 2;
-            this.progressBarMain.Value = 10;
             // 
             // pictureBoxMain
             // 
