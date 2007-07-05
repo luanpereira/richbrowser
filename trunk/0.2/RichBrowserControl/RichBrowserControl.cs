@@ -12,6 +12,7 @@ using csExWB;
 using WeifenLuo.WinFormsUI;
 using IfacesEnumsStructsClasses;
 using JinwooMin.Logging;
+using System.Runtime.InteropServices;
 
 namespace JinwooMin.RichBrowserControl
 {
