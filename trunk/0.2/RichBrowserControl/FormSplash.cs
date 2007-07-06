@@ -36,6 +36,7 @@ namespace JinwooMin.RichBrowserControl
         {
             Application.DoEvents();
             ms_frmSplash = new FormSplash();
+            ms_frmSplash.TopMost = true;
             ms_frmSplash.pictureBoxMain.Image = image;
             ms_frmSplash.Width = image.Width;
             ms_frmSplash.Height = image.Height + ms_frmSplash.progressBarMain.Height;
@@ -50,6 +51,7 @@ namespace JinwooMin.RichBrowserControl
         {
             Application.DoEvents();
             ms_frmSplash = new FormSplash();
+            ms_frmSplash.TopMost = true;
             ms_frmSplash.Show();
             //Application.Run(ms_frmSplash);
         }

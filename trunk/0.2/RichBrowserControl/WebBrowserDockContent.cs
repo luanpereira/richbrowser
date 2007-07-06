@@ -38,6 +38,7 @@ namespace JinwooMin.RichBrowserControl
             InitializeComponent();
 
             this.Icon = Icon.FromHandle(Properties.Resources.web_16.GetHicon());
+            this.cEXWBMain.UseInternalDownloadManager = false; // csEXWB 1.0.0.3 에서 default값이 true이다.
 
             #region WebBrowser event handlers
             cEXWBMain.TitleChange += new TitleChangeEventHandler(cEXWB_TitleChange);

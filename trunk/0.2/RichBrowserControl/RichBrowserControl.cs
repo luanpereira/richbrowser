@@ -126,6 +126,13 @@ namespace JinwooMin.RichBrowserControl
                 LogOptions.FATAL | LogOptions.ERROR | LogOptions.WARN | LogOptions.INFO);
 
             Logger.Info(Properties.Resources.MSG_RBP_STARTING);
+
+            #region Resources
+            Properties.Settings.Default.MENU_TAB = Properties.Resources.MENU_TAB;
+            Properties.Settings.Default.MENU_WEB = Properties.Resources.MENU_WEB;
+            Properties.Settings.Default.MENU_ADDRESS = Properties.Resources.MENU_ADDRESS;
+            Properties.Settings.Default.Save();
+            #endregion
         }
 
         #endregion
@@ -686,20 +693,41 @@ namespace JinwooMin.RichBrowserControl
 
         private void addressToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            toolStripAddress.Visible = !addressToolStripMenuItem.Checked;
-            addressToolStripMenuItem.Checked = !addressToolStripMenuItem.Checked;
+            ToggleAddressToolbar(addressToolStripMenuItem.Checked);
+            //toolStripAddress.Visible = !addressToolStripMenuItem.Checked;
+            //addressToolStripMenuItem.Checked = !addressToolStripMenuItem.Checked;
+        }
+
+        private static void ToggleAddressToolbar(bool curr)
+        {
+            Properties.Settings.Default.ShowAddressToolbar = !curr;
+            Properties.Settings.Default.Save();
         }
 
         private void webToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            toolStripWeb.Visible = !webToolStripMenuItem.Checked;
-            webToolStripMenuItem.Checked = !webToolStripMenuItem.Checked;
+            ToggleWebToolbar(webToolStripMenuItem.Checked);
+            //toolStripWeb.Visible = !webToolStripMenuItem.Checked;
+            //webToolStripMenuItem.Checked = !webToolStripMenuItem.Checked;
+        }
+
+        private static void ToggleWebToolbar(bool curr)
+        {
+            Properties.Settings.Default.ShowWebToolbar = !curr;
+            Properties.Settings.Default.Save();
         }
 
         private void tabToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            toolStripTab.Visible = !tabToolStripMenuItem.Checked;
-            tabToolStripMenuItem.Checked = !tabToolStripMenuItem.Checked;
+            ToggleTabToolbar(tabToolStripMenuItem.Checked);
+            //toolStripTab.Visible = !tabToolStripMenuItem.Checked;
+            //tabToolStripMenuItem.Checked = !tabToolStripMenuItem.Checked;
+        }
+
+        private static void ToggleTabToolbar(bool curr)
+        {
+            Properties.Settings.Default.ShowTabToolbar = !curr;
+            Properties.Settings.Default.Save();
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -707,6 +735,21 @@ namespace JinwooMin.RichBrowserControl
 
         }
         #endregion
+
+        private void tabToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ToggleTabToolbar(tabToolStripMenuItem1.Checked);
+        }
+
+        private void webToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ToggleWebToolbar(webToolStripMenuItem1.Checked);
+        }
+
+        private void addressToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ToggleAddressToolbar(addressToolStripMenuItem1.Checked);
+        }
 
     }
 }

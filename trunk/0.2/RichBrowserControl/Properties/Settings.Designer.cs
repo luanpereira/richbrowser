@@ -46,5 +46,77 @@ namespace JinwooMin.RichBrowserControl.Properties {
                 this["DebugLogEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowWebToolbar {
+            get {
+                return ((bool)(this["ShowWebToolbar"]));
+            }
+            set {
+                this["ShowWebToolbar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowAddressToolbar {
+            get {
+                return ((bool)(this["ShowAddressToolbar"]));
+            }
+            set {
+                this["ShowAddressToolbar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowTabToolbar {
+            get {
+                return ((bool)(this["ShowTabToolbar"]));
+            }
+            set {
+                this["ShowTabToolbar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Web")]
+        public string MENU_WEB {
+            get {
+                return ((string)(this["MENU_WEB"]));
+            }
+            set {
+                this["MENU_WEB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Tab")]
+        public string MENU_TAB {
+            get {
+                return ((string)(this["MENU_TAB"]));
+            }
+            set {
+                this["MENU_TAB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Address")]
+        public string MENU_ADDRESS {
+            get {
+                return ((string)(this["MENU_ADDRESS"]));
+            }
+            set {
+                this["MENU_ADDRESS"] = value;
+            }
+        }
     }
 }

@@ -31,6 +31,7 @@ namespace JinwooMin.RichBrowserControl
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,9 +39,9 @@ namespace JinwooMin.RichBrowserControl
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolbarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.webToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.nextTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.previousTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +55,10 @@ namespace JinwooMin.RichBrowserControl
             this.toolStripProgressBarMain = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripContainerMain = new System.Windows.Forms.ToolStripContainer();
             this.dockPanelMain = new WeifenLuo.WinFormsUI.DockPanel();
+            this.contextMenuStripToolbar = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tabToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.webToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addressToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTab = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -78,6 +83,7 @@ namespace JinwooMin.RichBrowserControl
             this.toolStripContainerMain.ContentPanel.SuspendLayout();
             this.toolStripContainerMain.TopToolStripPanel.SuspendLayout();
             this.toolStripContainerMain.SuspendLayout();
+            this.contextMenuStripToolbar.SuspendLayout();
             this.toolStripTab.SuspendLayout();
             this.toolStripWeb.SuspendLayout();
             this.toolStripAddress.SuspendLayout();
@@ -140,39 +146,42 @@ namespace JinwooMin.RichBrowserControl
             // toolbarsToolStripMenuItem
             // 
             this.toolbarsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addressToolStripMenuItem,
             this.tabToolStripMenuItem,
-            this.webToolStripMenuItem});
+            this.webToolStripMenuItem,
+            this.addressToolStripMenuItem});
             this.toolbarsToolStripMenuItem.Name = "toolbarsToolStripMenuItem";
             this.toolbarsToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.toolbarsToolStripMenuItem.Text = global::JinwooMin.RichBrowserControl.Properties.Resources.MENU_TOOLBARS;
             // 
-            // addressToolStripMenuItem
-            // 
-            this.addressToolStripMenuItem.Checked = true;
-            this.addressToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.addressToolStripMenuItem.Name = "addressToolStripMenuItem";
-            this.addressToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.addressToolStripMenuItem.Text = global::JinwooMin.RichBrowserControl.Properties.Resources.MENU_ADDRESS;
-            this.addressToolStripMenuItem.Click += new System.EventHandler(this.addressToolStripMenuItem_Click);
-            // 
             // tabToolStripMenuItem
             // 
-            this.tabToolStripMenuItem.Checked = true;
+            this.tabToolStripMenuItem.Checked = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.ShowTabToolbar;
+            this.tabToolStripMenuItem.CheckOnClick = true;
             this.tabToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tabToolStripMenuItem.Name = "tabToolStripMenuItem";
-            this.tabToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.tabToolStripMenuItem.Text = global::JinwooMin.RichBrowserControl.Properties.Resources.MENU_TAB;
+            this.tabToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tabToolStripMenuItem.Text = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.MENU_TAB;
             this.tabToolStripMenuItem.Click += new System.EventHandler(this.tabToolStripMenuItem_Click);
             // 
             // webToolStripMenuItem
             // 
-            this.webToolStripMenuItem.Checked = true;
+            this.webToolStripMenuItem.Checked = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.ShowWebToolbar;
+            this.webToolStripMenuItem.CheckOnClick = true;
             this.webToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.webToolStripMenuItem.Name = "webToolStripMenuItem";
-            this.webToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.webToolStripMenuItem.Text = global::JinwooMin.RichBrowserControl.Properties.Resources.MENU_WEB;
+            this.webToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.webToolStripMenuItem.Text = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.MENU_WEB;
             this.webToolStripMenuItem.Click += new System.EventHandler(this.webToolStripMenuItem_Click);
+            // 
+            // addressToolStripMenuItem
+            // 
+            this.addressToolStripMenuItem.Checked = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.ShowAddressToolbar;
+            this.addressToolStripMenuItem.CheckOnClick = true;
+            this.addressToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.addressToolStripMenuItem.Name = "addressToolStripMenuItem";
+            this.addressToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addressToolStripMenuItem.Text = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.MENU_ADDRESS;
+            this.addressToolStripMenuItem.Click += new System.EventHandler(this.addressToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -207,7 +216,7 @@ namespace JinwooMin.RichBrowserControl
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.optionsToolStripMenuItem.Text = global::JinwooMin.RichBrowserControl.Properties.Resources.MENU_OPTIONS;
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
@@ -271,6 +280,7 @@ namespace JinwooMin.RichBrowserControl
             // 
             // toolStripContainerMain.TopToolStripPanel
             // 
+            this.toolStripContainerMain.TopToolStripPanel.ContextMenuStrip = this.contextMenuStripToolbar;
             this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStripTab);
             this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStripWeb);
             this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStripAddress);
@@ -286,8 +296,48 @@ namespace JinwooMin.RichBrowserControl
             this.dockPanelMain.Size = new System.Drawing.Size(657, 156);
             this.dockPanelMain.TabIndex = 0;
             // 
+            // contextMenuStripToolbar
+            // 
+            this.contextMenuStripToolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tabToolStripMenuItem1,
+            this.webToolStripMenuItem1,
+            this.addressToolStripMenuItem1});
+            this.contextMenuStripToolbar.Name = "contextMenuStripToolBar";
+            this.contextMenuStripToolbar.Size = new System.Drawing.Size(124, 70);
+            // 
+            // tabToolStripMenuItem1
+            // 
+            this.tabToolStripMenuItem1.Checked = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.ShowTabToolbar;
+            this.tabToolStripMenuItem1.CheckOnClick = true;
+            this.tabToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tabToolStripMenuItem1.Name = "tabToolStripMenuItem1";
+            this.tabToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.tabToolStripMenuItem1.Text = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.MENU_TAB;
+            this.tabToolStripMenuItem1.Click += new System.EventHandler(this.tabToolStripMenuItem1_Click);
+            // 
+            // webToolStripMenuItem1
+            // 
+            this.webToolStripMenuItem1.Checked = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.ShowWebToolbar;
+            this.webToolStripMenuItem1.CheckOnClick = true;
+            this.webToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.webToolStripMenuItem1.Name = "webToolStripMenuItem1";
+            this.webToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.webToolStripMenuItem1.Text = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.MENU_WEB;
+            this.webToolStripMenuItem1.Click += new System.EventHandler(this.webToolStripMenuItem1_Click);
+            // 
+            // addressToolStripMenuItem1
+            // 
+            this.addressToolStripMenuItem1.Checked = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.ShowAddressToolbar;
+            this.addressToolStripMenuItem1.CheckOnClick = true;
+            this.addressToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.addressToolStripMenuItem1.Name = "addressToolStripMenuItem1";
+            this.addressToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.addressToolStripMenuItem1.Text = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.MENU_ADDRESS;
+            this.addressToolStripMenuItem1.Click += new System.EventHandler(this.addressToolStripMenuItem1_Click);
+            // 
             // toolStripTab
             // 
+            this.toolStripTab.DataBindings.Add(new System.Windows.Forms.Binding("Visible", global::JinwooMin.RichBrowserControl.Properties.Settings.Default, "ShowTabToolbar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.toolStripTab.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStripTab.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
@@ -295,9 +345,10 @@ namespace JinwooMin.RichBrowserControl
             this.toolStripButtonCloseTab});
             this.toolStripTab.Location = new System.Drawing.Point(3, 0);
             this.toolStripTab.Name = "toolStripTab";
-            this.toolStripTab.Size = new System.Drawing.Size(110, 25);
+            this.toolStripTab.Size = new System.Drawing.Size(103, 25);
             this.toolStripTab.TabIndex = 3;
             this.toolStripTab.Text = "Tab";
+            this.toolStripTab.Visible = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.ShowTabToolbar;
             // 
             // toolStripLabel1
             // 
@@ -315,12 +366,13 @@ namespace JinwooMin.RichBrowserControl
             this.toolStripButtonCloseTab.Image = global::JinwooMin.RichBrowserControl.Properties.Resources.Close;
             this.toolStripButtonCloseTab.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCloseTab.Name = "toolStripButtonCloseTab";
-            this.toolStripButtonCloseTab.Size = new System.Drawing.Size(65, 22);
+            this.toolStripButtonCloseTab.Size = new System.Drawing.Size(58, 22);
             this.toolStripButtonCloseTab.Text = global::JinwooMin.RichBrowserControl.Properties.Resources.LABEL_CLOSE_TAB;
             this.toolStripButtonCloseTab.Click += new System.EventHandler(this.toolStripButtonCloseTab_Click);
             // 
             // toolStripWeb
             // 
+            this.toolStripWeb.DataBindings.Add(new System.Windows.Forms.Binding("Visible", global::JinwooMin.RichBrowserControl.Properties.Settings.Default, "ShowWebToolbar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.toolStripWeb.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStripWeb.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabelWeb,
@@ -333,11 +385,12 @@ namespace JinwooMin.RichBrowserControl
             this.toolStripButtonStop,
             this.toolStripButtonRefresh,
             this.toolStripButtonHome});
-            this.toolStripWeb.Location = new System.Drawing.Point(113, 0);
+            this.toolStripWeb.Location = new System.Drawing.Point(106, 0);
             this.toolStripWeb.Name = "toolStripWeb";
             this.toolStripWeb.Size = new System.Drawing.Size(255, 25);
             this.toolStripWeb.TabIndex = 1;
             this.toolStripWeb.Text = "Web";
+            this.toolStripWeb.Visible = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.ShowWebToolbar;
             // 
             // toolStripLabelWeb
             // 
@@ -414,6 +467,7 @@ namespace JinwooMin.RichBrowserControl
             // 
             // toolStripAddress
             // 
+            this.toolStripAddress.DataBindings.Add(new System.Windows.Forms.Binding("Visible", global::JinwooMin.RichBrowserControl.Properties.Settings.Default, "ShowAddressToolbar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.toolStripAddress.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStripAddress.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabelAddress,
@@ -425,6 +479,7 @@ namespace JinwooMin.RichBrowserControl
             this.toolStripAddress.Size = new System.Drawing.Size(489, 25);
             this.toolStripAddress.TabIndex = 2;
             this.toolStripAddress.Text = "A&ddress";
+            this.toolStripAddress.Visible = global::JinwooMin.RichBrowserControl.Properties.Settings.Default.ShowAddressToolbar;
             // 
             // toolStripLabelAddress
             // 
@@ -465,6 +520,7 @@ namespace JinwooMin.RichBrowserControl
             this.toolStripContainerMain.TopToolStripPanel.PerformLayout();
             this.toolStripContainerMain.ResumeLayout(false);
             this.toolStripContainerMain.PerformLayout();
+            this.contextMenuStripToolbar.ResumeLayout(false);
             this.toolStripTab.ResumeLayout(false);
             this.toolStripTab.PerformLayout();
             this.toolStripWeb.ResumeLayout(false);
@@ -520,6 +576,10 @@ namespace JinwooMin.RichBrowserControl
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripToolbar;
+        private System.Windows.Forms.ToolStripMenuItem webToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem addressToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tabToolStripMenuItem1;
 
     }
 }
