@@ -23,7 +23,7 @@ namespace JinwooMin.RichBrowserControl
         private PluginLoader m_pluginLoader = null;
         private PluginLoader m_customPluginLoader = null;
 
-        private string PLATFORM_DATA_PATH =Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).ToString() + "\\RichBrowserPlatform";
+        private string PLATFORM_DATA_PATH = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).ToString() + "\\RichBrowserPlatform";
 
         private LogManager m_logger;
 
@@ -45,8 +45,7 @@ namespace JinwooMin.RichBrowserControl
             get { return toolStripWeb.Visible; }
             set
             {
-                toolStripWeb.Visible = value;
-                webToolStripMenuItem.Checked = value;
+                SetVisibleWebToolbar(value);
             }
         }
 
@@ -58,9 +57,7 @@ namespace JinwooMin.RichBrowserControl
             get { return toolStripAddress.Visible; }
             set
             {
-                toolStripAddress.Visible = value;
-                addressToolStripMenuItem.Checked = value;
-
+                SetVisibleAddressToolbar(value);
             }
         }
 
@@ -81,8 +78,7 @@ namespace JinwooMin.RichBrowserControl
             get { return toolStripTab.Visible; }
             set
             {
-                toolStripTab.Visible = value;
-                tabToolStripMenuItem.Checked = value;
+                SetVisibleTabToolbar(value);
             }
         }
 
@@ -116,7 +112,7 @@ namespace JinwooMin.RichBrowserControl
             }
             Logger.AddLogger(new ConsoleLogger(), LogOptions.ALL);
             Logger.AddLogger(new TextFileLogger(PLATFORM_DATA_PATH + "\\richbrowserplatform.log"),
-                LogOptions.FATAL | LogOptions.ERROR | LogOptions.WARN | LogOptions.INFO 
+                LogOptions.FATAL | LogOptions.ERROR | LogOptions.WARN | LogOptions.INFO
                 | ((Properties.Settings.Default.DebugLogEnabled == true) ? LogOptions.DEBUG : LogOptions.NONE));
             Logger.AddLogger(new ToolStripItemLogger(toolStripStatusLabelMessage),
                 LogOptions.FATAL | LogOptions.ERROR | LogOptions.WARN | LogOptions.INFO);
@@ -128,10 +124,20 @@ namespace JinwooMin.RichBrowserControl
             Logger.Info(Properties.Resources.MSG_RBP_STARTING);
 
             #region Resources
-            Properties.Settings.Default.MENU_TAB = Properties.Resources.MENU_TAB;
-            Properties.Settings.Default.MENU_WEB = Properties.Resources.MENU_WEB;
-            Properties.Settings.Default.MENU_ADDRESS = Properties.Resources.MENU_ADDRESS;
-            Properties.Settings.Default.Save();
+            toolStripTab.Text = Properties.Resources.LABEL_TAB;
+            toolStripWeb.Text = Properties.Resources.LABEL_WEB;
+            toolStripAddress.Text = Properties.Resources.LABEL_ADDRESS;
+
+            tabToolStripMenuItem.Text = Properties.Resources.MENU_TAB;
+            tabToolStripMenuItem1.Text = Properties.Resources.MENU_TAB;
+            webToolStripMenuItem.Text = Properties.Resources.MENU_WEB;
+            webToolStripMenuItem1.Text = Properties.Resources.MENU_WEB;
+            addressToolStripMenuItem.Text = Properties.Resources.MENU_ADDRESS;
+            addressToolStripMenuItem1.Text = Properties.Resources.MENU_ADDRESS;
+
+            SetVisibleTabToolbar(Properties.Settings.Default.ShowTabToolbar);
+            SetVisibleWebToolbar(Properties.Settings.Default.ShowWebToolbar);
+            SetVisibleAddressToolbar(Properties.Settings.Default.ShowAddressToolbar);
             #endregion
         }
 
@@ -420,7 +426,7 @@ namespace JinwooMin.RichBrowserControl
             webDC.WebBrowser.ProgressChange += new ProgressChangeEventHandler(webBrowser_ProgressChange);
             webDC.WebBrowser.StatusTextChange += new StatusTextChangeEventHandler(webBrowser_StatusTextChange);
             webDC.Show(dockPanelMain, DockState.Document);
-            
+
             return webDC;
         }
 
@@ -691,64 +697,64 @@ namespace JinwooMin.RichBrowserControl
             dlg.ShowDialog();
         }
 
-        private void addressToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ToggleAddressToolbar(addressToolStripMenuItem.Checked);
-            //toolStripAddress.Visible = !addressToolStripMenuItem.Checked;
-            //addressToolStripMenuItem.Checked = !addressToolStripMenuItem.Checked;
-        }
-
-        private static void ToggleAddressToolbar(bool curr)
-        {
-            Properties.Settings.Default.ShowAddressToolbar = !curr;
-            Properties.Settings.Default.Save();
-        }
-
-        private void webToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ToggleWebToolbar(webToolStripMenuItem.Checked);
-            //toolStripWeb.Visible = !webToolStripMenuItem.Checked;
-            //webToolStripMenuItem.Checked = !webToolStripMenuItem.Checked;
-        }
-
-        private static void ToggleWebToolbar(bool curr)
-        {
-            Properties.Settings.Default.ShowWebToolbar = !curr;
-            Properties.Settings.Default.Save();
-        }
-
-        private void tabToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ToggleTabToolbar(tabToolStripMenuItem.Checked);
-            //toolStripTab.Visible = !tabToolStripMenuItem.Checked;
-            //tabToolStripMenuItem.Checked = !tabToolStripMenuItem.Checked;
-        }
-
-        private static void ToggleTabToolbar(bool curr)
-        {
-            Properties.Settings.Default.ShowTabToolbar = !curr;
-            Properties.Settings.Default.Save();
-        }
-
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // TODO
         }
         #endregion
 
-        private void tabToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void SetVisibleTabToolbar(bool visible)
         {
-            ToggleTabToolbar(tabToolStripMenuItem1.Checked);
+            tabToolStripMenuItem.Checked = visible;
+            tabToolStripMenuItem1.Checked = visible;
+            toolStripTab.Visible = visible;
+
+            Properties.Settings.Default.ShowTabToolbar = visible;
+            Properties.Settings.Default.Save();
         }
 
-        private void webToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void SetVisibleWebToolbar(bool visible)
         {
-            ToggleWebToolbar(webToolStripMenuItem1.Checked);
+            webToolStripMenuItem.Checked = visible;
+            webToolStripMenuItem1.Checked = visible;
+            toolStripWeb.Visible = visible;
+
+            Properties.Settings.Default.ShowWebToolbar = visible;
+            Properties.Settings.Default.Save();
         }
 
-        private void addressToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void SetVisibleAddressToolbar(bool visible)
         {
-            ToggleAddressToolbar(addressToolStripMenuItem1.Checked);
+            addressToolStripMenuItem.Checked = visible;
+            addressToolStripMenuItem1.Checked = visible;
+            toolStripAddress.Visible = visible;
+
+            Properties.Settings.Default.ShowAddressToolbar = visible;
+            Properties.Settings.Default.Save();
+        }
+
+        private void tabToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is ToolStripMenuItem)
+            {
+                SetVisibleTabToolbar((sender as ToolStripMenuItem).Checked);
+            }
+        }
+
+        private void webToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is ToolStripMenuItem)
+            {
+                SetVisibleWebToolbar((sender as ToolStripMenuItem).Checked);
+            }
+        }
+
+        private void addressToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is ToolStripMenuItem)
+            {
+                SetVisibleAddressToolbar((sender as ToolStripMenuItem).Checked);
+            }
         }
 
     }
