@@ -26,6 +26,16 @@ namespace JinwooMin.Logging
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="msg"></param>
+        public static void ShowError(ILogger logger, string msg)
+        {
+            logger.Error(msg);
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="msg"></param>
         /// <param name="e"></param>
         public static void ShowError(ILogger logger, string msg, Exception e)
         {

@@ -172,6 +172,12 @@
   <data name="LABEL_BACK" xml:space="preserve">
     <value>Back</value>
   </data>
+  <data name="LABEL_CLOSE_ALL" xml:space="preserve">
+    <value>Close All Tabs</value>
+  </data>
+  <data name="LABEL_CLOSE_OTHER_TABES" xml:space="preserve">
+    <value>Close Other Tabs</value>
+  </data>
   <data name="LABEL_CLOSE_TAB" xml:space="preserve">
     <value>&amp;Close</value>
   </data>
@@ -210,6 +216,12 @@
   </data>
   <data name="MENU_ADDRESS" xml:space="preserve">
     <value>&amp;Address</value>
+  </data>
+  <data name="MENU_CLOSE_ALL_TABS" xml:space="preserve">
+    <value>Close All Tabs</value>
+  </data>
+  <data name="MENU_CLOSE_OTHER_TABS" xml:space="preserve">
+    <value>Close Other Tabs</value>
   </data>
   <data name="MENU_CLOSE_TAB" xml:space="preserve">
     <value>Close Tab</value>

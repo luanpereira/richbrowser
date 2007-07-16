@@ -93,16 +93,17 @@ namespace JinwooMin.RichBrowserControl
         /// </summary>
         public RichBrowserControl()
         {
-            string splashFile = Application.StartupPath + "\\splash.png";
-            if (File.Exists(splashFile) == true)
-            {
-                Bitmap bitmap = new Bitmap(splashFile);
-                FormSplash.ShowForm(bitmap);
-            }
-            else
-            {
-                FormSplash.ShowForm();
-            }
+            //string splashFile = Application.StartupPath + "\\splash.png";
+            //if (File.Exists(splashFile) == true)
+            //{
+            //    Bitmap bitmap = new Bitmap(splashFile);
+            //    FormSplash.ShowForm(bitmap);
+            //}
+            //else
+            //{
+            //    FormSplash.ShowForm();
+            //}
+            FormSplash.ShowWithSplashImage(false);
 
             InitializeComponent();
 
@@ -124,10 +125,19 @@ namespace JinwooMin.RichBrowserControl
             Logger.Info(Properties.Resources.MSG_RBP_STARTING);
 
             #region Resources
+
+            // file menu
+            fileToolStripMenuItem.Text = Properties.Resources.MENU_FILE;
+            closeTabToolStripMenuItem.Text = Properties.Resources.MENU_CLOSE_TAB;
+            closeAllTabsToolStripMenuItem1.Text = Properties.Resources.MENU_CLOSE_ALL_TABS;
+            closeOtherTabsToolStripMenuItem.Text = Properties.Resources.MENU_CLOSE_OTHER_TABS;
+
+            // toolstrips
             toolStripTab.Text = Properties.Resources.LABEL_TAB;
             toolStripWeb.Text = Properties.Resources.LABEL_WEB;
             toolStripAddress.Text = Properties.Resources.LABEL_ADDRESS;
 
+            // toolstrip context menu
             tabToolStripMenuItem.Text = Properties.Resources.MENU_TAB;
             tabToolStripMenuItem1.Text = Properties.Resources.MENU_TAB;
             webToolStripMenuItem.Text = Properties.Resources.MENU_WEB;
@@ -135,9 +145,20 @@ namespace JinwooMin.RichBrowserControl
             addressToolStripMenuItem.Text = Properties.Resources.MENU_ADDRESS;
             addressToolStripMenuItem1.Text = Properties.Resources.MENU_ADDRESS;
 
+            // tab toolstrip
+            toolStripButtonCloseTab.Text = Properties.Resources.LABEL_CLOSE_TAB;
+            toolStripButtonCloseAll.Text = Properties.Resources.LABEL_CLOSE_ALL;
+            toolStripButtonCloseOtherTabs.Text = Properties.Resources.LABEL_CLOSE_OTHER_TABES;
+
+            // tab menu
+            closeToolStripMenuItem.Text = Properties.Resources.MENU_CLOSE_TAB;
+            closeAllTabsToolStripMenuItem.Text = Properties.Resources.MENU_CLOSE_ALL_TABS;
+            closeAllTabsWithThisTabToolStripMenuItem.Text = Properties.Resources.MENU_CLOSE_OTHER_TABS;
+
             SetVisibleTabToolbar(Properties.Settings.Default.ShowTabToolbar);
             SetVisibleWebToolbar(Properties.Settings.Default.ShowWebToolbar);
             SetVisibleAddressToolbar(Properties.Settings.Default.ShowAddressToolbar);
+
             #endregion
         }
 
@@ -693,8 +714,9 @@ namespace JinwooMin.RichBrowserControl
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormInformation dlg = new FormInformation();
-            dlg.ShowDialog();
+            //FormInformation dlg = new FormInformation();
+            //dlg.ShowDialog();
+            FormSplash.ShowWithSplashImage(true);
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -755,6 +777,64 @@ namespace JinwooMin.RichBrowserControl
             {
                 SetVisibleAddressToolbar((sender as ToolStripMenuItem).Checked);
             }
+        }
+
+        private void toolStripButtonCloseAll_Click(object sender, EventArgs e)
+        {
+            CloseAllTabs();
+        }
+
+        private void CloseAllTabs()
+        {
+            foreach (DockContent dc in dockPanelMain.Documents)
+            {
+                dc.Close();
+            }
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseTab();
+        }
+
+        private void closeAllTabsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllTabs();
+        }
+
+        private void closeAllTabsWithThisTabToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseOtherTabs();
+        }
+
+        private void CloseOtherTabs()
+        {
+            IDockContent activeDC = dockPanelMain.ActiveDocument;
+            if (activeDC != null)
+            {
+                foreach (DockContent dc in dockPanelMain.Documents)
+                {
+                    if (dc != activeDC)
+                    {
+                        dc.Close();
+                    }
+                }
+            }
+        }
+
+        private void toolStripButtonCloseOtherTabs_Click(object sender, EventArgs e)
+        {
+            CloseOtherTabs();
+        }
+
+        private void closeAllTabsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CloseAllTabs();
+        }
+
+        private void closeOtherTabsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseOtherTabs();
         }
 
     }

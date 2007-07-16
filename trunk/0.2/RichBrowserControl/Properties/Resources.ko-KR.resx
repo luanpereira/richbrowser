@@ -123,6 +123,12 @@
   <data name="LABEL_BACK" xml:space="preserve">
     <value>뒤로</value>
   </data>
+  <data name="LABEL_CLOSE_ALL" xml:space="preserve">
+    <value>모든 탭 닫기</value>
+  </data>
+  <data name="LABEL_CLOSE_OTHER_TABES" xml:space="preserve">
+    <value>다른 탭 모두 닫기</value>
+  </data>
   <data name="LABEL_CLOSE_TAB" xml:space="preserve">
     <value>닫기(&amp;C)</value>
   </data>
@@ -158,6 +164,12 @@
   </data>
   <data name="MENU_ADDRESS" xml:space="preserve">
     <value>주소 표시줄(&amp;A)</value>
+  </data>
+  <data name="MENU_CLOSE_ALL_TABS" xml:space="preserve">
+    <value>모든 탭 닫기</value>
+  </data>
+  <data name="MENU_CLOSE_OTHER_TABS" xml:space="preserve">
+    <value>다른 탭 모두 닫기</value>
   </data>
   <data name="MENU_CLOSE_TAB" xml:space="preserve">
     <value>탭 닫기</value>
