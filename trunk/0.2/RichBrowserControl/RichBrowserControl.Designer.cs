@@ -36,6 +36,8 @@ namespace JinwooMin.RichBrowserControl
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeAllTabsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeOtherTabsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,8 +88,6 @@ namespace JinwooMin.RichBrowserControl
             this.toolStripButtonStop = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonHome = new System.Windows.Forms.ToolStripButton();
-            this.closeAllTabsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeOtherTabsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.toolStripContainerMain.ContentPanel.SuspendLayout();
@@ -132,6 +132,20 @@ namespace JinwooMin.RichBrowserControl
             this.closeTabToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.closeTabToolStripMenuItem.Text = global::JinwooMin.RichBrowserControl.Properties.Resources.MENU_CLOSE_TAB;
             this.closeTabToolStripMenuItem.Click += new System.EventHandler(this.closeTabToolStripMenuItem_Click);
+            // 
+            // closeAllTabsToolStripMenuItem1
+            // 
+            this.closeAllTabsToolStripMenuItem1.Name = "closeAllTabsToolStripMenuItem1";
+            this.closeAllTabsToolStripMenuItem1.Size = new System.Drawing.Size(176, 22);
+            this.closeAllTabsToolStripMenuItem1.Text = "Close All Tabs";
+            this.closeAllTabsToolStripMenuItem1.Click += new System.EventHandler(this.closeAllTabsToolStripMenuItem1_Click);
+            // 
+            // closeOtherTabsToolStripMenuItem
+            // 
+            this.closeOtherTabsToolStripMenuItem.Name = "closeOtherTabsToolStripMenuItem";
+            this.closeOtherTabsToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.closeOtherTabsToolStripMenuItem.Text = "Close Other Tabs";
+            this.closeOtherTabsToolStripMenuItem.Click += new System.EventHandler(this.closeOtherTabsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -283,7 +297,7 @@ namespace JinwooMin.RichBrowserControl
             // toolStripContainerMain.ContentPanel
             // 
             this.toolStripContainerMain.ContentPanel.Controls.Add(this.dockPanelMain);
-            this.toolStripContainerMain.ContentPanel.Size = new System.Drawing.Size(657, 131);
+            this.toolStripContainerMain.ContentPanel.Size = new System.Drawing.Size(657, 156);
             this.toolStripContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainerMain.Location = new System.Drawing.Point(0, 24);
             this.toolStripContainerMain.Name = "toolStripContainerMain";
@@ -295,8 +309,8 @@ namespace JinwooMin.RichBrowserControl
             // 
             this.toolStripContainerMain.TopToolStripPanel.ContextMenuStrip = this.contextMenuStripToolbar;
             this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStripTab);
-            this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStripAddress);
             this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStripWeb);
+            this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStripAddress);
             // 
             // dockPanelMain
             // 
@@ -307,7 +321,7 @@ namespace JinwooMin.RichBrowserControl
             this.dockPanelMain.Location = new System.Drawing.Point(0, 0);
             this.dockPanelMain.Name = "dockPanelMain";
             this.dockPanelMain.ShowDocumentIcon = true;
-            this.dockPanelMain.Size = new System.Drawing.Size(657, 131);
+            this.dockPanelMain.Size = new System.Drawing.Size(657, 156);
             this.dockPanelMain.TabIndex = 0;
             // 
             // contextMenuStripTab
@@ -396,7 +410,7 @@ namespace JinwooMin.RichBrowserControl
             this.toolStripButtonCloseTab,
             this.toolStripButtonCloseAll,
             this.toolStripButtonCloseOtherTabs});
-            this.toolStripTab.Location = new System.Drawing.Point(3, 0);
+            this.toolStripTab.Location = new System.Drawing.Point(258, 0);
             this.toolStripTab.Name = "toolStripTab";
             this.toolStripTab.Size = new System.Drawing.Size(272, 25);
             this.toolStripTab.TabIndex = 3;
@@ -494,7 +508,7 @@ namespace JinwooMin.RichBrowserControl
             this.toolStripButtonStop,
             this.toolStripButtonRefresh,
             this.toolStripButtonHome});
-            this.toolStripWeb.Location = new System.Drawing.Point(3, 50);
+            this.toolStripWeb.Location = new System.Drawing.Point(3, 0);
             this.toolStripWeb.Name = "toolStripWeb";
             this.toolStripWeb.Size = new System.Drawing.Size(255, 25);
             this.toolStripWeb.TabIndex = 1;
@@ -573,20 +587,6 @@ namespace JinwooMin.RichBrowserControl
             this.toolStripButtonHome.Name = "toolStripButtonHome";
             this.toolStripButtonHome.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonHome.Text = global::JinwooMin.RichBrowserControl.Properties.Resources.LABEL_HOME;
-            // 
-            // closeAllTabsToolStripMenuItem1
-            // 
-            this.closeAllTabsToolStripMenuItem1.Name = "closeAllTabsToolStripMenuItem1";
-            this.closeAllTabsToolStripMenuItem1.Size = new System.Drawing.Size(176, 22);
-            this.closeAllTabsToolStripMenuItem1.Text = "Close All Tabs";
-            this.closeAllTabsToolStripMenuItem1.Click += new System.EventHandler(this.closeAllTabsToolStripMenuItem1_Click);
-            // 
-            // closeOtherTabsToolStripMenuItem
-            // 
-            this.closeOtherTabsToolStripMenuItem.Name = "closeOtherTabsToolStripMenuItem";
-            this.closeOtherTabsToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.closeOtherTabsToolStripMenuItem.Text = "Close Other Tabs";
-            this.closeOtherTabsToolStripMenuItem.Click += new System.EventHandler(this.closeOtherTabsToolStripMenuItem_Click);
             // 
             // RichBrowserControl
             // 

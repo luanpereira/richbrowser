@@ -120,7 +120,7 @@ namespace JinwooMin.RichBrowserControl
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.dockPanel1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(495, 143);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(495, 168);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.LeftToolStripPanelVisible = false;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 24);
@@ -132,8 +132,8 @@ namespace JinwooMin.RichBrowserControl
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripWeb);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripWebAddress);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripWeb);
             // 
             // dockPanel1
             // 
@@ -142,7 +142,7 @@ namespace JinwooMin.RichBrowserControl
             this.dockPanel1.Font = new System.Drawing.Font("Gulim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
             this.dockPanel1.Location = new System.Drawing.Point(0, 0);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.Size = new System.Drawing.Size(495, 143);
+            this.dockPanel1.Size = new System.Drawing.Size(495, 168);
             this.dockPanel1.TabIndex = 2;
             // 
             // toolStripWeb
@@ -150,9 +150,9 @@ namespace JinwooMin.RichBrowserControl
             this.toolStripWeb.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStripWeb.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1});
-            this.toolStripWeb.Location = new System.Drawing.Point(3, 0);
+            this.toolStripWeb.Location = new System.Drawing.Point(227, 0);
             this.toolStripWeb.Name = "toolStripWeb";
-            this.toolStripWeb.Size = new System.Drawing.Size(35, 25);
+            this.toolStripWeb.Size = new System.Drawing.Size(66, 25);
             this.toolStripWeb.TabIndex = 0;
             // 
             // toolStripButton1
@@ -171,9 +171,9 @@ namespace JinwooMin.RichBrowserControl
             this.toolStripLabel1,
             this.toolStripTextBoxAddress,
             this.toolStripButtonGo});
-            this.toolStripWebAddress.Location = new System.Drawing.Point(3, 25);
+            this.toolStripWebAddress.Location = new System.Drawing.Point(3, 0);
             this.toolStripWebAddress.Name = "toolStripWebAddress";
-            this.toolStripWebAddress.Size = new System.Drawing.Size(255, 25);
+            this.toolStripWebAddress.Size = new System.Drawing.Size(224, 25);
             this.toolStripWebAddress.TabIndex = 1;
             // 
             // toolStripLabel1
