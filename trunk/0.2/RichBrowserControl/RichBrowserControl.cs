@@ -504,12 +504,13 @@ namespace JinwooMin.RichBrowserControl
             //
             Logger.Debug("documentcompleted. e=" + e.url);
             toolStripTextBoxAddress.Text = e.url;
+            toolStripProgressBarMain.Visible = false;
         }
 
         private void webBrowser_NavigateComplete2(object sender, NavigateComplete2EventArgs e)
         {
             Logger.Debug("location=" + e.url);
-            toolStripProgressBarMain.Visible = false;
+            //toolStripProgressBarMain.Visible = false;
         }
 
         private void webBrowser_ProgressChange(object sender, ProgressChangeEventArgs e)
@@ -626,6 +627,8 @@ namespace JinwooMin.RichBrowserControl
                 toolStripButtonStop.Enabled = true;// ActiveWebBrowser.Busy;
                 toolStripButtonRefresh.Enabled = true;
                 toolStripButtonHome.Enabled = true;
+
+                toolStripTextBoxAddress.Text = ActiveWebBrowser.LocationUrl;
             }
             else
             {
@@ -835,6 +838,11 @@ namespace JinwooMin.RichBrowserControl
         private void closeOtherTabsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CloseOtherTabs();
+        }
+
+        private void toolStripTab_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
 
     }
