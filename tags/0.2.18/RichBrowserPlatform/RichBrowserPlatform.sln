@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JinwooMin.RichBrowserInterface", "..\RichBrowserInterface\JinwooMin.RichBrowserInterface.csproj", "{3FD75D9E-62C1-43BB-8AB2-C3678560F4B0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2DDC9D03-BE49-4F02-B5F0-A3E1E1F404A1} = {2DDC9D03-BE49-4F02-B5F0-A3E1E1F404A1}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JinwooMin.RichBrowserControl", "..\RichBrowserControl\JinwooMin.RichBrowserControl.csproj", "{FD7A6C4C-7E70-4387-A61A-C6D49B7B24A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JinwooMin.Common", "..\JinwooMin.Common\JinwooMin.Common.csproj", "{2DDC9D03-BE49-4F02-B5F0-A3E1E1F404A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JinwooMin.Logging", "..\JinwooMin.Logging\JinwooMin.Logging.csproj", "{71530E74-C43C-4B5E-B750-FDCCAA238CD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FD75D9E-62C1-43BB-8AB2-C3678560F4B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FD75D9E-62C1-43BB-8AB2-C3678560F4B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FD75D9E-62C1-43BB-8AB2-C3678560F4B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FD75D9E-62C1-43BB-8AB2-C3678560F4B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD7A6C4C-7E70-4387-A61A-C6D49B7B24A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD7A6C4C-7E70-4387-A61A-C6D49B7B24A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD7A6C4C-7E70-4387-A61A-C6D49B7B24A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD7A6C4C-7E70-4387-A61A-C6D49B7B24A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DDC9D03-BE49-4F02-B5F0-A3E1E1F404A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DDC9D03-BE49-4F02-B5F0-A3E1E1F404A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DDC9D03-BE49-4F02-B5F0-A3E1E1F404A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DDC9D03-BE49-4F02-B5F0-A3E1E1F404A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71530E74-C43C-4B5E-B750-FDCCAA238CD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71530E74-C43C-4B5E-B750-FDCCAA238CD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71530E74-C43C-4B5E-B750-FDCCAA238CD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71530E74-C43C-4B5E-B750-FDCCAA238CD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

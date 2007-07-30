@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<project name="RichBrowserPlatform" default="main">
+
+	<property name="app.root" value="RichBrowser/RichBrowser"/>
+	
+	<target name="richbrowserplatform">
+	
+		<copy todir="${app.root}">
+			<fileset basedir="RichBrowserControl/bin/Debug">
+				<include name="*.dll"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${app.root}/ko-KR">
+			<fileset basedir="RichBrowserControl/bin/Debug/ko-KR">
+				<include name="*.dll"/>
+			</fileset>
+		</copy>
+		
+	</target>
+	
+	<target name="main" depends="richbrowserplatform"/>
+	
+</project>
