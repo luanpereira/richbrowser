@@ -17,8 +17,8 @@ namespace DemoApp
         {
             InitializeComponent();
 
-            richBrowserControl1.WebBrowserFactory = new csExWBWebBrowserFactory();
-            //richBrowserControl1.WebBrowserFactory = new DefaultWebBrowserFactory();
+            //richBrowserControl1.WebBrowserFactory = new csExWBWebBrowserFactory();
+            richBrowserControl1.WebBrowserFactory = new DefaultWebBrowserFactory();
         }
     }
 }

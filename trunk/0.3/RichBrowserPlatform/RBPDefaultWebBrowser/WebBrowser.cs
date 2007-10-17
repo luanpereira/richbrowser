@@ -18,7 +18,7 @@ namespace RBPDefaultWebBrowser
 
         #region IWebBrowser 멤버
 
-        void IWebBrowser.Navigate(string url)
+        public void Navigate(string url)
         {
             webBrowser1.Navigate(url);
         }

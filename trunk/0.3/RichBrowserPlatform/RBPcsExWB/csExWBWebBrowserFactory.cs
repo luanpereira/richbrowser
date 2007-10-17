@@ -7,10 +7,9 @@ namespace RBPcsExWB
 {
     public class csExWBWebBrowserFactory : IWebBrowserFactory
     {
-
         #region IWebBrowserFactory 멤버
 
-        IWebBrowser IWebBrowserFactory.Create()
+        public IWebBrowser Create()
         {
             return new RBPcsExWB.WebBrowser();
         }

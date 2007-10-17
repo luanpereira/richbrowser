@@ -92,12 +92,8 @@
       <Project>{835886A1-5E3D-45DC-B1A7-BD38661953EC}</Project>
       <Name>RBPDefaultWebBrowser</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RichBrowserControl\RichBrowserControl.csproj">
-      <Project>{9A96F180-922A-47C1-908F-50042E7C612D}</Project>
-      <Name>RichBrowserControl</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RichBrowserPlatform\RichBrowserPlatform.csproj">
-      <Project>{49C812EE-4934-490E-8933-705B23ACA9AB}</Project>
+      <Project>{8F24C975-AA81-461D-8C94-3B4576DEB9CF}</Project>
       <Name>RichBrowserPlatform</Name>
     </ProjectReference>
   </ItemGroup>

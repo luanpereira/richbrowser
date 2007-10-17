@@ -1,4 +1,4 @@
-﻿namespace RichBrowserControl
+﻿namespace RichBrowserPlatform
 {
     partial class RichBrowserControl
     {
@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RichBrowserControl));
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelMessage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripProgressBarMain = new System.Windows.Forms.ToolStripProgressBar();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,16 +48,14 @@
             this.toolStripWeb = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
-            this.toolStripAddress = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabelAddress = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBoxUrl = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButtonGo = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonForward = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonStop = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonHome = new System.Windows.Forms.ToolStripButton();
-            this.toolStripStatusLabelMessage = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBarMain = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripAddress = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabelAddress = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBoxUrl = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButtonGo = new System.Windows.Forms.ToolStripButton();
             this.statusStripMain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainerMain.ContentPanel.SuspendLayout();
@@ -76,6 +76,18 @@
             this.statusStripMain.Size = new System.Drawing.Size(718, 22);
             this.statusStripMain.TabIndex = 0;
             this.statusStripMain.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelMessage
+            // 
+            this.toolStripStatusLabelMessage.Name = "toolStripStatusLabelMessage";
+            this.toolStripStatusLabelMessage.Size = new System.Drawing.Size(58, 17);
+            this.toolStripStatusLabelMessage.Text = "Message";
+            // 
+            // toolStripProgressBarMain
+            // 
+            this.toolStripProgressBarMain.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripProgressBarMain.Name = "toolStripProgressBarMain";
+            this.toolStripProgressBarMain.Size = new System.Drawing.Size(100, 16);
             // 
             // menuStrip1
             // 
@@ -218,39 +230,6 @@
             this.toolStripButtonBack.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonBack.Text = "toolStripButton2";
             // 
-            // toolStripAddress
-            // 
-            this.toolStripAddress.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStripAddress.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabelAddress,
-            this.toolStripTextBoxUrl,
-            this.toolStripButtonGo});
-            this.toolStripAddress.Location = new System.Drawing.Point(3, 25);
-            this.toolStripAddress.Name = "toolStripAddress";
-            this.toolStripAddress.Size = new System.Drawing.Size(193, 25);
-            this.toolStripAddress.TabIndex = 1;
-            // 
-            // toolStripLabelAddress
-            // 
-            this.toolStripLabelAddress.Name = "toolStripLabelAddress";
-            this.toolStripLabelAddress.Size = new System.Drawing.Size(56, 22);
-            this.toolStripLabelAddress.Text = "A&ddress:";
-            // 
-            // toolStripTextBoxUrl
-            // 
-            this.toolStripTextBoxUrl.Name = "toolStripTextBoxUrl";
-            this.toolStripTextBoxUrl.Size = new System.Drawing.Size(100, 25);
-            // 
-            // toolStripButtonGo
-            // 
-            this.toolStripButtonGo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonGo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonGo.Image")));
-            this.toolStripButtonGo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonGo.Name = "toolStripButtonGo";
-            this.toolStripButtonGo.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonGo.Text = "toolStripButton3";
-            this.toolStripButtonGo.Click += new System.EventHandler(this.toolStripButtonGo_Click);
-            // 
             // toolStripButtonForward
             // 
             this.toolStripButtonForward.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -287,17 +266,39 @@
             this.toolStripButtonHome.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonHome.Text = "toolStripButton3";
             // 
-            // toolStripStatusLabelMessage
+            // toolStripAddress
             // 
-            this.toolStripStatusLabelMessage.Name = "toolStripStatusLabelMessage";
-            this.toolStripStatusLabelMessage.Size = new System.Drawing.Size(58, 17);
-            this.toolStripStatusLabelMessage.Text = "Message";
+            this.toolStripAddress.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripAddress.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabelAddress,
+            this.toolStripTextBoxUrl,
+            this.toolStripButtonGo});
+            this.toolStripAddress.Location = new System.Drawing.Point(3, 25);
+            this.toolStripAddress.Name = "toolStripAddress";
+            this.toolStripAddress.Size = new System.Drawing.Size(424, 25);
+            this.toolStripAddress.TabIndex = 1;
             // 
-            // toolStripProgressBarMain
+            // toolStripLabelAddress
             // 
-            this.toolStripProgressBarMain.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripProgressBarMain.Name = "toolStripProgressBarMain";
-            this.toolStripProgressBarMain.Size = new System.Drawing.Size(100, 16);
+            this.toolStripLabelAddress.Name = "toolStripLabelAddress";
+            this.toolStripLabelAddress.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabelAddress.Text = "A&ddress:";
+            // 
+            // toolStripTextBoxUrl
+            // 
+            this.toolStripTextBoxUrl.Name = "toolStripTextBoxUrl";
+            this.toolStripTextBoxUrl.Size = new System.Drawing.Size(300, 25);
+            this.toolStripTextBoxUrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxUrl_KeyDown);
+            // 
+            // toolStripButtonGo
+            // 
+            this.toolStripButtonGo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonGo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonGo.Image")));
+            this.toolStripButtonGo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonGo.Name = "toolStripButtonGo";
+            this.toolStripButtonGo.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonGo.Text = "toolStripButton3";
+            this.toolStripButtonGo.Click += new System.EventHandler(this.toolStripButtonGo_Click);
             // 
             // RichBrowserControl
             // 

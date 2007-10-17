@@ -9,7 +9,7 @@ using RichBrowserPlatform;
 
 namespace RBPcsExWB
 {
-    public partial class WebBrowser : UserControl, IWebBrowser, IWebBrowserFactory
+    public partial class WebBrowser : UserControl, IWebBrowser
     {
         public WebBrowser()
         {
@@ -20,18 +20,9 @@ namespace RBPcsExWB
 
         #region IWebBrowser 멤버
 
-        void IWebBrowser.Navigate(string url)
+        public void Navigate(string url)
         {
             cEXWBMain.Navigate(url);
-        }
-
-        #endregion
-
-        #region IWebBrowserFactory 멤버
-
-        IWebBrowser IWebBrowserFactory.Create()
-        {
-            return new RBPcsExWB.WebBrowser();
         }
 
         #endregion

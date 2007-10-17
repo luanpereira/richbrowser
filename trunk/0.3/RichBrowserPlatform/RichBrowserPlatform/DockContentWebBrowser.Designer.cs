@@ -1,6 +1,6 @@
-﻿namespace DemoApp
+﻿namespace RichBrowserPlatform
 {
-    partial class Form1
+    partial class DockContentWebBrowser
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -28,32 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richBrowserControl1 = new RichBrowserPlatform.RichBrowserControl();
-            this.SuspendLayout();
-            // 
-            // richBrowserControl1
-            // 
-            this.richBrowserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richBrowserControl1.Location = new System.Drawing.Point(0, 0);
-            this.richBrowserControl1.Name = "richBrowserControl1";
-            this.richBrowserControl1.Size = new System.Drawing.Size(625, 392);
-            this.richBrowserControl1.TabIndex = 0;
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 392);
-            this.Controls.Add(this.richBrowserControl1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-
+            this.Text = "DockContentWebBrowser";
         }
 
         #endregion
-
-        private RichBrowserPlatform.RichBrowserControl richBrowserControl1;
     }
 }
-

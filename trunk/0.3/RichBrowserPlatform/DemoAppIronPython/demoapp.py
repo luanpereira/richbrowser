@@ -6,7 +6,6 @@ clr.AddReference('System.Drawing')
 clr.AddReference('System.Windows.Forms')
 
 clr.AddReference('WeifenLuo.WinFormsUI.Docking')
-clr.AddReference('RichBrowserControl')
 clr.AddReference('RichBrowserPlatform')
 
 from System import *
@@ -15,22 +14,14 @@ from System.Windows.Forms import *
 from System.Runtime.InteropServices import *
 
 from WeifenLuo.WinFormsUI.Docking import *
-from RichBrowserControl import *
 from RichBrowserPlatform import *
 
-clr.AddReference('RBPcsExWB')
-from RBPcsExWB import *
-
-#clr.AddReference('RBPDefaultWebBrowser')
-#from RBPDefaultWebBrowser import *
+from rbp_csexwb import *
+#from rbp_defaultwb import *
 
 class FormMain(Form):
-	# PUMzControl
-	pc = None
-	# DockPanel
+	rbc = None
 	dp = None
-	dcCollector = None
-	dcDownloader = None
 	
 	def __init__(self):
 		self.Text = "DemoAppIronPython"
@@ -38,11 +29,29 @@ class FormMain(Form):
 		self.Height = 600
 		self.StartPosition = FormStartPosition.CenterScreen
 	
-		c = self.pc = RichBrowserControl()
+		c = self.rbc = RichBrowserControl()
 		c.WebBrowserFactory = csExWBWebBrowserFactory()
 		#c.WebBrowserFactory = DefaultWebBrowserFactory()
 		c.Dock = DockStyle.Fill
 		self.Controls.Add(c)
+		
+		self.dp = self.rbc.dp
+		
+		c = self.rbc.tbUrl
+		c.GotFocus += self.tbUrl_GotFocus
+		c.KeyDown += self.tbUrl_KeyDown
+		
+	def tbUrl_GotFocus(self, sender, event):
+		self.rbc.tbUrl.SelectAll();
+		
+	def tbUrl_KeyDown(self, sender, event):
+		if event.KeyCode == Keys.Return:
+			dc = DockContentWebBrowser()
+			dc.WebBrowser = self.rbc.WebBrowserFactory.Create()
+			dc.Show(self.dp, DockState.Document)
+			dc.WebBrowser.Navigate(self.rbc.tbUrl.Text)
+
+			event.SuppressKeyPress = True;
 
 form = FormMain()
 Application.Run(form)

@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichBrowserControl", "RichBrowserControl\RichBrowserControl.csproj", "{9A96F180-922A-47C1-908F-50042E7C612D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp", "DemoApp\DemoApp.csproj", "{057A515F-1EE5-4E15-9721-A766A8048BBA}"
 	ProjectSection(ProjectDependencies) = postProject
 		{456E4227-4AEC-4F0F-8B2A-8C26B339DCB0} = {456E4227-4AEC-4F0F-8B2A-8C26B339DCB0}
@@ -10,9 +8,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp", "DemoApp\DemoApp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBPcsExWB", "RBPcsExWB\RBPcsExWB.csproj", "{456E4227-4AEC-4F0F-8B2A-8C26B339DCB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichBrowserPlatform", "RichBrowserPlatform\RichBrowserPlatform.csproj", "{49C812EE-4934-490E-8933-705B23ACA9AB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBPDefaultWebBrowser", "RBPDefaultWebBrowser\RBPDefaultWebBrowser.csproj", "{835886A1-5E3D-45DC-B1A7-BD38661953EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichBrowserPlatform", "RichBrowserPlatform\RichBrowserPlatform.csproj", "{8F24C975-AA81-461D-8C94-3B4576DEB9CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,12 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9A96F180-922A-47C1-908F-50042E7C612D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A96F180-922A-47C1-908F-50042E7C612D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A96F180-922A-47C1-908F-50042E7C612D}.Debug-IronPython|Any CPU.ActiveCfg = Debug-IronPython|Any CPU
-		{9A96F180-922A-47C1-908F-50042E7C612D}.Debug-IronPython|Any CPU.Build.0 = Debug-IronPython|Any CPU
-		{9A96F180-922A-47C1-908F-50042E7C612D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A96F180-922A-47C1-908F-50042E7C612D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{057A515F-1EE5-4E15-9721-A766A8048BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{057A515F-1EE5-4E15-9721-A766A8048BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{057A515F-1EE5-4E15-9721-A766A8048BBA}.Debug-IronPython|Any CPU.ActiveCfg = Debug-IronPython|Any CPU
@@ -36,21 +28,19 @@ Global
 		{456E4227-4AEC-4F0F-8B2A-8C26B339DCB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{456E4227-4AEC-4F0F-8B2A-8C26B339DCB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{456E4227-4AEC-4F0F-8B2A-8C26B339DCB0}.Debug-IronPython|Any CPU.ActiveCfg = Debug-IronPython|Any CPU
-		{456E4227-4AEC-4F0F-8B2A-8C26B339DCB0}.Debug-IronPython|Any CPU.Build.0 = Debug-IronPython|Any CPU
 		{456E4227-4AEC-4F0F-8B2A-8C26B339DCB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{456E4227-4AEC-4F0F-8B2A-8C26B339DCB0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{49C812EE-4934-490E-8933-705B23ACA9AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{49C812EE-4934-490E-8933-705B23ACA9AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{49C812EE-4934-490E-8933-705B23ACA9AB}.Debug-IronPython|Any CPU.ActiveCfg = Debug-IronPython|Any CPU
-		{49C812EE-4934-490E-8933-705B23ACA9AB}.Debug-IronPython|Any CPU.Build.0 = Debug-IronPython|Any CPU
-		{49C812EE-4934-490E-8933-705B23ACA9AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{49C812EE-4934-490E-8933-705B23ACA9AB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{835886A1-5E3D-45DC-B1A7-BD38661953EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{835886A1-5E3D-45DC-B1A7-BD38661953EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{835886A1-5E3D-45DC-B1A7-BD38661953EC}.Debug-IronPython|Any CPU.ActiveCfg = Debug-IronPython|Any CPU
-		{835886A1-5E3D-45DC-B1A7-BD38661953EC}.Debug-IronPython|Any CPU.Build.0 = Debug-IronPython|Any CPU
 		{835886A1-5E3D-45DC-B1A7-BD38661953EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{835886A1-5E3D-45DC-B1A7-BD38661953EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Debug-IronPython|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Debug-IronPython|Any CPU.Build.0 = Debug|Any CPU
+		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

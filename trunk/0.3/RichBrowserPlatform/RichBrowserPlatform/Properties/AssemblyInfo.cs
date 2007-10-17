@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 어셈블리의 일반 정보는 다음 특성 집합을 통해 제어됩니다.
 // 어셈블리와 관련된 정보를 수정하려면
 // 이 특성 값을 변경하십시오.
-[assembly: AssemblyTitle("RichBrowserControl")]
+[assembly: AssemblyTitle("RichBrowserPlatform")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("IROONET")]
-[assembly: AssemblyProduct("RichBrowserControl")]
+[assembly: AssemblyProduct("RichBrowserPlatform")]
 [assembly: AssemblyCopyright("Copyright (C) IROONET 2007")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 이 프로젝트가 COM에 노출되는 경우 다음 GUID는 typelib의 ID를 나타냅니다.
-[assembly: Guid("b0775c16-43f0-48bf-86a0-41cac4c16353")]
+[assembly: Guid("cc73f729-f146-40e6-a8f1-53a1cff5f1d0")]
 
 // 어셈블리의 버전 정보는 다음 네 가지 값으로 구성됩니다.
 //

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using RichBrowserPlatform;
 
-namespace RichBrowserControl
+namespace RichBrowserPlatform
 {
     public partial class RichBrowserControl : UserControl
     {
@@ -19,6 +19,8 @@ namespace RichBrowserControl
             get { return m_webBrowserFactory; }
             set { m_webBrowserFactory = value; }
         }
+
+        public DockPanel dp { get { return dockPanelMain; } }
 
         public ToolStripMenuItem miNew { get { return newToolStripMenuItem; } }
         public ToolStripMenuItem miClose { get { return closeToolStripMenuItem; } }
@@ -39,6 +41,8 @@ namespace RichBrowserControl
             InitializeComponent();
 
             dockPanelMain.DocumentStyle = DocumentStyle.DockingWindow;
+
+            toolStripTextBoxUrl.GotFocus += new EventHandler(tbUrl_GotFocus);
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,10 +57,32 @@ namespace RichBrowserControl
         private void toolStripButtonGo_Click(object sender, EventArgs e)
         {
 #if !FOR_IRONPTYHON
-           DockContentWebBrowser dc = new DockContentWebBrowser();
+            DockContentWebBrowser dc = new DockContentWebBrowser();
             dc.WebBrowser = m_webBrowserFactory.Create();
             dc.Show(dockPanelMain, DockState.Document);
             dc.WebBrowser.Navigate(toolStripTextBoxUrl.Text);
+#endif
+        }
+
+        private void toolStripTextBoxUrl_KeyDown(object sender, KeyEventArgs e)
+        {
+#if !FOR_IRONPTYHON
+            if (e.KeyCode == Keys.Return)
+            {
+                DockContentWebBrowser dc = new DockContentWebBrowser();
+                dc.WebBrowser = m_webBrowserFactory.Create();
+                dc.Show(dockPanelMain, DockState.Document);
+                dc.WebBrowser.Navigate(toolStripTextBoxUrl.Text);
+
+                e.SuppressKeyPress = true;
+            }
+#endif
+        }
+
+        private void tbUrl_GotFocus(object sender, EventArgs e)
+        {
+#if !FOR_IRONPTYHON
+            tbUrl.SelectAll();
 #endif
         }
     }
