@@ -37,8 +37,8 @@ Global
 		{835886A1-5E3D-45DC-B1A7-BD38661953EC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Debug-IronPython|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Debug-IronPython|Any CPU.Build.0 = Debug|Any CPU
+		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Debug-IronPython|Any CPU.ActiveCfg = Debug-IronPython|Any CPU
+		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Debug-IronPython|Any CPU.Build.0 = Debug-IronPython|Any CPU
 		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F24C975-AA81-461D-8C94-3B4576DEB9CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

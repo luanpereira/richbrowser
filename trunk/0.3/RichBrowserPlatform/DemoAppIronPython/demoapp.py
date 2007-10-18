@@ -29,29 +29,75 @@ class FormMain(Form):
 		self.Height = 600
 		self.StartPosition = FormStartPosition.CenterScreen
 	
-		c = self.rbc = RichBrowserControl()
+		c = rbc = self.rbc = RichBrowserControl()
 		c.WebBrowserFactory = csExWBWebBrowserFactory()
 		#c.WebBrowserFactory = DefaultWebBrowserFactory()
 		c.Dock = DockStyle.Fill
 		self.Controls.Add(c)
 		
-		self.dp = self.rbc.dp
+		self.dp = rbc.dp
 		
-		c = self.rbc.tbUrl
-		c.GotFocus += self.tbUrl_GotFocus
-		c.KeyDown += self.tbUrl_KeyDown
+		c = rbc.tbUrl
+		c.GotFocus += self.__tbUrl_GotFocus
+		c.KeyDown += self.__tbUrl_KeyDown
 		
-	def tbUrl_GotFocus(self, sender, event):
+		c = rbc.btGo
+		c.Click += self.__btGo_Click
+		
+		c = rbc.tbSearch
+		c.GotFocus += self.__tbSearch_GotFocus
+		c.KeyDown += self.__tbSearch_KeyDown
+		
+		c = rbc.btSearch
+		c.Click += self.__btSearch_Click
+		
+		c = rbc.miWebSearch
+		c.Click += self.__miWebSearch_Click
+		
+	def __tbUrl_GotFocus(self, sender, event):
 		self.rbc.tbUrl.SelectAll();
 		
-	def tbUrl_KeyDown(self, sender, event):
+	def __tbUrl_KeyDown(self, sender, event):
 		if event.KeyCode == Keys.Return:
-			dc = DockContentWebBrowser()
-			dc.WebBrowser = self.rbc.WebBrowserFactory.Create()
-			dc.Show(self.dp, DockState.Document)
-			dc.WebBrowser.Navigate(self.rbc.tbUrl.Text)
+			self.__navigate()
 
 			event.SuppressKeyPress = True;
 
+	def __btGo_Click(self, sender, event):
+		self.__navigate()
+			
+	def __tbSearch_GotFocus(self, sender, event):
+		self.rbc.tbSearch.SelectAll();
+		
+	def __tbSearch_KeyDown(self, sender, event):
+		if event.KeyCode == Keys.Return:
+			self.__search()
+
+			event.SuppressKeyPress = True;
+
+	def __btSearch_Click(self, sender, event):
+		self.__search()
+			
+	def __miWebSearch_Click(self, sender, event):
+		self.rbc.tbSearch.Focus()
+			
+	def __new_web_browser(self):
+		dc = DockContentWebBrowser()
+		dc.WebBrowser = self.rbc.WebBrowserFactory.Create()
+		dc.Show(self.dp, DockState.Document)
+		return dc
+
+	def __navigate(self, url = '', dc = None):
+		if dc == None:
+			dc = self.__new_web_browser()
+		if url == '':
+			url = self.rbc.tbUrl.Text
+		dc.WebBrowser.Navigate(url)
+		
+	def __search(self, query = '', dc = None):
+		if query == '':
+			query = self.rbc.tbSearch.Text
+		self.__navigate('http://www.google.co.kr/search?q=' + query, dc)
+		
 form = FormMain()
 Application.Run(form)

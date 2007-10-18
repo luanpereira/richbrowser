@@ -32,7 +32,7 @@
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBarMain = new System.Windows.Forms.ToolStripProgressBar();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
@@ -42,27 +42,34 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainerMain = new System.Windows.Forms.ToolStripContainer();
             this.dockPanelMain = new WeifenLuo.WinFormsUI.Docking.DockPanel();
+            this.toolStripSearch = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabelSearch = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButtonSearch = new System.Windows.Forms.ToolStripButton();
+            this.toolStripAddress = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabelAddress = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBoxUrl = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButtonGo = new System.Windows.Forms.ToolStripButton();
             this.toolStripWeb = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabelWeb = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonForward = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonStop = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonHome = new System.Windows.Forms.ToolStripButton();
-            this.toolStripAddress = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabelAddress = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBoxUrl = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButtonGo = new System.Windows.Forms.ToolStripButton();
             this.statusStripMain.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.menuStripMain.SuspendLayout();
             this.toolStripContainerMain.ContentPanel.SuspendLayout();
             this.toolStripContainerMain.TopToolStripPanel.SuspendLayout();
             this.toolStripContainerMain.SuspendLayout();
-            this.toolStripWeb.SuspendLayout();
+            this.toolStripSearch.SuspendLayout();
             this.toolStripAddress.SuspendLayout();
+            this.toolStripWeb.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStripMain
@@ -89,19 +96,19 @@
             this.toolStripProgressBarMain.Name = "toolStripProgressBarMain";
             this.toolStripProgressBarMain.Size = new System.Drawing.Size(100, 16);
             // 
-            // menuStrip1
+            // menuStripMain
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.toolsToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(718, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStripMain.Location = new System.Drawing.Point(0, 0);
+            this.menuStripMain.Name = "menuStripMain";
+            this.menuStripMain.Size = new System.Drawing.Size(718, 24);
+            this.menuStripMain.TabIndex = 1;
+            this.menuStripMain.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -158,9 +165,19 @@
             // 
             // toolsToolStripMenuItem
             // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.webSearchToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
+            // 
+            // webSearchToolStripMenuItem
+            // 
+            this.webSearchToolStripMenuItem.Name = "webSearchToolStripMenuItem";
+            this.webSearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
+            this.webSearchToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.webSearchToolStripMenuItem.Text = "Web &Search";
+            this.webSearchToolStripMenuItem.Click += new System.EventHandler(this.webSearchToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -174,7 +191,7 @@
             // toolStripContainerMain.ContentPanel
             // 
             this.toolStripContainerMain.ContentPanel.Controls.Add(this.dockPanelMain);
-            this.toolStripContainerMain.ContentPanel.Size = new System.Drawing.Size(718, 291);
+            this.toolStripContainerMain.ContentPanel.Size = new System.Drawing.Size(718, 266);
             this.toolStripContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainerMain.Location = new System.Drawing.Point(0, 24);
             this.toolStripContainerMain.Name = "toolStripContainerMain";
@@ -184,8 +201,9 @@
             // 
             // toolStripContainerMain.TopToolStripPanel
             // 
-            this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStripWeb);
+            this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStripSearch);
             this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStripAddress);
+            this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStripWeb);
             // 
             // dockPanelMain
             // 
@@ -194,23 +212,98 @@
             this.dockPanelMain.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
             this.dockPanelMain.Location = new System.Drawing.Point(0, 0);
             this.dockPanelMain.Name = "dockPanelMain";
-            this.dockPanelMain.Size = new System.Drawing.Size(718, 291);
+            this.dockPanelMain.Size = new System.Drawing.Size(718, 266);
             this.dockPanelMain.TabIndex = 0;
+            // 
+            // toolStripSearch
+            // 
+            this.toolStripSearch.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripSearch.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabelSearch,
+            this.toolStripTextBoxSearch,
+            this.toolStripButtonSearch});
+            this.toolStripSearch.Location = new System.Drawing.Point(3, 0);
+            this.toolStripSearch.Name = "toolStripSearch";
+            this.toolStripSearch.Size = new System.Drawing.Size(186, 25);
+            this.toolStripSearch.TabIndex = 2;
+            // 
+            // toolStripLabelSearch
+            // 
+            this.toolStripLabelSearch.Name = "toolStripLabelSearch";
+            this.toolStripLabelSearch.Size = new System.Drawing.Size(49, 22);
+            this.toolStripLabelSearch.Text = "Search:";
+            // 
+            // toolStripTextBoxSearch
+            // 
+            this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
+            this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
+            this.toolStripTextBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxSearch_KeyDown);
+            // 
+            // toolStripButtonSearch
+            // 
+            this.toolStripButtonSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSearch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSearch.Image")));
+            this.toolStripButtonSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSearch.Name = "toolStripButtonSearch";
+            this.toolStripButtonSearch.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSearch.Text = "Search";
+            this.toolStripButtonSearch.Click += new System.EventHandler(this.toolStripButtonSearch_Click);
+            // 
+            // toolStripAddress
+            // 
+            this.toolStripAddress.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripAddress.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabelAddress,
+            this.toolStripTextBoxUrl,
+            this.toolStripButtonGo});
+            this.toolStripAddress.Location = new System.Drawing.Point(3, 25);
+            this.toolStripAddress.Name = "toolStripAddress";
+            this.toolStripAddress.Size = new System.Drawing.Size(393, 25);
+            this.toolStripAddress.TabIndex = 1;
+            // 
+            // toolStripLabelAddress
+            // 
+            this.toolStripLabelAddress.Name = "toolStripLabelAddress";
+            this.toolStripLabelAddress.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabelAddress.Text = "A&ddress:";
+            // 
+            // toolStripTextBoxUrl
+            // 
+            this.toolStripTextBoxUrl.Name = "toolStripTextBoxUrl";
+            this.toolStripTextBoxUrl.Size = new System.Drawing.Size(300, 25);
+            this.toolStripTextBoxUrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxUrl_KeyDown);
+            // 
+            // toolStripButtonGo
+            // 
+            this.toolStripButtonGo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonGo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonGo.Image")));
+            this.toolStripButtonGo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonGo.Name = "toolStripButtonGo";
+            this.toolStripButtonGo.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonGo.Text = "toolStripButton3";
+            this.toolStripButtonGo.Click += new System.EventHandler(this.toolStripButtonGo_Click);
             // 
             // toolStripWeb
             // 
             this.toolStripWeb.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStripWeb.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabelWeb,
             this.toolStripButtonNew,
             this.toolStripButtonBack,
             this.toolStripButtonForward,
             this.toolStripButtonStop,
             this.toolStripButtonRefresh,
             this.toolStripButtonHome});
-            this.toolStripWeb.Location = new System.Drawing.Point(3, 0);
+            this.toolStripWeb.Location = new System.Drawing.Point(3, 50);
             this.toolStripWeb.Name = "toolStripWeb";
-            this.toolStripWeb.Size = new System.Drawing.Size(150, 25);
+            this.toolStripWeb.Size = new System.Drawing.Size(183, 25);
             this.toolStripWeb.TabIndex = 0;
+            // 
+            // toolStripLabelWeb
+            // 
+            this.toolStripLabelWeb.Name = "toolStripLabelWeb";
+            this.toolStripLabelWeb.Size = new System.Drawing.Size(33, 22);
+            this.toolStripLabelWeb.Text = "Web:";
             // 
             // toolStripButtonNew
             // 
@@ -266,62 +359,30 @@
             this.toolStripButtonHome.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonHome.Text = "toolStripButton3";
             // 
-            // toolStripAddress
-            // 
-            this.toolStripAddress.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStripAddress.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabelAddress,
-            this.toolStripTextBoxUrl,
-            this.toolStripButtonGo});
-            this.toolStripAddress.Location = new System.Drawing.Point(3, 25);
-            this.toolStripAddress.Name = "toolStripAddress";
-            this.toolStripAddress.Size = new System.Drawing.Size(424, 25);
-            this.toolStripAddress.TabIndex = 1;
-            // 
-            // toolStripLabelAddress
-            // 
-            this.toolStripLabelAddress.Name = "toolStripLabelAddress";
-            this.toolStripLabelAddress.Size = new System.Drawing.Size(56, 22);
-            this.toolStripLabelAddress.Text = "A&ddress:";
-            // 
-            // toolStripTextBoxUrl
-            // 
-            this.toolStripTextBoxUrl.Name = "toolStripTextBoxUrl";
-            this.toolStripTextBoxUrl.Size = new System.Drawing.Size(300, 25);
-            this.toolStripTextBoxUrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxUrl_KeyDown);
-            // 
-            // toolStripButtonGo
-            // 
-            this.toolStripButtonGo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonGo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonGo.Image")));
-            this.toolStripButtonGo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonGo.Name = "toolStripButtonGo";
-            this.toolStripButtonGo.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonGo.Text = "toolStripButton3";
-            this.toolStripButtonGo.Click += new System.EventHandler(this.toolStripButtonGo_Click);
-            // 
             // RichBrowserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.toolStripContainerMain);
             this.Controls.Add(this.statusStripMain);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStripMain);
             this.Name = "RichBrowserControl";
             this.Size = new System.Drawing.Size(718, 387);
             this.statusStripMain.ResumeLayout(false);
             this.statusStripMain.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStripMain.ResumeLayout(false);
+            this.menuStripMain.PerformLayout();
             this.toolStripContainerMain.ContentPanel.ResumeLayout(false);
             this.toolStripContainerMain.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainerMain.TopToolStripPanel.PerformLayout();
             this.toolStripContainerMain.ResumeLayout(false);
             this.toolStripContainerMain.PerformLayout();
-            this.toolStripWeb.ResumeLayout(false);
-            this.toolStripWeb.PerformLayout();
+            this.toolStripSearch.ResumeLayout(false);
+            this.toolStripSearch.PerformLayout();
             this.toolStripAddress.ResumeLayout(false);
             this.toolStripAddress.PerformLayout();
+            this.toolStripWeb.ResumeLayout(false);
+            this.toolStripWeb.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,7 +391,7 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip statusStripMain;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripContainer toolStripContainerMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
@@ -356,5 +417,11 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonHome;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelMessage;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBarMain;
+        private System.Windows.Forms.ToolStripLabel toolStripLabelWeb;
+        private System.Windows.Forms.ToolStrip toolStripSearch;
+        private System.Windows.Forms.ToolStripLabel toolStripLabelSearch;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxSearch;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSearch;
+        private System.Windows.Forms.ToolStripMenuItem webSearchToolStripMenuItem;
     }
 }
