@@ -42,45 +42,16 @@ class FormDecorator:
 		dp = form.dp = rbc.dp
 		dp.ContentAdded += self.__dp_ContentAdded;
 		
-		c = rbc.miNew
-		c.ShortcutKeys = Keys.Control | Keys.T
-		c.Tag = 'NewWebBrowser'
-		c.Click += self.__handle_cmd
+		self.__set_item(rbc.miNew, 'NewWebBrowser', 'New', None, Keys.Control | Keys.T)
+		self.__set_item(rbc.miClose, 'CloseWebBrowser', 'Close', None, Keys.Control | Keys.W)
+		self.__set_item(rbc.miExit, 'Exit', 'Exit')
 		
-		c = rbc.miClose
-		c.ShortcutKeys = Keys.Control | Keys.W
-		c.Tag = 'CloseWebBrowser'
-		c.Click += self.__handle_cmd
-		
-		c = rbc.miExit
-		c.Tag = 'Exit'
-		c.Click += self.__handle_cmd
-		
-		c = rbc.btNew
-		c.Text = "New"
-		c.Image = Image.FromFile("new_16.png")
-		c.Tag = 'NewWebBrowser'
-		c.Click += self.__handle_cmd
-		
-		c = rbc.btBack
-		c.Text = "Back"
-		c.Image = Image.FromFile("back_16.png")		
-		
-		c = rbc.btForward
-		c.Text = "Forward"
-		c.Image = Image.FromFile("forwd_16.png")		
-		
-		c = rbc.btStop
-		c.Text = "Stop"
-		c.Image = Image.FromFile("cancl_16.png")		
-		
-		c = rbc.btRefresh
-		c.Text = "Refresh"
-		c.Image = Image.FromFile("ref_16.png")		
-		
-		c = rbc.btHome
-		c.Text = "Home"
-		c.Image = Image.FromFile("home_16.png")		
+		self.__set_item(rbc.btNew, 'NewWebBrowser', 'New', Image.FromFile("new_16.png"))
+		self.__set_item(rbc.btBack, 'Back', 'Back', Image.FromFile("back_16.png"))
+		self.__set_item(rbc.btForward, 'Forward', 'Forward', Image.FromFile("forwd_16.png"))
+		self.__set_item(rbc.btStop, 'Stop', 'Stop', Image.FromFile("cancl_16.png"))
+		self.__set_item(rbc.btRefresh, 'Refresh', 'Refresh', Image.FromFile("ref_16.png"))
+		self.__set_item(rbc.btHome, 'Home', 'Home', Image.FromFile("home_16.png"))
 		
 		c = rbc.tbUrl
 		c.GotFocus += self.__tbUrl_GotFocus
@@ -117,6 +88,17 @@ class FormDecorator:
 		
 	def __handle_cmd(self, sender, event):
 		get_singleton(Commander).execute(sender.Tag, sender, event)
+	
+	def __set_item(self, mi, key, text = None, image = None, sk = None):
+		c = mi
+		c.Tag = key
+		c.Click += self.__handle_cmd
+		if text != None:
+			c.Text = text
+		if image != None:
+			c.Image = image
+		if sk != None:
+			c.ShortcutKeys = sk
 	
 	def __dp_ContentAdded(self, sender, event):
 		get_singleton(Commander).execute('ContentAdded', sender, event)
