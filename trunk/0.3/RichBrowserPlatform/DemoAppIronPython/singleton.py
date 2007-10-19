@@ -7,3 +7,8 @@ def get_singleton(cls):
 	singletons[cls] = cls()
 	return singletons[cls]
 
+def has_singleton(cls):
+	if cls in singletons:
+		return True
+	else:
+		return False
