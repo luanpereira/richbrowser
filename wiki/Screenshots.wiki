@@ -1,6 +1,7 @@
 #summary DemoApp screenshots here.
-#labels screenshot,demo
+#labels screenshot,demo,ironpyhon
 
 = Screenshots =
 
+* DemoApp using IronPython
 http://richbrowser.googlecode.com/svn/trunk/0.3/RichBrowserPlatform/DemoAppIronPython/screenshot.png
