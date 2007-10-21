@@ -1,0 +1,16 @@
+#summary about Rich Browser Platform
+
+= Introduction =
+
+Add your content here.
+
+
+= Details =
+
+RichBrowserPlatform 0.3 uses
+  * [http://sf.net/projects/dockpanelsuite DockPanelSuite 2.1]
+  * [http://code.google.com/p/csexwb2/downloads/list csExWB 1.0.0.6]
+
+RichBrowserPlatform 0.2 uses
+  * [http://sf.net/projects/dockpanelsuite DockPanelSuite 1.0]
+  * [http://code.google.com/p/csexwb2/downloads/list csExWB 1.0.0.1]
