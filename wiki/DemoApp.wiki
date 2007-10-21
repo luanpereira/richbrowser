@@ -1,0 +1,9 @@
+#summary Demo Application.
+
+= Introduction =
+
+This demonstrate RichBrowserPlatform.
+
+= Details =
+  * [Screenshots]
+
