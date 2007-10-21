@@ -1,4 +1,0 @@
-#summary About Rich Browser Platform
-#labels introduction
-
-http://www.gliffy.com/pubdoc/1230736/L.jpg
