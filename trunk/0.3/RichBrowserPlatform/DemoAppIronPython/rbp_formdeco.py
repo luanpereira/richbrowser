@@ -85,7 +85,7 @@ class FormDecorator:
 		
 		get_singleton(Commander).set('Navigate', NavigateCmd(form))
 		get_singleton(Commander).set('Search', SearchCmd(form))
-		
+
 	def __handle_cmd(self, sender, event):
 		get_singleton(Commander).execute(sender.Tag, sender, event)
 	

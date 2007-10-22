@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<project name="RBPApp" default="main">
+
+	<property name="name" value="demoapp"/>
+	
+	<target name="zip">
+		<zip zipfile="${name}.zip">
+			<fileset basedir=".">
+				<include name="**/*"/>
+				<exclude name=".svn"/>
+				<exclude name="*.zip"/>
+			</fileset>
+		</zip>
+	</target>
+
+	<target name="main" depends="zip"/>
+</project>
