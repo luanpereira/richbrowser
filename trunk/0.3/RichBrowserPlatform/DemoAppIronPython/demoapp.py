@@ -6,10 +6,10 @@ clr.AddReference('System.Windows.Forms')
 
 from System.Windows.Forms import *
 
-from rbp_formdeco import *
+from rbp.formdeco import *
 
-from singleton import *
-from pluginhost import *
+from rbp.common.singleton import *
+from rbp.common.pluginhost import *
 
 class FormMain(Form):
 	rbc = None

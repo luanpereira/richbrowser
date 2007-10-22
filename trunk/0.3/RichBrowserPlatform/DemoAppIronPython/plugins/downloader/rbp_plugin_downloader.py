@@ -1,6 +1,6 @@
-from pluginhost import *
-from singleton import *
-from command import *
+from rbp.common.pluginhost import *
+from rbp.common.singleton import *
+from rbp.common.command import *
 
 import clr
 
@@ -10,7 +10,7 @@ clr.AddReference('RBPGUI.Downloader')
 from WeifenLuo.WinFormsUI.Docking import *
 from RBPGUI.Downloader import *
 
-from rbp_plugin_base import *
+from rbp.plugin_base import *
 
 class DownloaderPlugin(BasePlugin):
 	def activate(self, args):

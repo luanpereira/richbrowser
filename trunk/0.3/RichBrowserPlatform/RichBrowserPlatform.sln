@@ -2,23 +2,61 @@
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp", "DemoApp\DemoApp.csproj", "{057A515F-1EE5-4E15-9721-A766A8048BBA}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 	ProjectSection(ProjectDependencies) = postProject
 		{456E4227-4AEC-4F0F-8B2A-8C26B339DCB0} = {456E4227-4AEC-4F0F-8B2A-8C26B339DCB0}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBPcsExWB", "RBPcsExWB\RBPcsExWB.csproj", "{456E4227-4AEC-4F0F-8B2A-8C26B339DCB0}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBPDefaultWebBrowser", "RBPDefaultWebBrowser\RBPDefaultWebBrowser.csproj", "{835886A1-5E3D-45DC-B1A7-BD38661953EC}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichBrowserPlatform", "RichBrowserPlatform\RichBrowserPlatform.csproj", "{8F24C975-AA81-461D-8C94-3B4576DEB9CF}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBPGUI.Downloader", "RBPGUI.Downloader\RBPGUI.Downloader.csproj", "{145843F5-C0CB-4049-9661-010377FA83D9}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBPGUI.MediaPlayer", "RBPGUI.MediaPlayer\RBPGUI.MediaPlayer.csproj", "{D5CF272E-6977-46FE-BF7B-AC1D0F2448A2}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBPGUI.RegEx", "RBPGUI.RegEx\RBPGUI.RegEx.csproj", "{582FF847-26D2-4B50-9723-8C09F509D55E}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBPGUI.Wikiholic", "RBPGUI.Wikiholic\RBPGUI.Wikiholic.csproj", "{F66C4584-DFB6-43B7-A1F8-60C9A5C5DAB1}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPYLauncher", "IPYLauncher\IPYLauncher.csproj", "{E511138B-652F-4E12-A490-0EB717971BFD}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +111,12 @@ Global
 		{F66C4584-DFB6-43B7-A1F8-60C9A5C5DAB1}.Debug-IronPython|Any CPU.Build.0 = Debug|Any CPU
 		{F66C4584-DFB6-43B7-A1F8-60C9A5C5DAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F66C4584-DFB6-43B7-A1F8-60C9A5C5DAB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E511138B-652F-4E12-A490-0EB717971BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E511138B-652F-4E12-A490-0EB717971BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E511138B-652F-4E12-A490-0EB717971BFD}.Debug-IronPython|Any CPU.ActiveCfg = Debug|Any CPU
+		{E511138B-652F-4E12-A490-0EB717971BFD}.Debug-IronPython|Any CPU.Build.0 = Debug|Any CPU
+		{E511138B-652F-4E12-A490-0EB717971BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E511138B-652F-4E12-A490-0EB717971BFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

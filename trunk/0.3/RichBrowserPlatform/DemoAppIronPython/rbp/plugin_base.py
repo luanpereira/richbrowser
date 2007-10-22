@@ -1,6 +1,6 @@
-from pluginhost import *
-from singleton import *
-from command import *
+from rbp.common.pluginhost import *
+from rbp.common.singleton import *
+from rbp.common.command import *
 
 import clr
 

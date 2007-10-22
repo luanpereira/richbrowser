@@ -4,6 +4,10 @@
 import clr
 clr.AddReference('System.Windows.Forms')
 
+from System import *
+import sys
+sys.path.append(Environment.CurrentDirectory + '\\rbp')
+
 clr.AddReference('RichBrowserPlatform')
 clr.AddReference('WeifenLuo.WinFormsUI.Docking')
 
@@ -12,12 +16,12 @@ from System.Windows.Forms import *
 from WeifenLuo.WinFormsUI.Docking import *
 from RichBrowserPlatform import *
 
-from rbp_csexwb import *
-from rbp_defaultwb import *
+from rbp.csexwb import *
+from rbp.defaultwb import *
 
-from singleton import *
-from command import *
-from rbp_cmd import *
+from rbp.common.singleton import *
+from rbp.common.command import *
+from rbp.cmd import *
 
 class FormDecorator:
 	form = None
@@ -46,19 +50,19 @@ class FormDecorator:
 		self.__set_item(rbc.miClose, 'CloseWebBrowser', 'Close', None, Keys.Control | Keys.W)
 		self.__set_item(rbc.miExit, 'Exit', 'Exit')
 		
-		self.__set_item(rbc.btNew, 'NewWebBrowser', 'New', Image.FromFile("new_16.png"))
-		self.__set_item(rbc.btBack, 'Back', 'Back', Image.FromFile("back_16.png"))
-		self.__set_item(rbc.btForward, 'Forward', 'Forward', Image.FromFile("forwd_16.png"))
-		self.__set_item(rbc.btStop, 'Stop', 'Stop', Image.FromFile("cancl_16.png"))
-		self.__set_item(rbc.btRefresh, 'Refresh', 'Refresh', Image.FromFile("ref_16.png"))
-		self.__set_item(rbc.btHome, 'Home', 'Home', Image.FromFile("home_16.png"))
+		self.__set_item(rbc.btNew, 'NewWebBrowser', 'New', Image.FromFile("res\\new_16.png"))
+		self.__set_item(rbc.btBack, 'Back', 'Back', Image.FromFile("res\\back_16.png"))
+		self.__set_item(rbc.btForward, 'Forward', 'Forward', Image.FromFile("res\\forwd_16.png"))
+		self.__set_item(rbc.btStop, 'Stop', 'Stop', Image.FromFile("res\\cancl_16.png"))
+		self.__set_item(rbc.btRefresh, 'Refresh', 'Refresh', Image.FromFile("res\\ref_16.png"))
+		self.__set_item(rbc.btHome, 'Home', 'Home', Image.FromFile("res\\home_16.png"))
 		
 		c = rbc.tbUrl
 		c.GotFocus += self.__tbUrl_GotFocus
 		c.KeyDown += self.__tbUrl_KeyDown
 		
 		c = rbc.btGo
-		c.Image = Image.FromFile("Play.png")
+		c.Image = Image.FromFile("res\\Play.png")
 		c.Click += self.__btGo_Click
 		
 		c = rbc.tbSearch
@@ -66,7 +70,7 @@ class FormDecorator:
 		c.KeyDown += self.__tbSearch_KeyDown
 		
 		c = rbc.btSearch
-		c.Image = Image.FromFile("Search.png")
+		c.Image = Image.FromFile("res\\Search.png")
 		c.Click += self.__btSearch_Click
 		
 		c = rbc.miWebSearch

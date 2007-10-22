@@ -10,10 +10,10 @@ from csExWB import *
 from WeifenLuo.WinFormsUI.Docking import *
 from RichBrowserPlatform import *
 
-from command import *
-from singleton import *
+from rbp.common.command import *
+from rbp.common.singleton import *
 
-from rbp_csexwb import *
+from rbp.csexwb import *
 
 class ContentAddedCmd(ICommand):
 
