@@ -13,7 +13,7 @@ from RichBrowserPlatform import *
 from rbp.common.command import *
 from rbp.common.singleton import *
 
-from rbp.csexwb import *
+from rbp.wb_csexwb import *
 
 class ContentAddedCmd(ICommand):
 

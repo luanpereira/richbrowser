@@ -16,8 +16,8 @@ from System.Windows.Forms import *
 from WeifenLuo.WinFormsUI.Docking import *
 from RichBrowserPlatform import *
 
-from rbp.csexwb import *
-from rbp.defaultwb import *
+from rbp.wb_csexwb import *
+from rbp.wb_default import *
 
 from rbp.common.singleton import *
 from rbp.common.command import *

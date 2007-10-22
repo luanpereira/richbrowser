@@ -16,7 +16,9 @@ class csExWBWebBrowser(UserControl, IWebBrowser):
 	wb = None
 	
 	def __init__(self):
+		print "a"
 		c = self.wb = cEXWB()
+		print "b"
 		c.Dock = DockStyle.Fill
 		self.Controls.Add(c)
 
