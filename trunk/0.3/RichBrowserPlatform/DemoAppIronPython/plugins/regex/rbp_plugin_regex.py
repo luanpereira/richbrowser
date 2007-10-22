@@ -24,7 +24,7 @@ class RegExPlugin(BasePlugin):
 	def deactivate(self, args):
 		print "deactivated"
 		
-class RegExCmd(ICommand):
+class RegExCmd(BaseCommand):
 	form = None
 	
 	def __init__(self, form):
@@ -36,6 +36,32 @@ class RegExCmd(ICommand):
 		dc.TabText = "RegEx"
 		dc.Show(self.form.dp, DockState.Document)
 
+		self.set_button(dc.btLoad, RegExLoadCmd()) 
+		self.set_button(dc.btSave, RegExSaveCmd()) 
+				
+		self.set_button(dc.btMatch, RegExMatchCmd()) 
+
+class RegExLoadCmd(ICommand):
+	key = 'RegExLoad'
+	text = 'Load'
+	
+	def execute(self, sender, event):
+		print "load"
+		
+class RegExSaveCmd(ICommand):
+	key = 'RegExSave'
+	text = 'Save'
+	
+	def execute(self, sender, event):
+		print "save"
+		
+class RegExMatchCmd(ICommand):
+	key = 'RegExMatch'
+	text = 'Match'
+	
+	def execute(self, sender, event):
+		print "Match"
+		
 if __name__ == '__main__':
 	pass
 else:
