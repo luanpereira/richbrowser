@@ -70,6 +70,18 @@ class RegExCmd(BaseCommand):
 		self.set_button(dc.btClear, RegExClearCmd())
 		self.set_button(dc.btCopy, RegExCopyCmd())
 		self.set_button(dc.btPaste, RegExPasteCmd())
+		
+		c = dc.cbUserAgent
+		c.SelectedIndex = 0
+		
+		c = dc.lbMatches
+		c.SelectedIndexChanged += self.__lbMatches_SelectedIndexChanged
+
+	def __lbMatches_SelectedIndexChanged(self, sender, event):
+		dc = sender.Parent
+		lb = sender
+		if lb.SelectedIndex > -1:
+			dc.tbDetails.Text = lb.Items[lb.SelectedIndex]
 
 class RegExLoadCmd(ICommand):
 	key = 'RegExLoad'
