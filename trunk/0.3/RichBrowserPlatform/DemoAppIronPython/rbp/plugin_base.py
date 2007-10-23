@@ -33,10 +33,11 @@ class BasePlugin:
 		#self.set_button(c, text, key, cmd)
 
 		c.Text = text
-		c.DisplayStyle = ToolStripItemDisplayStyle.Text
 		c.Tag = key
 		c.Click += self.__handle_cmd
 		get_singleton(Commander).set(key, cmd)
+		if isinstance(c, ToolStripButton):
+			c.DisplayStyle = ToolStripItemDisplayStyle.Text
 
 class BaseCommand(ICommand):
 	key = ''
@@ -48,7 +49,8 @@ class BaseCommand(ICommand):
 	def set_button(self, button, cmd):
 		c = button
 		c.Text = cmd.text
-		c.DisplayStyle = ToolStripItemDisplayStyle.Text
 		c.Tag = cmd.key
 		c.Click += self.__handle_cmd
 		get_singleton(Commander).set(cmd.key, cmd)
+		if isinstance(c, ToolStripButton):
+			c.DisplayStyle = ToolStripItemDisplayStyle.Text

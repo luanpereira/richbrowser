@@ -50,8 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DockContentRegEx.resx">
-      <DependentUpon>DockContentRegEx.cs</DependentUpon>
       <SubType>Designer</SubType>
+      <DependentUpon>DockContentRegEx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

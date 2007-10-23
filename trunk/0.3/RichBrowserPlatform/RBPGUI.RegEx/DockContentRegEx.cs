@@ -11,25 +11,29 @@ namespace RBPGUI.RegEx
 {
     public partial class DockContentRegEx : DockContent
     {
-    	public ToolStrip ts { get { return toolStrip1; } }
-    	
-    	public ToolStripButton btLoad { get { return toolStripButtonLoad; } }
-    	public ToolStripButton btSave { get { return toolStripButtonSave; } }
-    	
-    	public ToolStripTextBox tbPattern { get { return toolStripTextBoxPattern; } }
-    	public ToolStripButton btMatch { get { return toolStripButtonMatch; } }
+        public Button btLoad { get { return buttonLoad; } }
+        public Button btSave { get { return buttonSave; } }
+        public TextBox tbFilename { get { return textBoxFilename; } }
 
-    	public ToolStripLabel lbCount { get { return toolStripLabelCount; } }
+        public TextBox tbPattern { get { return textBoxPattern; } }
+        public Button btMatch { get { return buttonMatch; } }
 
-    	public ToolStripTextBox tbUserAgent { get { return toolStripTextBoxUserAgent; } }
-    	public ToolStripButton btIgnoreCase { get { return toolStripButtonIgnoreCase; } }
-    	
-    	public ToolStripButton btClear { get { return toolStripButtonMatch; } }
-    	
-    	public ToolStripButton btCopy { get { return toolStripButtonCopy; } }
-    	public ToolStripButton btPaste { get { return toolStripButtonPaste; } }
-    	
-    	public DockContentRegEx()
+        public TextBox tbCount { get { return textBoxCount; } }
+
+        public TextBox tbUrl { get { return textBoxURL; } }
+        public ComboBox cbUserAgent { get { return comboBoxUserAgent; } }
+        public CheckBox chkIgnoreCase { get { return checkBoxIgnoreCase; } }
+        public Button btWeb { get { return buttonWeb; } }
+
+        public Button btClear { get { return buttonClear; } }
+        public Button btCopy { get { return buttonCopyContents; } }
+        public Button btPaste { get { return buttonPasteContents; } }
+        public TextBox tbContents { get { return textBoxContents; } }
+
+        public ListBox lbMatches { get { return listBoxMatches; } }
+        public TextBox tbDetails { get { return textBoxMatchDetails; } }
+
+        public DockContentRegEx()
         {
             InitializeComponent();
         }

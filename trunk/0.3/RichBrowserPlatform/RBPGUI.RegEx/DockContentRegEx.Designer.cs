@@ -28,208 +28,288 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentRegEx));
-            this.textBoxContent = new System.Windows.Forms.TextBox();
-            this.toolStripMain = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonLoad = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
-            this.toolStripTextBoxPattern = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButtonMatch = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabelCount = new System.Windows.Forms.ToolStripLabel();
-            this.listBoxResult = new System.Windows.Forms.ListBox();
-            this.textBoxResult = new System.Windows.Forms.TextBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripTextBoxUserAgent = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButtonClear = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonPaste = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonIgnoreCase = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMain.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonPasteContents = new System.Windows.Forms.Button();
+            this.buttonCopyContents = new System.Windows.Forms.Button();
+            this.textBoxFilename = new System.Windows.Forms.TextBox();
+            this.comboBoxUserAgent = new System.Windows.Forms.ComboBox();
+            this.checkBoxIgnoreCase = new System.Windows.Forms.CheckBox();
+            this.textBoxCount = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxMatchDetails = new System.Windows.Forms.TextBox();
+            this.buttonLoad = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.listBoxMatches = new System.Windows.Forms.ListBox();
+            this.textBoxURL = new System.Windows.Forms.TextBox();
+            this.buttonWeb = new System.Windows.Forms.Button();
+            this.textBoxContents = new System.Windows.Forms.TextBox();
+            this.textBoxPattern = new System.Windows.Forms.TextBox();
+            this.buttonMatch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBoxContent
+            // buttonClear
             // 
-            this.textBoxContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxContent.Location = new System.Drawing.Point(0, 50);
-            this.textBoxContent.Multiline = true;
-            this.textBoxContent.Name = "textBoxContent";
-            this.textBoxContent.Size = new System.Drawing.Size(358, 162);
-            this.textBoxContent.TabIndex = 0;
+            this.buttonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClear.Location = new System.Drawing.Point(457, 192);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.TabIndex = 47;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
             // 
-            // toolStripMain
+            // buttonPasteContents
             // 
-            this.toolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonLoad,
-            this.toolStripButtonSave,
-            this.toolStripSeparator4,
-            this.toolStripTextBoxPattern,
-            this.toolStripButtonMatch,
-            this.toolStripSeparator3,
-            this.toolStripLabelCount});
-            this.toolStripMain.Location = new System.Drawing.Point(0, 0);
-            this.toolStripMain.Name = "toolStripMain";
-            this.toolStripMain.Size = new System.Drawing.Size(358, 25);
-            this.toolStripMain.TabIndex = 1;
-            this.toolStripMain.Text = "toolStrip1";
+            this.buttonPasteContents.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPasteContents.Location = new System.Drawing.Point(619, 192);
+            this.buttonPasteContents.Name = "buttonPasteContents";
+            this.buttonPasteContents.Size = new System.Drawing.Size(75, 23);
+            this.buttonPasteContents.TabIndex = 46;
+            this.buttonPasteContents.Text = "Paste";
+            this.buttonPasteContents.UseVisualStyleBackColor = true;
             // 
-            // toolStripButtonLoad
+            // buttonCopyContents
             // 
-            this.toolStripButtonLoad.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonLoad.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLoad.Image")));
-            this.toolStripButtonLoad.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonLoad.Name = "toolStripButtonLoad";
-            this.toolStripButtonLoad.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonLoad.Text = "toolStripButton1";
+            this.buttonCopyContents.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCopyContents.Location = new System.Drawing.Point(538, 192);
+            this.buttonCopyContents.Name = "buttonCopyContents";
+            this.buttonCopyContents.Size = new System.Drawing.Size(75, 23);
+            this.buttonCopyContents.TabIndex = 45;
+            this.buttonCopyContents.Text = "Copy";
+            this.buttonCopyContents.UseVisualStyleBackColor = true;
             // 
-            // toolStripButtonSave
+            // textBoxFilename
             // 
-            this.toolStripButtonSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonSave.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSave.Image")));
-            this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSave.Name = "toolStripButtonSave";
-            this.toolStripButtonSave.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonSave.Text = "toolStripButton1";
+            this.textBoxFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxFilename.Location = new System.Drawing.Point(275, 12);
+            this.textBoxFilename.Name = "textBoxFilename";
+            this.textBoxFilename.Size = new System.Drawing.Size(419, 21);
+            this.textBoxFilename.TabIndex = 44;
             // 
-            // toolStripTextBoxPattern
+            // comboBoxUserAgent
             // 
-            this.toolStripTextBoxPattern.Name = "toolStripTextBoxPattern";
-            this.toolStripTextBoxPattern.Size = new System.Drawing.Size(200, 25);
+            this.comboBoxUserAgent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxUserAgent.FormattingEnabled = true;
+            this.comboBoxUserAgent.Items.AddRange(new object[] {
+            "Windows-Media-Player/9.00.00.3349",
+            "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+            "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.3) Gecko/20070309 Firefo" +
+                "x/2.0.0.3"});
+            this.comboBoxUserAgent.Location = new System.Drawing.Point(89, 41);
+            this.comboBoxUserAgent.Name = "comboBoxUserAgent";
+            this.comboBoxUserAgent.Size = new System.Drawing.Size(605, 20);
+            this.comboBoxUserAgent.TabIndex = 43;
             // 
-            // toolStripButtonMatch
+            // checkBoxIgnoreCase
             // 
-            this.toolStripButtonMatch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonMatch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMatch.Image")));
-            this.toolStripButtonMatch.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonMatch.Name = "toolStripButtonMatch";
-            this.toolStripButtonMatch.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonMatch.Text = "toolStripButton2";
+            this.checkBoxIgnoreCase.AutoSize = true;
+            this.checkBoxIgnoreCase.Location = new System.Drawing.Point(89, 121);
+            this.checkBoxIgnoreCase.Name = "checkBoxIgnoreCase";
+            this.checkBoxIgnoreCase.Size = new System.Drawing.Size(93, 16);
+            this.checkBoxIgnoreCase.TabIndex = 42;
+            this.checkBoxIgnoreCase.Text = "Ignore Case";
+            this.checkBoxIgnoreCase.UseVisualStyleBackColor = true;
             // 
-            // toolStripLabelCount
+            // textBoxCount
             // 
-            this.toolStripLabelCount.Name = "toolStripLabelCount";
-            this.toolStripLabelCount.Size = new System.Drawing.Size(38, 22);
-            this.toolStripLabelCount.Text = "Count";
+            this.textBoxCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxCount.Location = new System.Drawing.Point(89, 194);
+            this.textBoxCount.Name = "textBoxCount";
+            this.textBoxCount.Size = new System.Drawing.Size(100, 21);
+            this.textBoxCount.TabIndex = 41;
             // 
-            // listBoxResult
+            // label7
             // 
-            this.listBoxResult.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listBoxResult.FormattingEnabled = true;
-            this.listBoxResult.ItemHeight = 12;
-            this.listBoxResult.Location = new System.Drawing.Point(0, 212);
-            this.listBoxResult.Name = "listBoxResult";
-            this.listBoxResult.Size = new System.Drawing.Size(358, 76);
-            this.listBoxResult.TabIndex = 2;
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 197);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 12);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Count:";
             // 
-            // textBoxResult
+            // label1
             // 
-            this.textBoxResult.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBoxResult.Location = new System.Drawing.Point(0, 288);
-            this.textBoxResult.Multiline = true;
-            this.textBoxResult.Name = "textBoxResult";
-            this.textBoxResult.Size = new System.Drawing.Size(358, 65);
-            this.textBoxResult.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 12);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "User Agent:";
             // 
-            // toolStrip1
+            // label6
             // 
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBoxUserAgent,
-            this.toolStripButtonIgnoreCase,
-            this.toolStripSeparator1,
-            this.toolStripButtonClear,
-            this.toolStripSeparator2,
-            this.toolStripButtonCopy,
-            this.toolStripButtonPaste});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(358, 25);
-            this.toolStrip1.TabIndex = 4;
-            this.toolStrip1.Text = "toolStrip1";
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 336);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 12);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "Details:";
             // 
-            // toolStripTextBoxUserAgent
+            // label5
             // 
-            this.toolStripTextBoxUserAgent.Name = "toolStripTextBoxUserAgent";
-            this.toolStripTextBoxUserAgent.Size = new System.Drawing.Size(200, 25);
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 221);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 12);
+            this.label5.TabIndex = 37;
+            this.label5.Text = "Matches:";
             // 
-            // toolStripButtonClear
+            // label4
             // 
-            this.toolStripButtonClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonClear.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonClear.Image")));
-            this.toolStripButtonClear.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonClear.Name = "toolStripButtonClear";
-            this.toolStripButtonClear.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonClear.Text = "toolStripButton1";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 146);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 12);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Contents:";
             // 
-            // toolStripButtonCopy
+            // label3
             // 
-            this.toolStripButtonCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCopy.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCopy.Image")));
-            this.toolStripButtonCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonCopy.Name = "toolStripButtonCopy";
-            this.toolStripButtonCopy.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonCopy.Text = "toolStripButton2";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 12);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "Pattern:";
             // 
-            // toolStripButtonPaste
+            // label2
             // 
-            this.toolStripButtonPaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonPaste.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPaste.Image")));
-            this.toolStripButtonPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonPaste.Name = "toolStripButtonPaste";
-            this.toolStripButtonPaste.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonPaste.Text = "toolStripButton3";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 12);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "URL:";
             // 
-            // toolStripButtonIgnoreCase
+            // textBoxMatchDetails
             // 
-            this.toolStripButtonIgnoreCase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonIgnoreCase.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonIgnoreCase.Image")));
-            this.toolStripButtonIgnoreCase.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonIgnoreCase.Name = "toolStripButtonIgnoreCase";
-            this.toolStripButtonIgnoreCase.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonIgnoreCase.Text = "toolStripButton1";
+            this.textBoxMatchDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxMatchDetails.Location = new System.Drawing.Point(89, 333);
+            this.textBoxMatchDetails.Multiline = true;
+            this.textBoxMatchDetails.Name = "textBoxMatchDetails";
+            this.textBoxMatchDetails.Size = new System.Drawing.Size(605, 110);
+            this.textBoxMatchDetails.TabIndex = 33;
             // 
-            // toolStripSeparator1
+            // buttonLoad
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.buttonLoad.Location = new System.Drawing.Point(182, 12);
+            this.buttonLoad.Name = "buttonLoad";
+            this.buttonLoad.Size = new System.Drawing.Size(87, 21);
+            this.buttonLoad.TabIndex = 32;
+            this.buttonLoad.Text = "Load";
+            this.buttonLoad.UseVisualStyleBackColor = true;
             // 
-            // toolStripSeparator2
+            // buttonSave
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.buttonSave.Location = new System.Drawing.Point(89, 12);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(87, 21);
+            this.buttonSave.TabIndex = 31;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
             // 
-            // toolStripSeparator3
+            // listBoxMatches
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.listBoxMatches.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxMatches.FormattingEnabled = true;
+            this.listBoxMatches.ItemHeight = 12;
+            this.listBoxMatches.Location = new System.Drawing.Point(89, 221);
+            this.listBoxMatches.Name = "listBoxMatches";
+            this.listBoxMatches.Size = new System.Drawing.Size(605, 100);
+            this.listBoxMatches.TabIndex = 30;
             // 
-            // toolStripSeparator4
+            // textBoxURL
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.textBoxURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxURL.Location = new System.Drawing.Point(89, 67);
+            this.textBoxURL.Name = "textBoxURL";
+            this.textBoxURL.Size = new System.Drawing.Size(514, 21);
+            this.textBoxURL.TabIndex = 29;
             // 
-            // DockContentRegEx
+            // buttonWeb
+            // 
+            this.buttonWeb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonWeb.Location = new System.Drawing.Point(609, 66);
+            this.buttonWeb.Name = "buttonWeb";
+            this.buttonWeb.Size = new System.Drawing.Size(85, 21);
+            this.buttonWeb.TabIndex = 28;
+            this.buttonWeb.Text = "Web";
+            this.buttonWeb.UseVisualStyleBackColor = true;
+            // 
+            // textBoxContents
+            // 
+            this.textBoxContents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxContents.Location = new System.Drawing.Point(89, 143);
+            this.textBoxContents.Multiline = true;
+            this.textBoxContents.Name = "textBoxContents";
+            this.textBoxContents.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBoxContents.Size = new System.Drawing.Size(605, 43);
+            this.textBoxContents.TabIndex = 27;
+            // 
+            // textBoxPattern
+            // 
+            this.textBoxPattern.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPattern.Location = new System.Drawing.Point(89, 94);
+            this.textBoxPattern.Name = "textBoxPattern";
+            this.textBoxPattern.Size = new System.Drawing.Size(514, 21);
+            this.textBoxPattern.TabIndex = 26;
+            // 
+            // buttonMatch
+            // 
+            this.buttonMatch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonMatch.Location = new System.Drawing.Point(609, 94);
+            this.buttonMatch.Name = "buttonMatch";
+            this.buttonMatch.Size = new System.Drawing.Size(85, 21);
+            this.buttonMatch.TabIndex = 25;
+            this.buttonMatch.Text = "Match";
+            this.buttonMatch.UseVisualStyleBackColor = true;
+            // 
+            // DockContentRegEx2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 353);
-            this.Controls.Add(this.textBoxContent);
-            this.Controls.Add(this.listBoxResult);
-            this.Controls.Add(this.textBoxResult);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.toolStripMain);
-            this.Name = "DockContentRegEx";
-            this.TabText = "DockContentRegEx";
-            this.Text = "DockContentRegEx";
-            this.toolStripMain.ResumeLayout(false);
-            this.toolStripMain.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.ClientSize = new System.Drawing.Size(706, 455);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.buttonPasteContents);
+            this.Controls.Add(this.buttonCopyContents);
+            this.Controls.Add(this.textBoxFilename);
+            this.Controls.Add(this.comboBoxUserAgent);
+            this.Controls.Add(this.checkBoxIgnoreCase);
+            this.Controls.Add(this.textBoxCount);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxMatchDetails);
+            this.Controls.Add(this.buttonLoad);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.listBoxMatches);
+            this.Controls.Add(this.textBoxURL);
+            this.Controls.Add(this.buttonWeb);
+            this.Controls.Add(this.textBoxContents);
+            this.Controls.Add(this.textBoxPattern);
+            this.Controls.Add(this.buttonMatch);
+            this.Name = "DockContentRegEx2";
+            this.Text = "DockContentRegEx2";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,24 +317,28 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxContent;
-        private System.Windows.Forms.ToolStrip toolStripMain;
-        private System.Windows.Forms.ToolStripButton toolStripButtonLoad;
-        private System.Windows.Forms.ToolStripButton toolStripButtonSave;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxPattern;
-        private System.Windows.Forms.ListBox listBoxResult;
-        private System.Windows.Forms.TextBox textBoxResult;
-        private System.Windows.Forms.ToolStripButton toolStripButtonMatch;
-        private System.Windows.Forms.ToolStripLabel toolStripLabelCount;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxUserAgent;
-        private System.Windows.Forms.ToolStripButton toolStripButtonIgnoreCase;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolStripButtonClear;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton toolStripButtonCopy;
-        private System.Windows.Forms.ToolStripButton toolStripButtonPaste;
+        private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Button buttonPasteContents;
+        private System.Windows.Forms.Button buttonCopyContents;
+        private System.Windows.Forms.TextBox textBoxFilename;
+        private System.Windows.Forms.ComboBox comboBoxUserAgent;
+        private System.Windows.Forms.CheckBox checkBoxIgnoreCase;
+        private System.Windows.Forms.TextBox textBoxCount;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxMatchDetails;
+        private System.Windows.Forms.Button buttonLoad;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.ListBox listBoxMatches;
+        private System.Windows.Forms.TextBox textBoxURL;
+        private System.Windows.Forms.Button buttonWeb;
+        private System.Windows.Forms.TextBox textBoxContents;
+        private System.Windows.Forms.TextBox textBoxPattern;
+        private System.Windows.Forms.Button buttonMatch;
     }
 }
