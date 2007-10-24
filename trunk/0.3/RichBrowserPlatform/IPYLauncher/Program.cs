@@ -1,8 +1,12 @@
-﻿using System;
+﻿#define useProcess
+//#define usePythonEngine
+
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
+using IronPython.Hosting;
 
 namespace IPYLauncher
 {
@@ -70,11 +74,37 @@ namespace IPYLauncher
         {
             if (File.Exists(IPYW_PATH) == true)
             {
+
+#if useProcess
+                #region launch using Process
+
                 Process p = new Process();
                 p.StartInfo.FileName = IPYW_PATH;
                 p.StartInfo.Arguments = py;
                 p.Start();
-                p.WaitForExit();
+                //p.WaitForExit();
+                
+                #endregion
+#endif
+
+#if usePythonEngine
+
+                #region launch using PythonEngine (but not faster)
+
+                // ref: http://www.voidspace.org.uk/ironpython/embedding.shtml
+                PythonEngine engine = new PythonEngine();
+                engine.AddToPath(Path.GetDirectoryName(Application.ExecutablePath));
+                //engine.Sys.argv = List.Make(args);
+
+                EngineModule engineModule = engine.CreateModule("__main__", new Dictionary<string, object>(), true);
+                engine.DefaultModule = engineModule;
+
+                string path = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), py);
+                engine.ExecuteFile(path);
+
+                #endregion
+#endif
+
             }
             else
             {
