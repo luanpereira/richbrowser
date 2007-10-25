@@ -19,9 +19,9 @@ PROGRAM_VERSION = "v0.3.1"
 FILE_VERSION = "v0.3"
 FILE_DIALOG_FILTER = 'Regular Expression Tester files (*.ret)|*.ret|All files (*.*)|*.*'
 
-from rbp.common.pluginhost import *
-from rbp.common.singleton import *
-from rbp.common.command import *
+from common.pluginhost import *
+from common.singleton import *
+from common.command import *
 
 import clr
 

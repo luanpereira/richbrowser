@@ -19,8 +19,8 @@ from RichBrowserPlatform import *
 from rbp.wb_csexwb import *
 from rbp.wb_default import *
 
-from rbp.common.singleton import *
-from rbp.common.command import *
+from common.singleton import *
+from common.command import *
 from rbp.cmd import *
 
 class FormDecorator:

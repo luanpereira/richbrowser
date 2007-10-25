@@ -10,8 +10,8 @@ from csExWB import *
 from WeifenLuo.WinFormsUI.Docking import *
 from RichBrowserPlatform import *
 
-from rbp.common.command import *
-from rbp.common.singleton import *
+from common.command import *
+from common.singleton import *
 
 from rbp.wb_csexwb import *
 

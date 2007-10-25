@@ -8,8 +8,8 @@ from System.Windows.Forms import *
 
 from rbp.formdeco import *
 
-from rbp.common.singleton import *
-from rbp.common.pluginhost import *
+from common.singleton import *
+from common.pluginhost import *
 
 class FormMain(Form):
 	rbc = None

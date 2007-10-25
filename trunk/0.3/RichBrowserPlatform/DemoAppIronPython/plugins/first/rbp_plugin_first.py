@@ -1,6 +1,6 @@
-from rbp.common.pluginhost import *
-from rbp.common.singleton import *
-from rbp.common.command import *
+from common.pluginhost import *
+from common.singleton import *
+from common.command import *
 
 class FirstPlugin:
 	def activate(self, args):
