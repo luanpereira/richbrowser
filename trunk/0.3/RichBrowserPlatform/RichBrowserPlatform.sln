@@ -1,14 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
-# SharpDevelop 2.2.1.2648
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp", "DemoApp\DemoApp.csproj", "{057A515F-1EE5-4E15-9721-A766A8048BBA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{456E4227-4AEC-4F0F-8B2A-8C26B339DCB0} = {456E4227-4AEC-4F0F-8B2A-8C26B339DCB0}
+	EndProjectSection
 	ProjectSection(WebsiteProperties) = preProject
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
-	ProjectSection(ProjectDependencies) = postProject
-		{456E4227-4AEC-4F0F-8B2A-8C26B339DCB0} = {456E4227-4AEC-4F0F-8B2A-8C26B339DCB0}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBPcsExWB", "RBPcsExWB\RBPcsExWB.csproj", "{456E4227-4AEC-4F0F-8B2A-8C26B339DCB0}"
@@ -66,6 +65,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBP.TestIPY", "RBP.TestIPY\
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBP.Common", "RBP.Common\RBP.Common.csproj", "{39820C2B-1E6D-483D-BDAB-F6B60AC33468}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBPGUI.AutoUpdater", "RBPGUI.AutoUpdater\RBPGUI.AutoUpdater.csproj", "{530744C8-2328-476D-83B3-7BF268B95367}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -134,12 +135,18 @@ Global
 		{F1321396-A100-40E9-BDE8-3BFA91EBC1DA}.Debug-IronPython|Any CPU.Build.0 = Debug|Any CPU
 		{F1321396-A100-40E9-BDE8-3BFA91EBC1DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1321396-A100-40E9-BDE8-3BFA91EBC1DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39820C2B-1E6D-483D-BDAB-F6B60AC33468}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39820C2B-1E6D-483D-BDAB-F6B60AC33468}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39820C2B-1E6D-483D-BDAB-F6B60AC33468}.Debug-IronPython|Any CPU.Build.0 = Debug-IronPython|Any CPU
+		{39820C2B-1E6D-483D-BDAB-F6B60AC33468}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39820C2B-1E6D-483D-BDAB-F6B60AC33468}.Debug-IronPython|Any CPU.ActiveCfg = Debug-IronPython|Any CPU
-		{39820C2B-1E6D-483D-BDAB-F6B60AC33468}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39820C2B-1E6D-483D-BDAB-F6B60AC33468}.Debug-IronPython|Any CPU.Build.0 = Debug-IronPython|Any CPU
 		{39820C2B-1E6D-483D-BDAB-F6B60AC33468}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39820C2B-1E6D-483D-BDAB-F6B60AC33468}.Release|Any CPU.Build.0 = Release|Any CPU
+		{530744C8-2328-476D-83B3-7BF268B95367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{530744C8-2328-476D-83B3-7BF268B95367}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{530744C8-2328-476D-83B3-7BF268B95367}.Debug-IronPython|Any CPU.ActiveCfg = Debug|Any CPU
+		{530744C8-2328-476D-83B3-7BF268B95367}.Debug-IronPython|Any CPU.Build.0 = Debug|Any CPU
+		{530744C8-2328-476D-83B3-7BF268B95367}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{530744C8-2328-476D-83B3-7BF268B95367}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
