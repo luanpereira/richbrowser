@@ -35,18 +35,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormDownload.cs">
+    <Compile Include="FormDownloadBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDownload.Designer.cs">
-      <DependentUpon>FormDownload.cs</DependentUpon>
+    <Compile Include="FormDownloadBase.Designer.cs">
+      <DependentUpon>FormDownloadBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormDownload.resx">
+    <EmbeddedResource Include="FormDownloadBase.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>FormDownload.cs</DependentUpon>
+      <DependentUpon>FormDownloadBase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

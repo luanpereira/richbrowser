@@ -1,6 +1,6 @@
 ﻿namespace RBPGUI.AutoUpdater
 {
-    partial class FormDownload
+    partial class FormDownloadBase
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
