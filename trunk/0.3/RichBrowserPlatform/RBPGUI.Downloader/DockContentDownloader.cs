@@ -20,7 +20,10 @@ namespace RBPGUI.Downloader
         public ToolStripButton btStart { get { return toolStripButtonStart; } }
         public ToolStripButton btStop { get { return toolStripButtonStop; } }
 
+        public ListView lv { get { return listViewMain; } }
+
         public ToolStripProgressBar pb { get { return toolStripProgressBarMain; } }
+        public ToolStripLabel lblPercent { get { return toolStripLabelPercent; } }
 
         public DockContentDownloader()
         {

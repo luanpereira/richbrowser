@@ -40,6 +40,7 @@
             this.toolStripTextBoxDownPath = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonBrowse = new System.Windows.Forms.ToolStripButton();
             this.listViewMain = new System.Windows.Forms.ListView();
+            this.toolStripLabelPercent = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -51,10 +52,11 @@
             this.toolStripButtonStart,
             this.toolStripButtonStop,
             this.toolStripSeparator1,
-            this.toolStripProgressBarMain});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 241);
+            this.toolStripProgressBarMain,
+            this.toolStripLabelPercent});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 233);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(292, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(276, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -96,7 +98,7 @@
             this.toolStripButtonBrowse});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(292, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(276, 25);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -129,7 +131,7 @@
             this.toolStripButtonBrowse.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBrowse.Image")));
             this.toolStripButtonBrowse.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonBrowse.Name = "toolStripButtonBrowse";
-            this.toolStripButtonBrowse.Size = new System.Drawing.Size(64, 22);
+            this.toolStripButtonBrowse.Size = new System.Drawing.Size(58, 22);
             this.toolStripButtonBrowse.Text = "Browse...";
             // 
             // listViewMain
@@ -137,15 +139,21 @@
             this.listViewMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewMain.Location = new System.Drawing.Point(0, 25);
             this.listViewMain.Name = "listViewMain";
-            this.listViewMain.Size = new System.Drawing.Size(292, 216);
+            this.listViewMain.Size = new System.Drawing.Size(276, 208);
             this.listViewMain.TabIndex = 2;
             this.listViewMain.UseCompatibleStateImageBehavior = false;
+            // 
+            // toolStripLabelPercent
+            // 
+            this.toolStripLabelPercent.Name = "toolStripLabelPercent";
+            this.toolStripLabelPercent.Size = new System.Drawing.Size(24, 22);
+            this.toolStripLabelPercent.Text = "0%";
             // 
             // DockContentDownloader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 266);
+            this.ClientSize = new System.Drawing.Size(276, 258);
             this.Controls.Add(this.listViewMain);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);
@@ -174,5 +182,6 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxDownPath;
         private System.Windows.Forms.ToolStripButton toolStripButtonBrowse;
         private System.Windows.Forms.ListView listViewMain;
+        private System.Windows.Forms.ToolStripLabel toolStripLabelPercent;
     }
 }

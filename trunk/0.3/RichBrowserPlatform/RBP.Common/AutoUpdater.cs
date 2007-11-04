@@ -75,8 +75,8 @@ namespace RBP.Common
                 if (destVer.CompareTo(srcVer) > 0)
                 {
                     if (MessageBox.Show(
-                        string.Format(Properties.Resources.MSG_NEW_VERSION_HERE, Application.ProductName, VersionInfo.GetVersionFrom(destVerStr)),
-                        Properties.Resources.LABEL_QUESTION,
+                        string.Format("New version ({0} {1}) here.", Application.ProductName, VersionInfo.GetVersionFrom(destVerStr)),
+                        "Question",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         m_setupFile = downStr.Split('|')[1];

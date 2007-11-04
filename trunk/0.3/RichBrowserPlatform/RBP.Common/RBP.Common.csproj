@@ -33,7 +33,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="AutoUpdater.cs" />
     <Compile Include="FormDownload.cs">
       <SubType>Form</SubType>
     </Compile>
