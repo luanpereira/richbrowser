@@ -131,7 +131,7 @@ class FormDownload(FormDownloadBase):
 		self.Close()
 		
 if __name__ == '__main__':
-	c = AutoUpdater('MyAPP', '0.1.2.61', 'http://yeoupooh.us.to:8080/YPBrowser')
+	c = AutoUpdater('MyAPP', '0.1.2.61', 'http://localhost/')
 	if c.has_new_version() == True:
 		print "updated"
 	else:
