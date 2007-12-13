@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp", "DemoApp\DemoApp.csproj", "{E2ACFB50-D9C2-4BDC-9ABC-53BB34EBDE67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichBrowserPlatform", "RichBrowserPlatform\RichBrowserPlatform.csproj", "{4D35E27A-B698-4996-B3BF-3A57612065FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBPcsEXWB", "RBPcsEXWB\RBPcsEXWB.csproj", "{91DE2F0F-92ED-4467-B0F1-4EECD801BA4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2ACFB50-D9C2-4BDC-9ABC-53BB34EBDE67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2ACFB50-D9C2-4BDC-9ABC-53BB34EBDE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2ACFB50-D9C2-4BDC-9ABC-53BB34EBDE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2ACFB50-D9C2-4BDC-9ABC-53BB34EBDE67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D35E27A-B698-4996-B3BF-3A57612065FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D35E27A-B698-4996-B3BF-3A57612065FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D35E27A-B698-4996-B3BF-3A57612065FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D35E27A-B698-4996-B3BF-3A57612065FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DE2F0F-92ED-4467-B0F1-4EECD801BA4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DE2F0F-92ED-4467-B0F1-4EECD801BA4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DE2F0F-92ED-4467-B0F1-4EECD801BA4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DE2F0F-92ED-4467-B0F1-4EECD801BA4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
