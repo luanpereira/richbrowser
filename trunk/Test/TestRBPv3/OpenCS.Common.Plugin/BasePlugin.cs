@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using OpenCS.Common.Action;
 
 namespace OpenCS.Common.Plugin
 {
@@ -20,6 +21,17 @@ namespace OpenCS.Common.Plugin
         public BasePlugin()
         {
         }
+
+        #region IActionHandler 멤버
+
+        /// <summary>
+        /// 액션을 처리한다.
+        /// </summary>
+        /// <param name="action">액션</param>
+        /// <returns>처리 결과</returns>
+        abstract public ActionResult HandleAction(IAction action);
+
+        #endregion
 
         #region IPlugin 멤버
 
@@ -58,5 +70,6 @@ namespace OpenCS.Common.Plugin
         abstract public void Deinit();
 
         #endregion
+
     }
 }

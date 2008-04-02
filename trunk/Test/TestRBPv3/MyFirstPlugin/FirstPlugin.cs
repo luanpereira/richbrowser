@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Diagnostics;
 using OpenCS.Common.Plugin;
+using OpenCS.Common.Action;
 
 namespace OpenCS.Plugin.MyFirstPlugin
 {
@@ -26,6 +27,11 @@ namespace OpenCS.Plugin.MyFirstPlugin
         public override void Deinit()
         {
             Debug.Print("deinited");
+        }
+
+        public override ActionResult HandleAction(IAction action)
+        {
+            return ActionResult.NotHandled;            
         }
     }
 }

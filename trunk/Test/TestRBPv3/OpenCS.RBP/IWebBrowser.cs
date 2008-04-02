@@ -12,6 +12,9 @@ namespace OpenCS.RBP
     /// </summary>
     public interface IWebBrowser
     {
+        /// <summary>
+        /// 상태바의 문자열을 가져온다.
+        /// </summary>
         string StatusText
         {
             get;
@@ -28,8 +31,19 @@ namespace OpenCS.RBP
         /// <param name="url">웹 주소</param>
         void Navigate(string url);
 
-                event WebBrowserNavigatedEventHandler Navigated;
+        /// <summary>
+        /// WebBrowser의 Navigated 이벤트 핸들러
+        /// </summary>
+        event WebBrowserNavigatedEventHandler Navigated;
+
+        /// <summary>
+        /// WebBrowser의 DocumentCompleted 이벤트 핸들러
+        /// </summary>
         event WebBrowserDocumentCompletedEventHandler DocumentCompleted;
+
+        /// <summary>
+        /// WebBrowser의 StatusTextChanged 이벤트 핸들러
+        /// </summary>
         event EventHandler StatusTextChanged;
 
     }

@@ -11,6 +11,7 @@ using System.Diagnostics;
 using WeifenLuo.WinFormsUI.Docking;
 using OpenCS.Common;
 using OpenCS.Common.Plugin;
+using OpenCS.Common.Action;
 
 namespace OpenCS.RBP.Controls
 {
@@ -118,7 +119,6 @@ namespace OpenCS.RBP.Controls
         public IWebBrowser Navigate(string url)
         {
             IWebBrowserDockContent wbdc = null;
-            IWebBrowser wb = null;
 
             if (m_wbdcf != null)
             {
@@ -158,5 +158,22 @@ namespace OpenCS.RBP.Controls
                     break;
             }
         }
+
+        #region IActionHandler 멤버
+
+        public ActionResult HandleAction(IAction action)
+        {
+            foreach (IPlugin plugin in m_plugins)
+            {
+                if (plugin.HandleAction(action) == ActionResult.Failed)
+                {
+                    return ActionResult.Failed;
+                }
+            }
+
+            return ActionResult.Success;
+        }
+
+        #endregion
     }
 }

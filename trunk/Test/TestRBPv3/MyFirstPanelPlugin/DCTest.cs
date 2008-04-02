@@ -9,6 +9,7 @@ using WeifenLuo.WinFormsUI.Docking;
 using OpenCS.RBP;
 using OpenCS.Common.Plugin;
 using System.Diagnostics;
+using OpenCS.Common.Action;
 
 namespace OpenCS.Plugin.MyFirstPlugin
 {
@@ -49,5 +50,20 @@ namespace OpenCS.Plugin.MyFirstPlugin
         }
 
         #endregion
+
+        #region IActionHandler 멤버
+
+        public ActionResult HandleAction(IAction action)
+        {
+            return ActionResult.NotHandled;
+        }
+
+        #endregion
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            ActionResult result = m_host.HandleAction(new PropertyAction<string>(toolStripTextBox1.Text));
+            MessageBox.Show(result.ToString());
+        }
     }
 }

@@ -10,8 +10,14 @@ using OpenCS.Common.Plugin;
 
 namespace OpenCS.RBP.Controls
 {
+    /// <summary>
+    /// 플러그인 표시 패널
+    /// </summary>
     public partial class DCPlugins : DockContent
     {
+        /// <summary>
+        /// 생성자
+        /// </summary>
         public DCPlugins()
         {
             InitializeComponent();

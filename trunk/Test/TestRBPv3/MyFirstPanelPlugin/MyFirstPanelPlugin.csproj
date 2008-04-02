@@ -64,6 +64,12 @@
   <ItemGroup>
     <None Include="plugin.build" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DCTest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DCTest.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

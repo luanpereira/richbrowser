@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using OpenCS.Common.Action;
 
 namespace OpenCS.Common.Plugin
 {
@@ -8,7 +9,7 @@ namespace OpenCS.Common.Plugin
     /// 플러그인 호스트
     /// 플러그인들 관리하는 주체.
     /// </summary>
-    public interface IPluginHost 
+    public interface IPluginHost : IActionHandler
     {
         /// <summary>
         /// 플러그인 목록을 가져온다.

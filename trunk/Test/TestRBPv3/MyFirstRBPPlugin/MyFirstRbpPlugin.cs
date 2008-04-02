@@ -5,11 +5,14 @@ using OpenCS.Common.Plugin;
 using OpenCS.RBP;
 using System.Diagnostics;
 using WeifenLuo.WinFormsUI.Docking;
+using OpenCS.Common.Action;
 
 namespace MyFirstRBPPlugin
 {
     public class MyFirstRbpPlugin : BaseRbpPlugin
     {
+        private IActionHandler m_ah;
+
         public override string Title
         {
             get { return "MyFirstRbpPlugin"; }
@@ -25,6 +28,7 @@ namespace MyFirstRBPPlugin
             DCTest2 dc = new DCTest2();
             dc.HostDockPanel = m_rbc.DockPanel;
             dc.Show(m_rbc.DockPanel, DockState.DockRight);
+            m_ah = dc;
 
             Debug.Print("inited");
         }
@@ -32,6 +36,16 @@ namespace MyFirstRBPPlugin
         public override void Deinit()
         {
             Debug.Print("deinited");
+        }
+
+        public override ActionResult HandleAction(IAction action)
+        {
+            if (m_ah != null)
+            {
+                return m_ah.HandleAction(action);
+            }
+
+            return ActionResult.NotHandled;
         }
     }
 }

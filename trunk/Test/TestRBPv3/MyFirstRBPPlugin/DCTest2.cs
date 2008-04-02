@@ -7,10 +7,11 @@ using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using OpenCS.RBP;
+using OpenCS.Common.Action;
 
 namespace MyFirstRBPPlugin
 {
-    public partial class DCTest2 : DockContent
+    public partial class DCTest2 : DockContent, IActionHandler
     {
         private DockPanel m_dp;
 
@@ -80,6 +81,21 @@ namespace MyFirstRBPPlugin
         {
             InitializeComponent();
         }
+
+        #region IActionHandler 멤버
+
+        public ActionResult HandleAction(IAction action)
+        {
+            if (action is PropertyAction<string>)
+            {
+                toolStripTextBox1.Text = (action as PropertyAction<string>).Property;
+                return ActionResult.Success;
+            }
+
+            return ActionResult.NotHandled;
+        }
+
+        #endregion
     }
 
     internal class WBItem
