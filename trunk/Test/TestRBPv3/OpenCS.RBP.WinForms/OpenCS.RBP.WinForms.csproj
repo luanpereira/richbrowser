@@ -4,11 +4,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5EAD57CF-5960-4A46-8017-13C46E8D6BC4}</ProjectGuid>
+    <ProjectGuid>{2E8F6090-077D-4CE3-B7AC-967F81F6D008}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyFirstRBPPlugin</RootNamespace>
-    <AssemblyName>MyFirstRBPPlugin</AssemblyName>
+    <RootNamespace>OpenCS.RBP.WinForms</RootNamespace>
+    <AssemblyName>OpenCS.RBP.WinForms</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,20 +39,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DCTest2.cs">
+    <Compile Include="DCWebBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DCTest2.Designer.cs">
-      <DependentUpon>DCTest2.cs</DependentUpon>
+    <Compile Include="DCWebBrowser.Designer.cs">
+      <DependentUpon>DCWebBrowser.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyFirstRbpPlugin.cs" />
+    <Compile Include="WinFormsWebBrowserDockContentFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinFormsWebBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenCS.Common.Plugin\OpenCS.Common.Plugin.csproj">
-      <Project>{794BA4D4-1DCF-43E4-ABF0-D3BA636DC270}</Project>
-      <Name>OpenCS.Common.Plugin</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OpenCS.Common\OpenCS.Common.csproj">
       <Project>{7B2F2688-7621-4CD4-A916-979499465A1E}</Project>
       <Name>OpenCS.Common</Name>
@@ -63,12 +62,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="plugin.build" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="DCTest2.resx">
+    <EmbeddedResource Include="DCWebBrowser.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>DCTest2.cs</DependentUpon>
+      <DependentUpon>DCWebBrowser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -79,13 +75,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <PropertyGroup>
-    <PostBuildEvent>echo ProjectDir=$(ProjectDir)
-echo SolutionDir=$(SolutionDir)
-echo TargetName=$(TargetName)
-set __TARGET_NAME=$(TargetName)
-
-nant -buildfile:$(ProjectDir)\plugin.build
-</PostBuildEvent>
-  </PropertyGroup>
 </Project>

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
 using System.Diagnostics;
+using OpenCS.RBP.WinForms;
 
 namespace TestRBPv3
 {
@@ -16,6 +17,8 @@ namespace TestRBPv3
         public Form1()
         {
             InitializeComponent();
+
+            richBrowserControl1.WebBrowserDockContentFactory = new WinFormsWebBrowserDockContentFactory();
         }
     }
 }

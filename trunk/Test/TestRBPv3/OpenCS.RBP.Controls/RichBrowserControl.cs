@@ -9,6 +9,7 @@ using System.Reflection;
 using System.IO;
 using System.Diagnostics;
 using WeifenLuo.WinFormsUI.Docking;
+using OpenCS.Common;
 using OpenCS.Common.Plugin;
 
 namespace OpenCS.RBP.Controls
@@ -20,6 +21,7 @@ namespace OpenCS.RBP.Controls
     {
         private List<IPlugin> m_plugins = new List<IPlugin>();
         private DCPlugins m_dcPlugins;
+        private GenericClassFactory<IWebBrowserDockContent> m_wbdcf;
 
         /// <summary>
         /// 생성자
@@ -28,8 +30,15 @@ namespace OpenCS.RBP.Controls
         {
             InitializeComponent();
 
+            InitDockPanel(dockPanelMain);
+
             m_dcPlugins = new DCPlugins();
             m_dcPlugins.Show(dockPanelMain, DockState.DockLeft);
+        }
+
+        private void InitDockPanel(DockPanel dp)
+        {
+            dp.DocumentStyle = DocumentStyle.DockingWindow;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -106,6 +115,48 @@ namespace OpenCS.RBP.Controls
             get { return dockPanelMain; }
         }
 
+        public IWebBrowser Navigate(string url)
+        {
+            IWebBrowserDockContent wbdc = null;
+            IWebBrowser wb = null;
+
+            if (m_wbdcf != null)
+            {
+                wbdc = m_wbdcf.CreateClass();
+                wbdc.Show(dockPanelMain, DockState.Document);
+                wbdc.WebBrowser.Navigate(url);
+
+                return wbdc.WebBrowser;
+            }
+
+            return null;
+        }
+
+        public GenericClassFactory<IWebBrowserDockContent> WebBrowserDockContentFactory
+        {
+            set { m_wbdcf = value; }
+        }
+
         #endregion
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            Navigate(toolStripTextBox1.Text);
+        }
+
+        private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Return:
+                    Navigate(toolStripTextBox1.Text);
+                    e.SuppressKeyPress = true;
+                    break;
+            }
+        }
     }
 }

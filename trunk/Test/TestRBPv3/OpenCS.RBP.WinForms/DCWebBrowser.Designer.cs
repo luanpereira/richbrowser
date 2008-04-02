@@ -1,6 +1,6 @@
-﻿namespace MyFirstRBPPlugin
+﻿namespace OpenCS.RBP.WinForms
 {
-    partial class DCTest2
+    partial class DCWebBrowser
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.rbpWebBrowser1 = new OpenCS.RBP.WinForms.WinFormsWebBrowser();
             this.SuspendLayout();
             // 
-            // listBox1
+            // rbpWebBrowser1
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(284, 256);
-            this.listBox1.TabIndex = 0;
+            this.rbpWebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rbpWebBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.rbpWebBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.rbpWebBrowser1.Name = "rbpWebBrowser1";
+            this.rbpWebBrowser1.Size = new System.Drawing.Size(284, 264);
+            this.rbpWebBrowser1.TabIndex = 0;
             // 
-            // DCTest2
+            // DCWebBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 264);
-            this.Controls.Add(this.listBox1);
-            this.Name = "DCTest2";
-            this.TabText = "DCTest2";
-            this.Text = "DCTest2";
+            this.Controls.Add(this.rbpWebBrowser1);
+            this.Name = "DCWebBrowser";
+            this.TabText = "DCWebBrowser";
+            this.Text = "DCWebBrowser";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private OpenCS.RBP.WinForms.WinFormsWebBrowser rbpWebBrowser1;
+
     }
 }

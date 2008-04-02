@@ -23,6 +23,7 @@ namespace MyFirstRBPPlugin
         public override void Init()
         {
             DCTest2 dc = new DCTest2();
+            dc.HostDockPanel = m_rbc.DockPanel;
             dc.Show(m_rbc.DockPanel, DockState.DockRight);
 
             Debug.Print("inited");
