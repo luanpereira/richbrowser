@@ -80,6 +80,10 @@
       <Project>{070551B2-AB6F-4687-9BAF-B0403EB4DF0E}</Project>
       <Name>OpenCS.RBP.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OpenCS.RBP\OpenCS.RBP.csproj">
+      <Project>{8A9FF25D-5E1E-44B8-A55C-A43BE50A1CC7}</Project>
+      <Name>OpenCS.RBP</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

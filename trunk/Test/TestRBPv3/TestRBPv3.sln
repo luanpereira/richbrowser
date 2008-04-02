@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstPlugin", "MyFirstPlu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstPanelPlugin", "MyFirstPanelPlugin\MyFirstPanelPlugin.csproj", "{EA6ADE43-80D9-4879-A60B-D28F20E29441}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstRBPPlugin", "MyFirstRBPPlugin\MyFirstRBPPlugin.csproj", "{5EAD57CF-5960-4A46-8017-13C46E8D6BC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{EA6ADE43-80D9-4879-A60B-D28F20E29441}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA6ADE43-80D9-4879-A60B-D28F20E29441}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA6ADE43-80D9-4879-A60B-D28F20E29441}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EAD57CF-5960-4A46-8017-13C46E8D6BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EAD57CF-5960-4A46-8017-13C46E8D6BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EAD57CF-5960-4A46-8017-13C46E8D6BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EAD57CF-5960-4A46-8017-13C46E8D6BC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

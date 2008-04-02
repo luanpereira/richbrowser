@@ -4,11 +4,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8A9FF25D-5E1E-44B8-A55C-A43BE50A1CC7}</ProjectGuid>
+    <ProjectGuid>{5EAD57CF-5960-4A46-8017-13C46E8D6BC4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OpenCS.RBP</RootNamespace>
-    <AssemblyName>OpenCS.RBP</AssemblyName>
+    <RootNamespace>MyFirstRBPPlugin</RootNamespace>
+    <AssemblyName>MyFirstRBPPlugin</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -18,7 +18,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OpenCS.RBP.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -40,11 +39,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseRbpPlugin.cs" />
-    <Compile Include="IPanelPlugin.cs" />
-    <Compile Include="IRbpPlugin.cs" />
-    <Compile Include="IRichBrowserControl.cs" />
-    <Compile Include="IWebBrowser.cs" />
+    <Compile Include="DCTest2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DCTest2.Designer.cs">
+      <DependentUpon>DCTest2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyFirstRbpPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +53,17 @@
       <Project>{794BA4D4-1DCF-43E4-ABF0-D3BA636DC270}</Project>
       <Name>OpenCS.Common.Plugin</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OpenCS.Common\OpenCS.Common.csproj">
+      <Project>{7B2F2688-7621-4CD4-A916-979499465A1E}</Project>
+      <Name>OpenCS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCS.RBP\OpenCS.RBP.csproj">
+      <Project>{8A9FF25D-5E1E-44B8-A55C-A43BE50A1CC7}</Project>
+      <Name>OpenCS.RBP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="plugin.build" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -61,4 +73,13 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>echo ProjectDir=$(ProjectDir)
+echo SolutionDir=$(SolutionDir)
+echo TargetName=$(TargetName)
+set __TARGET_NAME=$(TargetName)
+
+nant -buildfile:$(ProjectDir)\plugin.build
+</PostBuildEvent>
+  </PropertyGroup>
 </Project>

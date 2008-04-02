@@ -16,7 +16,7 @@ namespace OpenCS.RBP.Controls
     /// <summary>
     /// 리치 브라우저 콘트롤
     /// </summary>
-    public partial class RichBrowserControl : UserControl, IPluginHost
+    public partial class RichBrowserControl : UserControl, IRichBrowserControl
     {
         private List<IPlugin> m_plugins = new List<IPlugin>();
         private DCPlugins m_dcPlugins;
@@ -67,6 +67,10 @@ namespace OpenCS.RBP.Controls
                                 {
                                     IPlugin plugin = obj as IPlugin;
                                     plugin.PluginHost = this;
+                                    if (plugin is IRbpPlugin)
+                                    {
+                                        (plugin as IRbpPlugin).RichBrowserControl = this;
+                                    }
                                     plugin.Init();
 
                                     m_plugins.Add(plugin);
@@ -76,6 +80,7 @@ namespace OpenCS.RBP.Controls
                                     {
                                         (plugin as IPanelPlugin).Show(dockPanelMain, DockState.DockLeft);
                                     }
+
                                 }
                             }
                         }
@@ -90,6 +95,15 @@ namespace OpenCS.RBP.Controls
         public List<IPlugin> Plugins
         {
             get { return m_plugins; }
+        }
+
+        #endregion
+
+        #region IRichBrowserControl 멤버
+
+        public DockPanel DockPanel
+        {
+            get { return dockPanelMain; }
         }
 
         #endregion
