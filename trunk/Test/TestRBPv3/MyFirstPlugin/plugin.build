@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<project name="plugin" default="main">
+
+	<property name="plugin.name" value="${environment::get-variable('__TARGET_NAME')}"/>
+	<property name="plugin.output.dir" value="bin/Debug"/>
+	
+	<property name="solution.dir" value=".."/>
+	<include buildfile="${solution.dir}/pluginhost.build"/>
+	<property name="plugin.to.dir" value="${plugins.dir}/${plugin.name}"/>
+
+	<target name="main">
+		<echo message="path=${path::get-full-path(plugins.dir)}"/>
+		
+		<delete dir="${plugin.to.dir}"/>
+		<mkdir dir="${plugin.to.dir}"/>
+		<copy todir="${plugin.to.dir}">
+			<fileset basedir="${plugin.output.dir}">
+				<include name="*.dll" />
+				<include name="*.pdb" />
+				<include name="*.xml" />
+				<exclude name="WeifenLuo.WinFormsUI.Docking.*"/>
+				<exclude name="OpenCS.Common.Plugin.*"/>
+			</fileset>
+		</copy>
+		
+	</target>
+	
+</project>

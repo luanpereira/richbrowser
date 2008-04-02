@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Diagnostics;
+using OpenCS.Common.Plugin;
 
 namespace OpenCS.Plugin.MyFirstPlugin
 {
-    public class FirstPlugin : BasePlugin
+    public class FirstPlugin : BasePlugin, IPlugin
     {
         public override string Title
         {

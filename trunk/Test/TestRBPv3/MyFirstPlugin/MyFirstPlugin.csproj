@@ -4,11 +4,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F77464BB-FA7D-4312-8E85-35C57BFB7A41}</ProjectGuid>
+    <ProjectGuid>{028D5F84-9CCE-49B6-90FF-D8BA92E3629E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OpenCS.Plugin.MyFirstPlugin</RootNamespace>
-    <AssemblyName>OpenCS.Plugin.MyFirstPlugin</AssemblyName>
+    <RootNamespace>MyFirstPlugin</RootNamespace>
+    <AssemblyName>MyFirstPlugin</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,9 +49,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenCS.Plugin\OpenCS.Plugin.csproj">
-      <Project>{DDD98FFD-8CEC-4194-ADDC-2AA5E72F5A7F}</Project>
-      <Name>OpenCS.Plugin</Name>
+    <None Include="plugin.build" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenCS.Common.Plugin\OpenCS.Common.Plugin.csproj">
+      <Project>{794BA4D4-1DCF-43E4-ABF0-D3BA636DC270}</Project>
+      <Name>OpenCS.Common.Plugin</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -62,4 +65,13 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>echo ProjectDir=$(ProjectDir)
+echo SolutionDir=$(SolutionDir)
+echo TargetName=$(TargetName)
+set __TARGET_NAME=$(TargetName)
+
+nant -buildfile:$(ProjectDir)\plugin.build
+</PostBuildEvent>
+  </PropertyGroup>
 </Project>

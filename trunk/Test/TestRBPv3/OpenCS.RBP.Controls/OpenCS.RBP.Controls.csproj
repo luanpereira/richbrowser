@@ -4,11 +4,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DDD98FFD-8CEC-4194-ADDC-2AA5E72F5A7F}</ProjectGuid>
+    <ProjectGuid>{070551B2-AB6F-4687-9BAF-B0403EB4DF0E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OpenCS.Plugin</RootNamespace>
-    <AssemblyName>OpenCS.Plugin</AssemblyName>
+    <RootNamespace>OpenCS.RBP.Controls</RootNamespace>
+    <AssemblyName>OpenCS.RBP.Controls</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -18,6 +18,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\OpenCS.RBP.Controls.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,13 +31,38 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.2.2864.18696, Culture=neutral, PublicKeyToken=d481317c817cec47, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Labraries\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePlugin.cs" />
-    <Compile Include="IPlugin.cs" />
-    <Compile Include="IPluginHost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RichBrowserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RichBrowserControl.Designer.cs">
+      <DependentUpon>RichBrowserControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RichBrowserControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RichBrowserControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenCS.Common.Plugin\OpenCS.Common.Plugin.csproj">
+      <Project>{794BA4D4-1DCF-43E4-ABF0-D3BA636DC270}</Project>
+      <Name>OpenCS.Common.Plugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCS.RBP\OpenCS.RBP.csproj">
+      <Project>{8A9FF25D-5E1E-44B8-A55C-A43BE50A1CC7}</Project>
+      <Name>OpenCS.RBP</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

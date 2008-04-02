@@ -72,9 +72,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenCS.Plugin\OpenCS.Plugin.csproj">
-      <Project>{DDD98FFD-8CEC-4194-ADDC-2AA5E72F5A7F}</Project>
-      <Name>OpenCS.Plugin</Name>
+    <ProjectReference Include="..\OpenCS.Common.Plugin\OpenCS.Common.Plugin.csproj">
+      <Project>{794BA4D4-1DCF-43E4-ABF0-D3BA636DC270}</Project>
+      <Name>OpenCS.Common.Plugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCS.RBP.Controls\OpenCS.RBP.Controls.csproj">
+      <Project>{070551B2-AB6F-4687-9BAF-B0403EB4DF0E}</Project>
+      <Name>OpenCS.RBP.Controls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
