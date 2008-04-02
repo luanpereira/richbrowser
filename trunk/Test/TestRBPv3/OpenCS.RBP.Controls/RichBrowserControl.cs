@@ -12,10 +12,16 @@ using OpenCS.Common.Plugin;
 
 namespace OpenCS.RBP.Controls
 {
+    /// <summary>
+    /// 리치 브라우저 콘트롤
+    /// </summary>
     public partial class RichBrowserControl : UserControl, IPluginHost
     {
         private List<IPlugin> m_plugins = new List<IPlugin>();
 
+        /// <summary>
+        /// 생성자
+        /// </summary>
         public RichBrowserControl()
         {
             InitializeComponent();
@@ -31,6 +37,10 @@ namespace OpenCS.RBP.Controls
 
         #region IPluginHost 멤버
 
+        /// <summary>
+        /// 플러그인들을 로딩한다.
+        /// </summary>
+        /// <param name="baseFolder">플러그인들이 위치한 기본 폴더</param>
         public void LoadPlugins(string baseFolder)
         {
             foreach (string pluginFolder in Directory.GetDirectories(baseFolder))
@@ -64,6 +74,9 @@ namespace OpenCS.RBP.Controls
             }
         }
 
+        /// <summary>
+        /// 플러그인 목록을 가져온다.
+        /// </summary>
         public List<IPlugin> Plugins
         {
             get { return m_plugins; }
