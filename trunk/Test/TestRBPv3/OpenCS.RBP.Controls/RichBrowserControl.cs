@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
 using System.Diagnostics;
+using WeifenLuo.WinFormsUI.Docking;
 using OpenCS.Common.Plugin;
 
 namespace OpenCS.RBP.Controls
@@ -18,6 +19,7 @@ namespace OpenCS.RBP.Controls
     public partial class RichBrowserControl : UserControl, IPluginHost
     {
         private List<IPlugin> m_plugins = new List<IPlugin>();
+        private DCPlugins m_dcPlugins;
 
         /// <summary>
         /// 생성자
@@ -25,6 +27,9 @@ namespace OpenCS.RBP.Controls
         public RichBrowserControl()
         {
             InitializeComponent();
+
+            m_dcPlugins = new DCPlugins();
+            m_dcPlugins.Show(dockPanelMain, DockState.DockLeft);
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -65,8 +70,13 @@ namespace OpenCS.RBP.Controls
                                     plugin.Init();
 
                                     m_plugins.Add(plugin);
-                                }
+                                    m_dcPlugins.AddPlugin(plugin);
 
+                                    if (plugin is IPanelPlugin)
+                                    {
+                                        (plugin as IPanelPlugin).Show(dockPanelMain, DockState.DockLeft);
+                                    }
+                                }
                             }
                         }
                     }

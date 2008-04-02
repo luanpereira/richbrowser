@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCS.Common.Plugin", "Ope
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstPlugin", "MyFirstPlugin\MyFirstPlugin.csproj", "{028D5F84-9CCE-49B6-90FF-D8BA92E3629E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstPanelPlugin", "MyFirstPanelPlugin\MyFirstPanelPlugin.csproj", "{EA6ADE43-80D9-4879-A60B-D28F20E29441}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{028D5F84-9CCE-49B6-90FF-D8BA92E3629E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{028D5F84-9CCE-49B6-90FF-D8BA92E3629E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{028D5F84-9CCE-49B6-90FF-D8BA92E3629E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA6ADE43-80D9-4879-A60B-D28F20E29441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA6ADE43-80D9-4879-A60B-D28F20E29441}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA6ADE43-80D9-4879-A60B-D28F20E29441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA6ADE43-80D9-4879-A60B-D28F20E29441}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

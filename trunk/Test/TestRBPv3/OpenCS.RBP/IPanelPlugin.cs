@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using OpenCS.Common.Plugin;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace OpenCS.RBP
 {
@@ -13,6 +14,8 @@ namespace OpenCS.RBP
         /// <summary>
         /// 패널을 표시한다.
         /// </summary>
-        void Show();
+        /// <param name="dockPanel">DockPanel</param>
+        /// <param name="dockState">표시할 방법</param>
+        void Show(DockPanel dockPanel, DockState dockState);
     }
 }

@@ -39,12 +39,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DCTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DCTest.Designer.cs">
-      <DependentUpon>DCTest.cs</DependentUpon>
-    </Compile>
     <Compile Include="FirstPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,6 +49,10 @@
     <ProjectReference Include="..\OpenCS.Common.Plugin\OpenCS.Common.Plugin.csproj">
       <Project>{794BA4D4-1DCF-43E4-ABF0-D3BA636DC270}</Project>
       <Name>OpenCS.Common.Plugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCS.RBP\OpenCS.RBP.csproj">
+      <Project>{8A9FF25D-5E1E-44B8-A55C-A43BE50A1CC7}</Project>
+      <Name>OpenCS.RBP</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

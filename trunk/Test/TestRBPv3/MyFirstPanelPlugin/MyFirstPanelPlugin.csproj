@@ -4,11 +4,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{070551B2-AB6F-4687-9BAF-B0403EB4DF0E}</ProjectGuid>
+    <ProjectGuid>{EA6ADE43-80D9-4879-A60B-D28F20E29441}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OpenCS.RBP.Controls</RootNamespace>
-    <AssemblyName>OpenCS.RBP.Controls</AssemblyName>
+    <RootNamespace>MyFirstPanelPlugin</RootNamespace>
+    <AssemblyName>MyFirstPanelPlugin</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -18,7 +18,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OpenCS.RBP.Controls.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -40,39 +39,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DCPlugins.cs">
+    <Compile Include="DCTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DCPlugins.Designer.cs">
-      <DependentUpon>DCPlugins.cs</DependentUpon>
+    <Compile Include="DCTest.Designer.cs">
+      <DependentUpon>DCTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RichBrowserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RichBrowserControl.Designer.cs">
-      <DependentUpon>RichBrowserControl.cs</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="DCPlugins.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>DCPlugins.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RichBrowserControl.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>RichBrowserControl.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenCS.Common.Plugin\OpenCS.Common.Plugin.csproj">
       <Project>{794BA4D4-1DCF-43E4-ABF0-D3BA636DC270}</Project>
       <Name>OpenCS.Common.Plugin</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OpenCS.Common\OpenCS.Common.csproj">
+      <Project>{7B2F2688-7621-4CD4-A916-979499465A1E}</Project>
+      <Name>OpenCS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenCS.RBP\OpenCS.RBP.csproj">
       <Project>{8A9FF25D-5E1E-44B8-A55C-A43BE50A1CC7}</Project>
       <Name>OpenCS.RBP</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="plugin.build" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -82,4 +72,13 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>echo ProjectDir=$(ProjectDir)
+echo SolutionDir=$(SolutionDir)
+echo TargetName=$(TargetName)
+set __TARGET_NAME=$(TargetName)
+
+nant -buildfile:$(ProjectDir)\plugin.build
+</PostBuildEvent>
+  </PropertyGroup>
 </Project>

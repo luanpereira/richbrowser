@@ -21,7 +21,6 @@ namespace OpenCS.Plugin.MyFirstPlugin
         public override void Init()
         {
             Debug.Print("inited");
-            DCTest dc = new DCTest();
         }
 
         public override void Deinit()
