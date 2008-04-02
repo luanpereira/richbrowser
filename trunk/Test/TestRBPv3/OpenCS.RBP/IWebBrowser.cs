@@ -12,6 +12,11 @@ namespace OpenCS.RBP
     /// </summary>
     public interface IWebBrowser
     {
+        string StatusText
+        {
+            get;
+        }
+
         /// <summary>
         /// 표시한다.
         /// </summary>
@@ -23,7 +28,7 @@ namespace OpenCS.RBP
         /// <param name="url">웹 주소</param>
         void Navigate(string url);
 
-        event WebBrowserNavigatedEventHandler Navigated;
+                event WebBrowserNavigatedEventHandler Navigated;
         event WebBrowserDocumentCompletedEventHandler DocumentCompleted;
         event EventHandler StatusTextChanged;
 
