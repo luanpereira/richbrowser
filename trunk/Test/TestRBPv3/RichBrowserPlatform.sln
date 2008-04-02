@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCS.RBP", "OpenCS.RBP\Op
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCS.RBP.Controls", "OpenCS.RBP.Controls\OpenCS.RBP.Controls.csproj", "{070551B2-AB6F-4687-9BAF-B0403EB4DF0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCS.RBP.WinForms", "OpenCS.RBP.WinForms\OpenCS.RBP.WinForms.csproj", "{2E8F6090-077D-4CE3-B7AC-967F81F6D008}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{070551B2-AB6F-4687-9BAF-B0403EB4DF0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{070551B2-AB6F-4687-9BAF-B0403EB4DF0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{070551B2-AB6F-4687-9BAF-B0403EB4DF0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E8F6090-077D-4CE3-B7AC-967F81F6D008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E8F6090-077D-4CE3-B7AC-967F81F6D008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E8F6090-077D-4CE3-B7AC-967F81F6D008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E8F6090-077D-4CE3-B7AC-967F81F6D008}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
