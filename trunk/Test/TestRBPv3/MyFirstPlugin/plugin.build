@@ -5,7 +5,7 @@
 	<property name="plugin.output.dir" value="bin/Debug"/>
 	
 	<property name="solution.dir" value=".."/>
-	<include buildfile="${solution.dir}/pluginhost.build"/>
+	<include buildfile="${solution.dir}/pluginhost.build.inc"/>
 	<property name="plugin.to.dir" value="${plugins.dir}/${plugin.name}"/>
 
 	<target name="main">
