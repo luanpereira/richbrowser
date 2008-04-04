@@ -20,9 +20,19 @@ namespace OpenCS.RBP.Controls
     /// </summary>
     public partial class RichBrowserControl : UserControl, IRichBrowserControl
     {
+        #region Fields
+
         private List<IPlugin> m_plugins = new List<IPlugin>();
         private DCPlugins m_dcPlugins;
         private GenericClassFactory<IWebBrowserDockContent> m_wbdcf;
+
+        #endregion Fields
+
+        #region Properties
+
+        #endregion Properties
+
+        #region Constructors
 
         /// <summary>
         /// 생성자
@@ -37,10 +47,26 @@ namespace OpenCS.RBP.Controls
             m_dcPlugins.Show(dockPanelMain, DockState.DockLeft);
         }
 
+        #endregion Constructors
+
+        #region Private Functions
+
+        #region Initialization
+
         private void InitDockPanel(DockPanel dp)
         {
             dp.DocumentStyle = DocumentStyle.DockingWindow;
         }
+
+        #endregion Initialization
+
+        #region Event handling
+
+        #region Form
+
+        #endregion Form
+
+        #region Buttons
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -50,7 +76,70 @@ namespace OpenCS.RBP.Controls
             LoadPlugins(pluginsFolder);
         }
 
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            Navigate(toolStripTextBox1.Text);
+        }
+
+        #endregion Buttons
+
+        #region Menus
+
+        #endregion Menus
+
+        private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Return:
+                    Navigate(toolStripTextBox1.Text);
+                    e.SuppressKeyPress = true;
+                    break;
+            }
+        }
+
+        #endregion Event handling
+
+        #endregion Private Functions
+
+        #region Protected Functions
+
+        #endregion Protected Functions
+
+        #region Public Functions
+
+        #endregion Public Functions
+
+        #region IActionHandler 멤버
+
+        public ActionResult HandleAction(IAction action)
+        {
+            foreach (IPlugin plugin in m_plugins)
+            {
+                if (plugin.HandleAction(action) == ActionResult.Failed)
+                {
+                    return ActionResult.Failed;
+                }
+            }
+
+            return ActionResult.Success;
+        }
+
+        #endregion
+
         #region IPluginHost 멤버
+
+        /// <summary>
+        /// 플러그인 목록을 가져온다.
+        /// </summary>
+        public List<IPlugin> Plugins
+        {
+            get { return m_plugins; }
+        }
 
         /// <summary>
         /// 플러그인들을 로딩한다.
@@ -99,12 +188,12 @@ namespace OpenCS.RBP.Controls
             }
         }
 
-        /// <summary>
-        /// 플러그인 목록을 가져온다.
-        /// </summary>
-        public List<IPlugin> Plugins
+        public void UnloadPlugins()
         {
-            get { return m_plugins; }
+            foreach (IPlugin plugin in m_plugins)
+            {
+                plugin.Deinit();
+            }
         }
 
         #endregion
@@ -137,43 +226,61 @@ namespace OpenCS.RBP.Controls
             set { m_wbdcf = value; }
         }
 
-        #endregion
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        public object AddToolBarButton(string text, IAction action)
         {
+            ToolStripButton button = new ToolStripButton(text);
+            button.Click += new EventHandler(OnToolBarButtonClick);
+            button.Tag = action;
+            toolStripPlugins.Items.Add(button);
+
+            return button;
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
+        public void RemoveToolBarButton(object button)
         {
-            Navigate(toolStripTextBox1.Text);
+            toolStripPlugins.Items.Remove(button as ToolStripItem);
         }
 
-        private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
+        void OnToolBarButtonClick(object sender, EventArgs e)
         {
-            switch (e.KeyCode)
+            if (sender is ToolStripButton)
             {
-                case Keys.Return:
-                    Navigate(toolStripTextBox1.Text);
-                    e.SuppressKeyPress = true;
-                    break;
-            }
-        }
-
-        #region IActionHandler 멤버
-
-        public ActionResult HandleAction(IAction action)
-        {
-            foreach (IPlugin plugin in m_plugins)
-            {
-                if (plugin.HandleAction(action) == ActionResult.Failed)
+                ToolStripButton button = sender as ToolStripButton;
+                if (button.Tag is IAction)
                 {
-                    return ActionResult.Failed;
+                    HandleAction(button.Tag as IAction);
                 }
             }
+        }
 
-            return ActionResult.Success;
+        public object AddMenuItem(string text, IAction action)
+        {
+            ToolStripMenuItem item = new ToolStripMenuItem(text);
+            item.Tag = action;
+            item.Click += new EventHandler(OnMenuItemClick);
+            pluginsToolStripMenuItem.DropDownItems.Add(item);
+
+            return item;
+        }
+
+        void OnMenuItemClick(object sender, EventArgs e)
+        {
+            if (sender is ToolStripMenuItem)
+            {
+                ToolStripMenuItem item = (sender as ToolStripMenuItem);
+                if (item.Tag is IAction)
+                {
+                    HandleAction(item.Tag as IAction);
+                }
+            }
+        }
+
+        public void RemoveMenuItem(object menuItem)
+        {
+            pluginsToolStripMenuItem.DropDownItems.Remove(menuItem as ToolStripItem);
         }
 
         #endregion
+
     }
 }

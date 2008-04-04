@@ -11,7 +11,10 @@ namespace MyFirstRBPPlugin
 {
     public class MyFirstRbpPlugin : BaseRbpPlugin
     {
+        private DCTest2 m_dc;
         private IActionHandler m_ah;
+        private object m_button;
+        private object m_menu;
 
         public override string Title
         {
@@ -25,21 +28,39 @@ namespace MyFirstRBPPlugin
 
         public override void Init()
         {
-            DCTest2 dc = new DCTest2();
-            dc.HostDockPanel = m_rbc.DockPanel;
-            dc.Show(m_rbc.DockPanel, DockState.DockRight);
-            m_ah = dc;
+            m_dc = new DCTest2();
+            m_dc.HideOnClose = true;
+            m_dc.HostDockPanel = m_rbc.DockPanel;
+            m_dc.Show(m_rbc.DockPanel, DockState.DockRight);
+            m_ah = m_dc;
+            m_button = m_rbc.AddToolBarButton("FirstRbpPlugin", new ShowMyFirstRbpPanelAction());
+            m_menu = m_rbc.AddMenuItem("FirstRbpPlugin", new ShowMyFirstRbpPanelAction());
 
             Debug.Print("inited");
         }
 
         public override void Deinit()
         {
+            m_rbc.RemoveToolBarButton(m_button);
+            m_rbc.RemoveMenuItem(m_menu);
+
+            m_dc.Close();
+
             Debug.Print("deinited");
         }
 
         public override ActionResult HandleAction(IAction action)
         {
+            if (action is ShowMyFirstRbpPanelAction)
+            {
+                if (m_dc != null)
+                {
+                    m_dc.Show(m_rbc.DockPanel, DockState.DockRight);
+
+                    return ActionResult.Success;
+                }
+            }
+
             if (m_ah != null)
             {
                 return m_ah.HandleAction(action);

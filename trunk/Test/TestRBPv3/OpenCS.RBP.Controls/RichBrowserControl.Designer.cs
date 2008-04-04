@@ -35,26 +35,28 @@
             this.toolStripContainerMain = new System.Windows.Forms.ToolStripContainer();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.dockPanelMain = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripPlugins = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripAddress = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.pluginsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripContainerMain.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainerMain.ContentPanel.SuspendLayout();
             this.toolStripContainerMain.TopToolStripPanel.SuspendLayout();
             this.toolStripContainerMain.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
+            this.toolStripPlugins.SuspendLayout();
+            this.toolStripAddress.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
             // 
             this.menuStripMain.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.pluginsToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(619, 24);
@@ -96,8 +98,8 @@
             // toolStripContainerMain.TopToolStripPanel
             // 
             this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.menuStripMain);
-            this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStrip1);
-            this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStrip2);
+            this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStripPlugins);
+            this.toolStripContainerMain.TopToolStripPanel.Controls.Add(this.toolStripAddress);
             // 
             // statusStripMain
             // 
@@ -117,16 +119,16 @@
             this.dockPanelMain.Size = new System.Drawing.Size(619, 259);
             this.dockPanelMain.TabIndex = 0;
             // 
-            // toolStrip1
+            // toolStripPlugins
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripPlugins.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripPlugins.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButton2});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(127, 25);
-            this.toolStrip1.TabIndex = 1;
+            this.toolStripPlugins.Location = new System.Drawing.Point(3, 24);
+            this.toolStripPlugins.Name = "toolStripPlugins";
+            this.toolStripPlugins.Size = new System.Drawing.Size(127, 25);
+            this.toolStripPlugins.TabIndex = 1;
             // 
             // toolStripButton1
             // 
@@ -147,16 +149,16 @@
             this.toolStripButton2.Text = "toolStripButton2";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // toolStrip2
+            // toolStripAddress
             // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripAddress.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripAddress.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox1,
             this.toolStripButton3});
-            this.toolStrip2.Location = new System.Drawing.Point(3, 49);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(487, 25);
-            this.toolStrip2.TabIndex = 2;
+            this.toolStripAddress.Location = new System.Drawing.Point(3, 49);
+            this.toolStripAddress.Name = "toolStripAddress";
+            this.toolStripAddress.Size = new System.Drawing.Size(456, 25);
+            this.toolStripAddress.TabIndex = 2;
             // 
             // toolStripTextBox1
             // 
@@ -172,6 +174,12 @@
             this.toolStripButton3.Size = new System.Drawing.Size(42, 22);
             this.toolStripButton3.Text = "Go";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // pluginsToolStripMenuItem
+            // 
+            this.pluginsToolStripMenuItem.Name = "pluginsToolStripMenuItem";
+            this.pluginsToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.pluginsToolStripMenuItem.Text = "Plugins";
             // 
             // RichBrowserControl
             // 
@@ -189,10 +197,10 @@
             this.toolStripContainerMain.TopToolStripPanel.PerformLayout();
             this.toolStripContainerMain.ResumeLayout(false);
             this.toolStripContainerMain.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
+            this.toolStripPlugins.ResumeLayout(false);
+            this.toolStripPlugins.PerformLayout();
+            this.toolStripAddress.ResumeLayout(false);
+            this.toolStripAddress.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -205,11 +213,12 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanelMain;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip toolStripPlugins;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStrip toolStripAddress;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripMenuItem pluginsToolStripMenuItem;
     }
 }

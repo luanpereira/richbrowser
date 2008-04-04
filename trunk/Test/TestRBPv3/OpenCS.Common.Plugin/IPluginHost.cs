@@ -24,5 +24,10 @@ namespace OpenCS.Common.Plugin
         /// </summary>
         /// <param name="baseFolder">플러그인들이 위치한 기본 폴더</param>
         void LoadPlugins(string baseFolder);
+
+        /// <summary>
+        /// 플러그인들을 해제한다.
+        /// </summary>
+        void UnloadPlugins();
     }
 }

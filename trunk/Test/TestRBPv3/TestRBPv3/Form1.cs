@@ -19,6 +19,22 @@ namespace TestRBPv3
             InitializeComponent();
 
             richBrowserControl1.WebBrowserDockContentFactory = new WinFormsWebBrowserDockContentFactory();
+
+            this.Load+=new EventHandler(Form1_Load);
+            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
+        }
+
+        void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            richBrowserControl1.UnloadPlugins();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            string appPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string pluginsFolder = appPath + @"\Plugins";
+
+            richBrowserControl1.LoadPlugins(pluginsFolder);
         }
     }
 }
