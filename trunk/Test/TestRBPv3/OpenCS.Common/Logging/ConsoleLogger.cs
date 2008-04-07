@@ -18,7 +18,7 @@ namespace OpenCS.Common.Logging
         /// <param name="message">메시지</param>
         public void Fatal(string message)
         {
-            System.Diagnostics.Debug.Fail("[FATAL] " + message);
+            System.Diagnostics.Debug.Print("[FATAL] " + message);
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace OpenCS.Common.Logging
         /// <param name="message">메시지</param>
         public void Error(string message)
         {
-            System.Diagnostics.Debug.Fail("[ERROR] " + message);
+            System.Diagnostics.Debug.Print("[ERROR] " + message);
         }
 
         /// <summary>
