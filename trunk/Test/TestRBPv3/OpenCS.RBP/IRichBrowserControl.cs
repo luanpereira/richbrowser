@@ -6,13 +6,14 @@ using WeifenLuo.WinFormsUI.Docking;
 using OpenCS.Common;
 using OpenCS.Common.Plugin;
 using OpenCS.Common.Action;
+using OpenCS.Common.Logging;
 
 namespace OpenCS.RBP
 {
     /// <summary>
     /// 리치 브라우저 콘트롤
     /// </summary>
-    public interface IRichBrowserControl : IPluginHost
+    public interface IRichBrowserControl : IPluginHost, ILoggable
     {
         /// <summary>
         /// DockPanel을 가져온다.

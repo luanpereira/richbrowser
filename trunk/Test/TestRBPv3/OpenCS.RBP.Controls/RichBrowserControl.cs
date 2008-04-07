@@ -7,11 +7,11 @@ using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
-using System.Diagnostics;
 using WeifenLuo.WinFormsUI.Docking;
 using OpenCS.Common;
 using OpenCS.Common.Plugin;
 using OpenCS.Common.Action;
+using OpenCS.Common.Logging;
 
 namespace OpenCS.RBP.Controls
 {
@@ -25,6 +25,7 @@ namespace OpenCS.RBP.Controls
         private List<IPlugin> m_plugins = new List<IPlugin>();
         private DCPlugins m_dcPlugins;
         private GenericClassFactory<IWebBrowserDockContent> m_wbdcf;
+        private ILogger m_logger = new ConsoleLogger();
 
         #endregion Fields
 
@@ -149,7 +150,7 @@ namespace OpenCS.RBP.Controls
         {
             if (Directory.Exists(baseFolder) == false)
             {
-                Debug.Fail("Plugins folder is not found.");
+                m_logger.Warn("Plugins folder is not found.");
                 return;
             }
 
@@ -162,21 +163,23 @@ namespace OpenCS.RBP.Controls
                         Assembly asm = Assembly.LoadFrom(file);
                         foreach (Type type in asm.GetTypes())
                         {
-                            Debug.Print(type.ToString());
+                            m_logger.Debug(type.ToString());
                             Type ifType = type.GetInterface(typeof(IPlugin).FullName, false);
                             if (ifType != null && type.IsAbstract == false)
                             {
-                                Debug.Print(ifType.ToString());
+                                m_logger.Info("Found plugin: " + type.FullName);
                                 object obj = asm.CreateInstance(type.FullName);
                                 if (obj != null && obj is IPlugin)
                                 {
                                     IPlugin plugin = obj as IPlugin;
+                                    m_logger.Info("Plugin: " + plugin.Title);
                                     plugin.PluginHost = this;
                                     if (plugin is IRbpPlugin)
                                     {
                                         (plugin as IRbpPlugin).RichBrowserControl = this;
                                     }
                                     plugin.Init();
+                                    m_logger.Info("Plugin Inited: " + plugin.Title);
 
                                     m_plugins.Add(plugin);
                                     m_dcPlugins.AddPlugin(plugin);
@@ -185,7 +188,6 @@ namespace OpenCS.RBP.Controls
                                     {
                                         (plugin as IPanelPlugin).Show(dockPanelMain, DockState.DockLeft);
                                     }
-
                                 }
                             }
                         }
@@ -199,6 +201,7 @@ namespace OpenCS.RBP.Controls
             foreach (IPlugin plugin in m_plugins)
             {
                 plugin.Deinit();
+                m_logger.Info("Plugin Deinited: " + plugin.Title);
             }
         }
 
@@ -209,6 +212,14 @@ namespace OpenCS.RBP.Controls
         public DockPanel DockPanel
         {
             get { return dockPanelMain; }
+        }
+
+        public ILogger Logger
+        {
+            set
+            {
+                m_logger = null;
+            }
         }
 
         public IWebBrowser Navigate(string url)
@@ -287,6 +298,5 @@ namespace OpenCS.RBP.Controls
         }
 
         #endregion
-
     }
 }

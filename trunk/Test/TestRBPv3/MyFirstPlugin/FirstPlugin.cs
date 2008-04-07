@@ -21,12 +21,10 @@ namespace OpenCS.Plugin.MyFirstPlugin
 
         public override void Init()
         {
-            Debug.Print("inited");
         }
 
         public override void Deinit()
         {
-            Debug.Print("deinited");
         }
 
         public override ActionResult HandleAction(IAction action)

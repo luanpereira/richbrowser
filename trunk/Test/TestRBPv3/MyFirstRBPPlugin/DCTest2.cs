@@ -8,12 +8,14 @@ using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using OpenCS.RBP;
 using OpenCS.Common.Action;
+using OpenCS.Common.Logging;
 
 namespace MyFirstRBPPlugin
 {
-    public partial class DCTest2 : DockContent, IActionHandler
+    public partial class DCTest2 : DockContent, IActionHandler, ILoggable
     {
         private DockPanel m_dp;
+        private ILogger m_logger = new ConsoleLogger();
 
         public DockPanel HostDockPanel
         {
@@ -88,11 +90,21 @@ namespace MyFirstRBPPlugin
         {
             if (action is PropertyAction<string>)
             {
+                m_logger.Info("got message=" + (action as PropertyAction<string>).Property);
                 toolStripTextBox1.Text = (action as PropertyAction<string>).Property;
                 return ActionResult.Success;
             }
 
             return ActionResult.NotHandled;
+        }
+
+        #endregion
+
+        #region ILoggable 멤버
+
+        public ILogger Logger
+        {
+            set { m_logger = value; }
         }
 
         #endregion

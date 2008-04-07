@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using OpenCS.Common.Plugin;
+using OpenCS.Common.Logging;
 
 namespace OpenCS.RBP
 {
@@ -15,6 +16,23 @@ namespace OpenCS.RBP
         /// </summary>
         protected IRichBrowserControl m_rbc;
 
+        /// <summary>
+        /// 로거
+        /// </summary>
+        protected ILogger m_logger = new ConsoleLogger();
+
+        #region ILoggable 멤버
+
+        /// <summary>
+        /// 로거를 가져오거나 설정한다.
+        /// </summary>
+        public ILogger Logger
+        {
+            set { m_logger = value; }
+        }
+
+        #endregion
+
         #region IRbpPlugin 멤버
 
         /// <summary>
@@ -26,5 +44,6 @@ namespace OpenCS.RBP
         }
 
         #endregion
+
     }
 }

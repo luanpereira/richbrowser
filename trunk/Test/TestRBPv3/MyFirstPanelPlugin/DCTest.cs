@@ -10,12 +10,14 @@ using OpenCS.RBP;
 using OpenCS.Common.Plugin;
 using System.Diagnostics;
 using OpenCS.Common.Action;
+using OpenCS.Common.Logging;
 
 namespace OpenCS.Plugin.MyFirstPlugin
 {
     public partial class DCTest : DockContent, IPanelPlugin
     {
         private IPluginHost m_host;
+        private ILogger m_logger = new ConsoleLogger();
 
         public DCTest()
         {
@@ -41,12 +43,19 @@ namespace OpenCS.Plugin.MyFirstPlugin
 
         public void Init()
         {
-            Debug.Print("inited");
         }
 
         public void Deinit()
         {
-            Debug.Print("deinited");
+        }
+
+        #endregion
+
+        #region ILoggable 멤버
+
+        public ILogger Logger
+        {
+            set { m_logger = value; }
         }
 
         #endregion
@@ -65,5 +74,6 @@ namespace OpenCS.Plugin.MyFirstPlugin
             ActionResult result = m_host.HandleAction(new PropertyAction<string>(toolStripTextBox1.Text));
             MessageBox.Show(result.ToString());
         }
+
     }
 }

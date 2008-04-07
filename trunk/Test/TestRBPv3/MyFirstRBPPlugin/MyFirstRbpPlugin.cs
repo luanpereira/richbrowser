@@ -35,8 +35,6 @@ namespace MyFirstRBPPlugin
             m_ah = m_dc;
             m_button = m_rbc.AddToolBarButton("FirstRbpPlugin", new ShowMyFirstRbpPanelAction());
             m_menu = m_rbc.AddMenuItem("FirstRbpPlugin", new ShowMyFirstRbpPanelAction());
-
-            Debug.Print("inited");
         }
 
         public override void Deinit()
@@ -45,8 +43,6 @@ namespace MyFirstRBPPlugin
             m_rbc.RemoveMenuItem(m_menu);
 
             m_dc.Close();
-
-            Debug.Print("deinited");
         }
 
         public override ActionResult HandleAction(IAction action)
