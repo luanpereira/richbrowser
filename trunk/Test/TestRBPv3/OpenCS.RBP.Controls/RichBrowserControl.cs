@@ -147,6 +147,12 @@ namespace OpenCS.RBP.Controls
         /// <param name="baseFolder">플러그인들이 위치한 기본 폴더</param>
         public void LoadPlugins(string baseFolder)
         {
+            if (Directory.Exists(baseFolder) == false)
+            {
+                Debug.Fail("Plugins folder is not found.");
+                return;
+            }
+
             foreach (string pluginFolder in Directory.GetDirectories(baseFolder))
             {
                 foreach (string file in Directory.GetFiles(pluginFolder, "*.dll"))
