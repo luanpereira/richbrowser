@@ -158,7 +158,7 @@ namespace OpenCS.RBP.Controls
             {
                 foreach (string file in Directory.GetFiles(pluginFolder, "*.dll"))
                 {
-                    if (file.EndsWith("Plugin.dll") == true)
+                    //if (file.EndsWith("Plugin.dll") == true)
                     {
                         Assembly asm = Assembly.LoadFrom(file);
                         foreach (Type type in asm.GetTypes())
