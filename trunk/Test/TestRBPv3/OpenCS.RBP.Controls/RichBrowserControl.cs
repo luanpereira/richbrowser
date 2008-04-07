@@ -218,7 +218,7 @@ namespace OpenCS.RBP.Controls
         {
             set
             {
-                m_logger = null;
+                m_logger = value;
             }
         }
 
@@ -234,6 +234,8 @@ namespace OpenCS.RBP.Controls
 
                 return wbdc.WebBrowser;
             }
+
+            m_logger.Fatal("Can't found WebBrowserDockContentFactory");
 
             return null;
         }
