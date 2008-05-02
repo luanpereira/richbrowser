@@ -37,7 +37,6 @@ namespace RichBrowser
             this.richBrowserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richBrowserControl1.Location = new System.Drawing.Point(0, 0);
             logManager1.Options = JinwooMin.Logging.LogOptions.NONE;
-            this.richBrowserControl1.Logger = logManager1;
             this.richBrowserControl1.Name = "richBrowserControl1";
             this.richBrowserControl1.ShowAddressToolbar = true;
             this.richBrowserControl1.ShowMenubar = true;
