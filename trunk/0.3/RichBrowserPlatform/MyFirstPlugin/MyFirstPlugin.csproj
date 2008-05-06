@@ -64,10 +64,14 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>echo ProjectDir=$(ProjectDir)
-echo SolutionDir=$(SolutionDir)
-echo TargetName=$(TargetName)
+    <PostBuildEvent>set __PLUGINHOST_NAME=$(SolutionName)
+echo __PLUGINHOST_NAME=%25__PLUGINHOST_NAME%25
+
 set __TARGET_NAME=$(TargetName)
+echo __TARGET_NAME=%25__TARGET_NAME%25
+
+set __CONFIG_NAME=$(ConfigurationName)
+echo __CONFIG_NAME=%25__CONFIG_NAME%25
 
 nant -buildfile:$(ProjectDir)\plugin.build
 </PostBuildEvent>

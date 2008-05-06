@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRBPv3", "TestRBPv3\TestRBPv3.csproj", "{9150463E-118C-48C8-82B2-7D0A141CE41B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCS.RBP", "OpenCS.RBP\OpenCS.RBP.csproj", "{8A9FF25D-5E1E-44B8-A55C-A43BE50A1CC7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCS.Common", "OpenCS.Common\OpenCS.Common.csproj", "{7B2F2688-7621-4CD4-A916-979499465A1E}"
@@ -19,16 +17,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstRBPPlugin", "MyFirst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCS.RBP.WinForms", "OpenCS.RBP.WinForms\OpenCS.RBP.WinForms.csproj", "{2E8F6090-077D-4CE3-B7AC-967F81F6D008}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp", "DemoApp\DemoApp.csproj", "{69842587-B797-489B-A93A-6E1B01A92135}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9150463E-118C-48C8-82B2-7D0A141CE41B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9150463E-118C-48C8-82B2-7D0A141CE41B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9150463E-118C-48C8-82B2-7D0A141CE41B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9150463E-118C-48C8-82B2-7D0A141CE41B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8A9FF25D-5E1E-44B8-A55C-A43BE50A1CC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8A9FF25D-5E1E-44B8-A55C-A43BE50A1CC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A9FF25D-5E1E-44B8-A55C-A43BE50A1CC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,6 +57,10 @@ Global
 		{2E8F6090-077D-4CE3-B7AC-967F81F6D008}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E8F6090-077D-4CE3-B7AC-967F81F6D008}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E8F6090-077D-4CE3-B7AC-967F81F6D008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69842587-B797-489B-A93A-6E1B01A92135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69842587-B797-489B-A93A-6E1B01A92135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69842587-B797-489B-A93A-6E1B01A92135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69842587-B797-489B-A93A-6E1B01A92135}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

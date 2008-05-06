@@ -1,4 +1,4 @@
-﻿namespace TestRBPv3
+﻿namespace DemoApp
 {
     partial class Form1
     {
@@ -36,14 +36,14 @@
             this.richBrowserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richBrowserControl1.Location = new System.Drawing.Point(0, 0);
             this.richBrowserControl1.Name = "richBrowserControl1";
-            this.richBrowserControl1.Size = new System.Drawing.Size(738, 321);
+            this.richBrowserControl1.Size = new System.Drawing.Size(752, 410);
             this.richBrowserControl1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 321);
+            this.ClientSize = new System.Drawing.Size(752, 410);
             this.Controls.Add(this.richBrowserControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -54,7 +54,6 @@
         #endregion
 
         private OpenCS.RBP.Controls.RichBrowserControl richBrowserControl1;
-
     }
 }
 

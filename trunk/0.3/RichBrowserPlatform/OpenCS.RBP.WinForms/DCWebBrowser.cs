@@ -14,13 +14,22 @@ namespace OpenCS.RBP.WinForms
         public DCWebBrowser()
         {
             InitializeComponent();
+
+            rbpWebBrowserMain.DocumentTitleChanged += new EventHandler(rbpWebBrowserMain_DocumentTitleChanged);
+
+            this.TabText = "(Untitled)";
+        }
+
+        void rbpWebBrowserMain_DocumentTitleChanged(object sender, EventArgs e)
+        {
+            this.TabText = rbpWebBrowserMain.DocumentTitle;
         }
 
         #region IWebBrowserDockContent 멤버
 
         public IWebBrowser WebBrowser
         {
-            get { return rbpWebBrowser1; }
+            get { return rbpWebBrowserMain; }
         }
 
         #endregion

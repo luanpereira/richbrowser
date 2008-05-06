@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rbpWebBrowser1 = new OpenCS.RBP.WinForms.WinFormsWebBrowser();
+            this.rbpWebBrowserMain = new OpenCS.RBP.WinForms.WinFormsWebBrowser();
             this.SuspendLayout();
             // 
-            // rbpWebBrowser1
+            // rbpWebBrowserMain
             // 
-            this.rbpWebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rbpWebBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.rbpWebBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.rbpWebBrowser1.Name = "rbpWebBrowser1";
-            this.rbpWebBrowser1.Size = new System.Drawing.Size(284, 264);
-            this.rbpWebBrowser1.TabIndex = 0;
+            this.rbpWebBrowserMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rbpWebBrowserMain.Location = new System.Drawing.Point(0, 0);
+            this.rbpWebBrowserMain.MinimumSize = new System.Drawing.Size(20, 20);
+            this.rbpWebBrowserMain.Name = "rbpWebBrowserMain";
+            this.rbpWebBrowserMain.Size = new System.Drawing.Size(284, 264);
+            this.rbpWebBrowserMain.TabIndex = 0;
             // 
             // DCWebBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 264);
-            this.Controls.Add(this.rbpWebBrowser1);
+            this.Controls.Add(this.rbpWebBrowserMain);
             this.Name = "DCWebBrowser";
             this.TabText = "DCWebBrowser";
             this.Text = "DCWebBrowser";
@@ -55,7 +55,7 @@
 
         #endregion
 
-        private OpenCS.RBP.WinForms.WinFormsWebBrowser rbpWebBrowser1;
+        private OpenCS.RBP.WinForms.WinFormsWebBrowser rbpWebBrowserMain;
 
     }
 }

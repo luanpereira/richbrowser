@@ -2,7 +2,7 @@
 <project name="plugin" default="main">
 
 	<property name="plugin.name" value="${environment::get-variable('__TARGET_NAME')}"/>
-	<property name="plugin.output.dir" value="bin/Debug"/>
+	<property name="plugin.output.dir" value="bin/${environment::get-variable('__CONFIG_NAME')}"/>
 	
 	<property name="solution.dir" value=".."/>
 	<include buildfile="${solution.dir}/pluginhost.build.inc"/>
@@ -16,10 +16,9 @@
 		<copy todir="${plugin.to.dir}">
 			<fileset basedir="${plugin.output.dir}">
 				<include name="*.dll" />
-				<include name="*.pdb" />
 				<include name="*.xml" />
 				<exclude name="WeifenLuo.WinFormsUI.Docking.*"/>
-				<exclude name="OpenCS.Common.Plugin.*"/>
+				<exclude name="OpenCS.*"/>
 			</fileset>
 		</copy>
 		

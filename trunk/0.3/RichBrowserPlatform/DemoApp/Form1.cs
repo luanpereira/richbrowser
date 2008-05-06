@@ -5,12 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
-using System.Reflection;
-using System.Diagnostics;
 using OpenCS.RBP.WinForms;
 
-namespace TestRBPv3
+namespace DemoApp
 {
     public partial class Form1 : Form
     {
@@ -20,7 +17,7 @@ namespace TestRBPv3
 
             richBrowserControl1.WebBrowserDockContentFactory = new WinFormsWebBrowserDockContentFactory();
 
-            this.Load+=new EventHandler(Form1_Load);
+            this.Load += new EventHandler(Form1_Load);
             this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
         }
 

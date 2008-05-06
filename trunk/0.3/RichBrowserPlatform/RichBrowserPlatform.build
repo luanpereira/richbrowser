@@ -2,7 +2,7 @@
 <project name="RichBrowserPlatform" default="main">
 
 	<property name="devenv.solution.file" value="RichBrowserPlatform.sln"/>
-	<property name="devenv.config" value="Debug"/>
+	<property name="devenv.config" value="${environment::get-variable('__CONFIG_NAME')}"/>
 	<property name="devenv.log.file" value="build.log"/>
 	
 	<target name="build">

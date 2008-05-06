@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace TestRBPv3
+namespace DemoApp
 {
     static class Program
     {

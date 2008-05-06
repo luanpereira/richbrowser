@@ -4,11 +4,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9150463E-118C-48C8-82B2-7D0A141CE41B}</ProjectGuid>
+    <ProjectGuid>{69842587-B797-489B-A93A-6E1B01A92135}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestRBPv3</RootNamespace>
-    <AssemblyName>TestRBPv3</AssemblyName>
+    <RootNamespace>DemoApp</RootNamespace>
+    <AssemblyName>DemoApp</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -101,4 +101,9 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PreBuildEvent>set __CONFIG_NAME=$(ConfigurationName)
+echo __CONFIG_NAME=%25__CONFIG_NAME%25
+</PreBuildEvent>
+  </PropertyGroup>
 </Project>
