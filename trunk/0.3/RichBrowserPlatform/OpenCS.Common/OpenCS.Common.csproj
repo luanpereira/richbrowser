@@ -53,4 +53,9 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PreBuildEvent>set __CONFIG_NAME=$(ConfigurationName)
+echo __CONFIG_NAME=%25__CONFIG_NAME%25
+</PreBuildEvent>
+  </PropertyGroup>
 </Project>
