@@ -70,7 +70,7 @@ namespace OpenCS.RBP.Controls
 
         #region Buttons
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void toolStripButtonLoad_Click(object sender, EventArgs e)
         {
             string appPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string pluginsFolder = appPath + @"\Plugins";
@@ -78,13 +78,39 @@ namespace OpenCS.RBP.Controls
             LoadPlugins(pluginsFolder);
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
+        private void toolStripButtonGo_Click(object sender, EventArgs e)
         {
             Navigate(toolStripTextBoxUrl.Text);
+        }
+
+        private void toolStripButtonShowPlugins_Click(object sender, EventArgs e)
+        {
+            m_dcPlugins.Show(dockPanelMain, DockState.DockLeft);
+        }
+
+        private void OnWebButtonClick(object sender, EventArgs e)
+        {
+            if (sender == toolStripButtonNew)
+            {
+                this.NewWebBrowser();
+            }
+            else
+            {
+                IWebBrowser wb = ActiveWebBrowser;
+                if (wb == null)
+                {
+                    return;
+                }
+
+                else if (sender == toolStripButtonBack)
+                {
+                    wb.HandleAction(new GoBackwardAction());
+                }
+                else if (sender == toolStripButtonForward)
+                {
+                    wb.HandleAction(new GoForwardAction());
+                }
+            }
         }
 
         #endregion Buttons
@@ -93,7 +119,7 @@ namespace OpenCS.RBP.Controls
 
         #endregion Menus
 
-        private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
+        private void toolStripTextBoxUrl_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -302,38 +328,6 @@ namespace OpenCS.RBP.Controls
 
         #endregion
 
-        private void OnWebButtonClick(object sender, EventArgs e)
-        {
-            IWebBrowser wb = ActiveWebBrowser;
-            if (wb == null)
-            {
-                return;
-            }
-
-            if (sender == toolStripButtonNew)
-            {
-                this.NewWebBrowser();   
-            }
-            else if (sender == toolStripButtonBack)
-            {
-                wb.HandleAction(new GoBackwardAction());
-            }
-            else if (sender == toolStripButtonForward)
-            {
-                wb.HandleAction(new GoForwardAction());
-            }
-
-
-        }
-
-        private void toolStripButtonLoad_Click(object sender, EventArgs e)
-        {
-            string appPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string pluginsFolder = appPath + @"\Plugins";
-
-            LoadPlugins(pluginsFolder);
-        }
-
         #region IRichBrowserControl 멤버
 
         public IWebBrowser ActiveWebBrowser
@@ -349,11 +343,6 @@ namespace OpenCS.RBP.Controls
             }
 
         }
-
-        #endregion
-
-        #region IRichBrowserControl 멤버
-
 
         public IWebBrowserDockContent NewWebBrowser()
         {
@@ -388,5 +377,6 @@ namespace OpenCS.RBP.Controls
         }
 
         #endregion
+
     }
 }
