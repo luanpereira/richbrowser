@@ -45,8 +45,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 264);
             this.Controls.Add(this.treeViewPlugins);
+            this.HideOnClose = true;
             this.Name = "DCPlugins";
-            this.TabText = "DCPlugins";
+            this.TabText = "Plugins";
             this.Text = "DCPlugins";
             this.ResumeLayout(false);
 
