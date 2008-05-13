@@ -46,7 +46,7 @@ namespace OpenCS.RBP.Controls
             InitDockPanel(dockPanelMain);
 
             m_dcPlugins = new DCPlugins();
-            m_dcPlugins.Show(dockPanelMain, DockState.DockLeft);
+            //m_dcPlugins.Show(dockPanelMain, DockState.DockLeft);
         }
 
         #endregion Constructors
@@ -116,6 +116,11 @@ namespace OpenCS.RBP.Controls
         #endregion Buttons
 
         #region Menus
+
+        private void pluginsToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            toolStripPlugins.Visible = pluginsToolStripMenuItem.Checked;
+        }
 
         #endregion Menus
 
@@ -249,6 +254,20 @@ namespace OpenCS.RBP.Controls
             }
         }
 
+        public IWebBrowser ActiveWebBrowser
+        {
+            get
+            {
+                if (DockPanel.ActiveDocument != null && DockPanel.ActiveDocument is IWebBrowserDockContent)
+                {
+                    return (DockPanel.ActiveDocument as IWebBrowserDockContent).WebBrowser;
+                }
+
+                return null;
+            }
+
+        }
+
         public IWebBrowser Navigate(string url)
         {
             IWebBrowserDockContent wbdc = null;
@@ -304,7 +323,7 @@ namespace OpenCS.RBP.Controls
             ToolStripMenuItem item = new ToolStripMenuItem(text);
             item.Tag = action;
             item.Click += new EventHandler(OnMenuItemClick);
-            pluginsToolStripMenuItem.DropDownItems.Add(item);
+            toolsToolStripMenuItem.DropDownItems.Add(item);
 
             return item;
         }
@@ -323,25 +342,7 @@ namespace OpenCS.RBP.Controls
 
         public void RemoveMenuItem(object menuItem)
         {
-            pluginsToolStripMenuItem.DropDownItems.Remove(menuItem as ToolStripItem);
-        }
-
-        #endregion
-
-        #region IRichBrowserControl 멤버
-
-        public IWebBrowser ActiveWebBrowser
-        {
-            get
-            {
-                if (DockPanel.ActiveDocument != null && DockPanel.ActiveDocument is IWebBrowserDockContent)
-                {
-                    return (DockPanel.ActiveDocument as IWebBrowserDockContent).WebBrowser;
-                }
-
-                return null;
-            }
-
+            toolsToolStripMenuItem.DropDownItems.Remove(menuItem as ToolStripItem);
         }
 
         public IWebBrowserDockContent NewWebBrowser()

@@ -32,7 +32,7 @@
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pluginsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainerMain = new System.Windows.Forms.ToolStripContainer();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.dockPanelMain = new WeifenLuo.WinFormsUI.Docking.DockPanel();
@@ -54,6 +54,9 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBoxUrl = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonGo = new System.Windows.Forms.ToolStripButton();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolbarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pluginsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripContainerMain.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainerMain.ContentPanel.SuspendLayout();
@@ -69,7 +72,8 @@
             this.menuStripMain.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.pluginsToolStripMenuItem});
+            this.viewToolStripMenuItem,
+            this.toolsToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(824, 24);
@@ -82,19 +86,19 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Text = "&File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
             // 
-            // pluginsToolStripMenuItem
+            // toolsToolStripMenuItem
             // 
-            this.pluginsToolStripMenuItem.Name = "pluginsToolStripMenuItem";
-            this.pluginsToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.pluginsToolStripMenuItem.Text = "Plugins";
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // toolStripContainerMain
             // 
@@ -106,7 +110,7 @@
             // toolStripContainerMain.ContentPanel
             // 
             this.toolStripContainerMain.ContentPanel.Controls.Add(this.dockPanelMain);
-            this.toolStripContainerMain.ContentPanel.Size = new System.Drawing.Size(824, 277);
+            this.toolStripContainerMain.ContentPanel.Size = new System.Drawing.Size(824, 302);
             this.toolStripContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainerMain.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainerMain.Name = "toolStripContainerMain";
@@ -136,7 +140,7 @@
             this.dockPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dockPanelMain.Location = new System.Drawing.Point(0, 0);
             this.dockPanelMain.Name = "dockPanelMain";
-            this.dockPanelMain.Size = new System.Drawing.Size(824, 277);
+            this.dockPanelMain.Size = new System.Drawing.Size(824, 302);
             this.dockPanelMain.TabIndex = 0;
             // 
             // toolStripPlugins
@@ -151,6 +155,7 @@
             this.toolStripPlugins.Name = "toolStripPlugins";
             this.toolStripPlugins.Size = new System.Drawing.Size(284, 25);
             this.toolStripPlugins.TabIndex = 1;
+            this.toolStripPlugins.Visible = false;
             // 
             // toolStripLabelPlugins
             // 
@@ -190,7 +195,7 @@
             this.toolStripButtonStop,
             this.toolStripButtonRefresh,
             this.toolStripButtonHome});
-            this.toolStripWeb.Location = new System.Drawing.Point(3, 49);
+            this.toolStripWeb.Location = new System.Drawing.Point(3, 24);
             this.toolStripWeb.Name = "toolStripWeb";
             this.toolStripWeb.Size = new System.Drawing.Size(409, 25);
             this.toolStripWeb.TabIndex = 3;
@@ -272,7 +277,7 @@
             this.toolStripLabel1,
             this.toolStripTextBoxUrl,
             this.toolStripButtonGo});
-            this.toolStripAddress.Location = new System.Drawing.Point(3, 74);
+            this.toolStripAddress.Location = new System.Drawing.Point(3, 49);
             this.toolStripAddress.Name = "toolStripAddress";
             this.toolStripAddress.Size = new System.Drawing.Size(508, 25);
             this.toolStripAddress.TabIndex = 2;
@@ -297,6 +302,30 @@
             this.toolStripButtonGo.Size = new System.Drawing.Size(42, 22);
             this.toolStripButtonGo.Text = "Go";
             this.toolStripButtonGo.Click += new System.EventHandler(this.toolStripButtonGo_Click);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolbarsToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.viewToolStripMenuItem.Text = "&View";
+            // 
+            // toolbarsToolStripMenuItem
+            // 
+            this.toolbarsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pluginsToolStripMenuItem});
+            this.toolbarsToolStripMenuItem.Name = "toolbarsToolStripMenuItem";
+            this.toolbarsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.toolbarsToolStripMenuItem.Text = "Toolbars";
+            // 
+            // pluginsToolStripMenuItem
+            // 
+            this.pluginsToolStripMenuItem.CheckOnClick = true;
+            this.pluginsToolStripMenuItem.Name = "pluginsToolStripMenuItem";
+            this.pluginsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pluginsToolStripMenuItem.Text = "Plugins";
+            this.pluginsToolStripMenuItem.CheckedChanged += new System.EventHandler(this.pluginsToolStripMenuItem_CheckedChanged);
             // 
             // RichBrowserControl
             // 
@@ -337,7 +366,7 @@
         private System.Windows.Forms.ToolStrip toolStripAddress;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxUrl;
         private System.Windows.Forms.ToolStripButton toolStripButtonGo;
-        private System.Windows.Forms.ToolStripMenuItem pluginsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripLabel toolStripLabelPlugins;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStrip toolStripWeb;
@@ -351,5 +380,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonHome;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripButtonShowPlugins;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolbarsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pluginsToolStripMenuItem;
     }
 }
