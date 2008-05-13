@@ -26,14 +26,14 @@ namespace OpenCS.Common
         /// <summary>
         /// 태그와 태그사이의 문자열을 구한다.
         /// </summary>
-        /// <param name="logger"></param>
-        /// <param name="content"></param>
-        /// <param name="startTag"></param>
-        /// <param name="endTag"></param>
-        /// <param name="removeTags"></param>
-        /// <param name="trim"></param>
-        /// <returns></returns>
-        public string GrabString(ILogger logger, string content, string startTag, string endTag, bool removeTags, bool trim)
+        /// <param name="logger">로거</param>
+        /// <param name="content">원본 문자열</param>
+        /// <param name="startTag">시작 태그</param>
+        /// <param name="endTag">종료 태그</param>
+        /// <param name="removeTags">태그 삭제 여부</param>
+        /// <param name="trim">트림 여부</param>
+        /// <returns>사이의 문자열</returns>
+        public static string GrabString(ILogger logger, string content, string startTag, string endTag, bool removeTags, bool trim)
         {
             string result = "";
             try
