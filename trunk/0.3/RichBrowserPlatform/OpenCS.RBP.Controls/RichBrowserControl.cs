@@ -248,6 +248,10 @@ namespace OpenCS.RBP.Controls
 
         public ILogger Logger
         {
+            get
+            {
+                return m_logger;
+            }
             set
             {
                 m_logger = value;

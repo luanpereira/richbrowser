@@ -13,8 +13,17 @@ namespace OpenCS.RBP
     /// <summary>
     /// 리치 브라우저 콘트롤
     /// </summary>
-    public interface IRichBrowserControl : IPluginHost, ILoggable
+    public interface IRichBrowserControl : IPluginHost
     {
+        /// <summary>
+        /// 로거를 가져오거나 설정한다.
+        /// </summary>
+        ILogger Logger
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// DockPanel을 가져온다.
         /// </summary>
