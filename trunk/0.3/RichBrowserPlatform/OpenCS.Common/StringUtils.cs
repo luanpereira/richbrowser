@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
-using OpenCS.Common.Logging;
 
 namespace OpenCS.Common
 {
@@ -24,42 +23,29 @@ namespace OpenCS.Common
         }
 
         /// <summary>
-        /// 태그와 태그사이의 문자열을 구한다.
+        /// 태그와 태그사이의 문자열을 구한다. 태그를 찾지 못하면 원본 문자열과 동일한 문자열을 반환한다.
         /// </summary>
-        /// <param name="logger">로거</param>
-        /// <param name="content">원본 문자열</param>
+        /// <param name="src">원본 문자열</param>
         /// <param name="startTag">시작 태그</param>
         /// <param name="endTag">종료 태그</param>
-        /// <param name="removeTags">태그 삭제 여부</param>
-        /// <param name="trim">트림 여부</param>
         /// <returns>사이의 문자열</returns>
-        public static string GrabString(ILogger logger, string content, string startTag, string endTag, bool removeTags, bool trim)
+        public static string GrabString(string src, string startTag, string endTag)
         {
-            string result = "";
-            try
-            {
-                int startIdx = content.IndexOf(startTag);
-                int startLen = startTag.Length;
-                int endIdx = content.IndexOf(endTag, startIdx);
-                int len = content.Length;
-                result = content.Substring(startIdx + startLen, endIdx - startIdx - startLen);
-                if (removeTags == true)
-                {
-                    result = StripTags(result);
-                }
+            string result = src;
 
-                if (trim == true)
-                {
-                    result = result.Trim(new char[] { '\t', ' ', '\r', '\n' });
-                }
-            }
-            catch (Exception ex)
+            int startIdx = src.IndexOf(startTag);
+            if (startIdx > -1)
             {
-                logger.Error(ex.Message);
+                int startLen = startTag.Length;
+                int endIdx = src.IndexOf(endTag, startIdx);
+                if (endIdx > -1)
+                {
+                    int len = src.Length;
+                    result = src.Substring(startIdx + startLen, endIdx - startIdx - startLen);
+                }
             }
 
             return result;
         }
-
     }
 }
