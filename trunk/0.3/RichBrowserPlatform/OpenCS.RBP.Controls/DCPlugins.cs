@@ -21,6 +21,10 @@ namespace OpenCS.RBP.Controls
         public DCPlugins()
         {
             InitializeComponent();
+
+            imageListMain.Images.Add(Properties.Resources.plugin);
+
+            treeViewPlugins.ImageList = imageListMain;
         }
 
         public void AddPlugin(IPlugin plugin)
@@ -28,6 +32,7 @@ namespace OpenCS.RBP.Controls
             TreeNode node = new TreeNode();
             node.Text = plugin.Title;
             node.Tag = plugin;
+            node.ImageIndex = 0;
             treeViewPlugins.Nodes.Add(node);
         }
     }

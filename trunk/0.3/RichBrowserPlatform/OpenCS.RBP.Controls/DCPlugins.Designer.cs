@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DCPlugins));
             this.treeViewPlugins = new System.Windows.Forms.TreeView();
+            this.imageListMain = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // treeViewPlugins
@@ -39,6 +42,12 @@
             this.treeViewPlugins.Size = new System.Drawing.Size(284, 264);
             this.treeViewPlugins.TabIndex = 0;
             // 
+            // imageListMain
+            // 
+            this.imageListMain.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageListMain.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageListMain.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // DCPlugins
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -46,6 +55,7 @@
             this.ClientSize = new System.Drawing.Size(284, 264);
             this.Controls.Add(this.treeViewPlugins);
             this.HideOnClose = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DCPlugins";
             this.TabText = "Plugins";
             this.Text = "DCPlugins";
@@ -56,5 +66,6 @@
         #endregion
 
         private System.Windows.Forms.TreeView treeViewPlugins;
+        private System.Windows.Forms.ImageList imageListMain;
     }
 }
