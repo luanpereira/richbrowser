@@ -77,6 +77,13 @@ namespace OpenCS.RBP
         object AddToolBarButton(string text, IAction action);
 
         /// <summary>
+        /// 툴바 버튼을 추가한다.
+        /// </summary>
+        /// <param name="button">툴바 버튼 객체</param>
+        /// <param name="action">버튼이 눌렸을 때 처리할 액션</param>
+        void AddToolBarButton(ToolStripButton button, IAction action);
+
+        /// <summary>
         /// 툴바 버튼을 삭제한다.
         /// </summary>
         /// <param name="button">툴바 버튼 객체</param>
@@ -91,11 +98,17 @@ namespace OpenCS.RBP
         object AddMenuItem(string text, IAction action);
 
         /// <summary>
+        /// 메뉴 아이템을 추가한다.
+        /// </summary>
+        /// <param name="item">메뉴 아이템 객체</param>
+        /// <param name="action">메뉴를 클릭했을 때 처리할 액션</param>
+        void AddMenuItem(ToolStripMenuItem item, IAction action);
+
+        /// <summary>
         /// 메뉴 아이템을 삭제한다.
         /// </summary>
         /// <param name="menuItem">메뉴 아이템 객체</param>
         void RemoveMenuItem(object menuItem);
-
         /// <summary>
         /// 현재 실행되고 있는 어플리케이션 폴더 밑의 Plugins 폴더로부터 플러그인을 읽어 온다.
         /// </summary>

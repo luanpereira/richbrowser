@@ -298,11 +298,17 @@ namespace OpenCS.RBP.Controls
         public object AddToolBarButton(string text, IAction action)
         {
             ToolStripButton button = new ToolStripButton(text);
+
+            AddToolBarButton(button, action);
+
+            return button;
+        }
+
+        public void AddToolBarButton(ToolStripButton button, IAction action)
+        {
             button.Click += new EventHandler(OnToolBarButtonClick);
             button.Tag = action;
             toolStripPlugins.Items.Add(button);
-
-            return button;
         }
 
         public void RemoveToolBarButton(object button)
@@ -325,11 +331,17 @@ namespace OpenCS.RBP.Controls
         public object AddMenuItem(string text, IAction action)
         {
             ToolStripMenuItem item = new ToolStripMenuItem(text);
+
+            AddMenuItem(item, action);
+
+            return item;
+        }
+
+        public void AddMenuItem(ToolStripMenuItem item, IAction action)
+        {
             item.Tag = action;
             item.Click += new EventHandler(OnMenuItemClick);
             toolsToolStripMenuItem.DropDownItems.Add(item);
-
-            return item;
         }
 
         void OnMenuItemClick(object sender, EventArgs e)
