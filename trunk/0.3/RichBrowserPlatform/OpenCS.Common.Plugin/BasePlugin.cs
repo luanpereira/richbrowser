@@ -13,12 +13,12 @@ namespace OpenCS.Common.Plugin
         /// <summary>
         /// 플러그인 호스트
         /// </summary>
-        protected IPluginHost m_host;
+        private IPluginHost mHost;
 
         /// <summary>
         /// 생성자
         /// </summary>
-        public BasePlugin()
+        protected BasePlugin()
         {
         }
 
@@ -40,7 +40,8 @@ namespace OpenCS.Common.Plugin
         /// </summary>
         public IPluginHost PluginHost
         {
-            set { m_host = value; }
+            get { return mHost; }
+            set { mHost = value; }
         }
 
         /// <summary>

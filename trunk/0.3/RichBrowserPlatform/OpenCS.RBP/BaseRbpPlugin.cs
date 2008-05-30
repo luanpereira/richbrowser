@@ -14,12 +14,12 @@ namespace OpenCS.RBP
         /// <summary>
         /// 리치 브라우저 콘트롤
         /// </summary>
-        protected IRichBrowserControl m_rbc;
+        private IRichBrowserControl mRbc;
 
         /// <summary>
-        /// 로거
+        /// 로거. 설정하지 않으면 <c>ConsoleLogger</c>가 기본으로 설정된다.
         /// </summary>
-        protected ILogger m_logger = new ConsoleLogger();
+        private ILogger mLogger = new ConsoleLogger();
 
         #region ILoggable 멤버
 
@@ -28,7 +28,8 @@ namespace OpenCS.RBP
         /// </summary>
         public ILogger Logger
         {
-            set { m_logger = value; }
+            get { return mLogger; }
+            set { mLogger = value; }
         }
 
         #endregion
@@ -40,7 +41,8 @@ namespace OpenCS.RBP
         /// </summary>
         public IRichBrowserControl RichBrowserControl
         {
-            set { m_rbc = value; }
+            get { return mRbc; }
+            set { mRbc = value; }
         }
 
         #endregion

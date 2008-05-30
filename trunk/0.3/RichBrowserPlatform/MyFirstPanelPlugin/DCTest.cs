@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
-using OpenCS.RBP;
-using OpenCS.Common.Plugin;
-using System.Diagnostics;
 using OpenCS.Common.Action;
 using OpenCS.Common.Logging;
+using OpenCS.Common.Plugin;
+using OpenCS.RBP;
 
 namespace OpenCS.Plugin.MyFirstPlugin
 {
     public partial class DCTest : DockContent, IPanelPlugin
     {
-        private IPluginHost m_host;
-        private ILogger m_logger = new ConsoleLogger();
+        private IPluginHost mHost;
+        private ILogger mLogger = new ConsoleLogger();
 
         public DCTest()
         {
@@ -28,7 +28,8 @@ namespace OpenCS.Plugin.MyFirstPlugin
 
         public IPluginHost PluginHost
         {
-            set { m_host = value; }
+            get { return mHost; }
+            set { mHost = value; }
         }
 
         public string Title
@@ -55,7 +56,7 @@ namespace OpenCS.Plugin.MyFirstPlugin
 
         public ILogger Logger
         {
-            set { m_logger = value; }
+            set { mLogger = value; }
         }
 
         #endregion
@@ -71,7 +72,7 @@ namespace OpenCS.Plugin.MyFirstPlugin
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            ActionResult result = m_host.HandleAction(new PropertyAction<string>(toolStripTextBox1.Text));
+            ActionResult result = mHost.HandleAction(new PropertyAction<string>(toolStripTextBox1.Text));
             MessageBox.Show(result.ToString());
         }
 

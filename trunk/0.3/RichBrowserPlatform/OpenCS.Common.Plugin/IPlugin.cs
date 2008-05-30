@@ -16,6 +16,7 @@ namespace OpenCS.Common.Plugin
         /// </summary>
         IPluginHost PluginHost
         {
+            get;
             set;
         }
 

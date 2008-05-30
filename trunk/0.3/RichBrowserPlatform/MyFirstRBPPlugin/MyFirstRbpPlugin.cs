@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using OpenCS.Common.Plugin;
-using OpenCS.RBP;
 using System.Diagnostics;
+using System.Text;
 using WeifenLuo.WinFormsUI.Docking;
 using OpenCS.Common.Action;
+using OpenCS.Common.Plugin;
+using OpenCS.RBP;
 
 namespace MyFirstRBPPlugin
 {
     public class MyFirstRbpPlugin : BaseRbpPlugin
     {
-        private DCTest2 m_dc;
-        private IActionHandler m_ah;
-        private object m_button;
-        private object m_menu;
+        private DCTest2 mDc;
+        private IActionHandler mAh;
+        private object mButton;
+        private object mMenu;
 
         public override string Title
         {
@@ -28,38 +28,38 @@ namespace MyFirstRBPPlugin
 
         public override void Init()
         {
-            m_dc = new DCTest2();
-            m_dc.HideOnClose = true;
-            m_dc.HostDockPanel = m_rbc.DockPanel;
-            m_dc.Show(m_rbc.DockPanel, DockState.DockRight);
-            m_ah = m_dc;
-            m_button = m_rbc.AddToolBarButton("FirstRbpPlugin", new ShowMyFirstRbpPanelAction());
-            m_menu = m_rbc.AddMenuItem("FirstRbpPlugin", new ShowMyFirstRbpPanelAction());
+            mDc = new DCTest2();
+            mDc.HideOnClose = true;
+            mDc.HostDockPanel = RichBrowserControl.DockPanel;
+            mDc.Show(RichBrowserControl.DockPanel, DockState.DockRight);
+            mAh = mDc;
+            mButton = RichBrowserControl.AddToolBarButton("FirstRbpPlugin", new ShowMyFirstRbpPanelAction());
+            mMenu = RichBrowserControl.AddMenuItem("FirstRbpPlugin", new ShowMyFirstRbpPanelAction());
         }
 
         public override void Deinit()
         {
-            m_rbc.RemoveToolBarButton(m_button);
-            m_rbc.RemoveMenuItem(m_menu);
+            RichBrowserControl.RemoveToolBarButton(mButton);
+            RichBrowserControl.RemoveMenuItem(mMenu);
 
-            m_dc.Close();
+            mDc.Close();
         }
 
         public override ActionResult HandleAction(IAction action)
         {
             if (action is ShowMyFirstRbpPanelAction)
             {
-                if (m_dc != null)
+                if (mDc != null)
                 {
-                    m_dc.Show(m_rbc.DockPanel, DockState.DockRight);
+                    mDc.Show(RichBrowserControl.DockPanel, DockState.DockRight);
 
                     return ActionResult.Success;
                 }
             }
 
-            if (m_ah != null)
+            if (mAh != null)
             {
-                return m_ah.HandleAction(action);
+                return mAh.HandleAction(action);
             }
 
             return ActionResult.NotHandled;
