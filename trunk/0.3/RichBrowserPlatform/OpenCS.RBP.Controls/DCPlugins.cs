@@ -30,7 +30,7 @@ namespace OpenCS.RBP.Controls
         public void AddPlugin(IPlugin plugin)
         {
             TreeNode node = new TreeNode();
-            node.Text = plugin.Title;
+            node.Text = plugin.Title + " " + plugin.Version.ToString();
             node.Tag = plugin;
             node.ImageIndex = 0;
             treeViewPlugins.Nodes.Add(node);

@@ -47,6 +47,9 @@ namespace OpenCS.RBP.Controls
 
             m_dcPlugins = new DCPlugins();
             //m_dcPlugins.Show(dockPanelMain, DockState.DockLeft);
+
+            dockPanelMain.ContentAdded += new EventHandler<DockContentEventArgs>(OnContentAdded);
+            dockPanelMain.ContentRemoved += new EventHandler<DockContentEventArgs>(OnContentRemoved);
         }
 
         #endregion Constructors
@@ -132,6 +135,24 @@ namespace OpenCS.RBP.Controls
                     Navigate(toolStripTextBoxUrl.Text);
                     e.SuppressKeyPress = true;
                     break;
+            }
+        }
+
+        void OnContentAdded(object sender, DockContentEventArgs e)
+        {
+            if (e.Content is IWebBrowserDockContent)
+            {
+                IWebBrowserDockContent wbdc = e.Content as IWebBrowserDockContent;
+                wbdc.NewWindow += new EventHandler<NewWindowEventArgs>(OnNewWindow);
+            }
+        }
+
+        void OnContentRemoved(object sender, DockContentEventArgs e)
+        {
+            if (e.Content is IWebBrowserDockContent)
+            {
+                IWebBrowserDockContent wbdc = e.Content as IWebBrowserDockContent;
+                wbdc.NewWindow -= OnNewWindow;
             }
         }
 
@@ -288,6 +309,11 @@ namespace OpenCS.RBP.Controls
             m_logger.Fatal("Can't found WebBrowserDockContentFactory");
 
             return null;
+        }
+
+        void OnNewWindow(object sender, NewWindowEventArgs e)
+        {
+            Navigate(e.Url);
         }
 
         public GenericClassFactory<IWebBrowserDockContent> WebBrowserDockContentFactory

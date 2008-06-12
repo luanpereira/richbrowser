@@ -16,6 +16,7 @@ namespace OpenCS.RBP.WinForms
             InitializeComponent();
 
             rbpWebBrowserMain.DocumentTitleChanged += new EventHandler(rbpWebBrowserMain_DocumentTitleChanged);
+            rbpWebBrowserMain.NewWindow += new CancelEventHandler(rbpWebBrowserMain_NewWindow);
 
             this.TabText = "(Untitled)";
         }
@@ -25,12 +26,23 @@ namespace OpenCS.RBP.WinForms
             this.TabText = rbpWebBrowserMain.DocumentTitle;
         }
 
+        private void rbpWebBrowserMain_NewWindow(object sender, CancelEventArgs e)
+        {
+            e.Cancel = true;
+            if (NewWindow != null)
+            {
+                NewWindow(this, new NewWindowEventArgs(rbpWebBrowserMain.StatusText));
+            }
+        }
+
         #region IWebBrowserDockContent 멤버
 
         public IWebBrowser WebBrowser
         {
             get { return rbpWebBrowserMain; }
         }
+
+        public event EventHandler<NewWindowEventArgs> NewWindow;
 
         #endregion
     }
