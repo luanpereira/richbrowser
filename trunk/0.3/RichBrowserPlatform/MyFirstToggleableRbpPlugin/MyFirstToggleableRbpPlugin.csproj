@@ -4,11 +4,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8A9FF25D-5E1E-44B8-A55C-A43BE50A1CC7}</ProjectGuid>
+    <ProjectGuid>{92F8FD1D-0B0E-4FC1-BD2D-10803BC76C8C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OpenCS.RBP</RootNamespace>
-    <AssemblyName>OpenCS.RBP</AssemblyName>
+    <RootNamespace>MyFirstToggleableRbpPlugin</RootNamespace>
+    <AssemblyName>MyFirstToggleableRbpPlugin</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -18,7 +18,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OpenCS.RBP.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -40,20 +39,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions\GoBackwardAction.cs" />
-    <Compile Include="Actions\GoForwardAction.cs" />
-    <Compile Include="Actions\IWebBrowserAction.cs" />
-    <Compile Include="Actions\NavigateAction.cs" />
-    <Compile Include="Actions\ShowAction.cs" />
-    <Compile Include="BaseRbpPlugin.cs" />
-    <Compile Include="BaseToggleableRbpPlugin.cs" />
-    <Compile Include="IDockableContent.cs" />
-    <Compile Include="IPanelPlugin.cs" />
-    <Compile Include="IRbpPlugin.cs" />
-    <Compile Include="IRichBrowserControl.cs" />
-    <Compile Include="IWebBrowser.cs" />
-    <Compile Include="IWebBrowserDockContent.cs" />
-    <Compile Include="NewWindowEventArgs.cs" />
+    <Compile Include="DockContentTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentTest.Designer.cs">
+      <DependentUpon>DockContentTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyFirstToggleableRbpPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +57,13 @@
       <Project>{7B2F2688-7621-4CD4-A916-979499465A1E}</Project>
       <Name>OpenCS.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OpenCS.RBP\OpenCS.RBP.csproj">
+      <Project>{8A9FF25D-5E1E-44B8-A55C-A43BE50A1CC7}</Project>
+      <Name>OpenCS.RBP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="plugin.build" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -74,4 +73,17 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>set __PLUGINHOST_NAME=$(SolutionName)
+echo __PLUGINHOST_NAME=%25__PLUGINHOST_NAME%25
+
+set __TARGET_NAME=$(TargetName)
+echo __TARGET_NAME=%25__TARGET_NAME%25
+
+set __CONFIG_NAME=$(ConfigurationName)
+echo __CONFIG_NAME=%25__CONFIG_NAME%25
+
+nant -buildfile:$(ProjectDir)\plugin.build
+</PostBuildEvent>
+  </PropertyGroup>
 </Project>
