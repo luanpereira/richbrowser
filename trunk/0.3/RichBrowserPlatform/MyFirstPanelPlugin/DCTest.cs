@@ -18,6 +18,7 @@ namespace OpenCS.Plugin.MyFirstPlugin
     {
         private IPluginHost mHost;
         private ILogger mLogger = new ConsoleLogger();
+        private string mInstalledPath;
 
         public DCTest()
         {
@@ -40,6 +41,13 @@ namespace OpenCS.Plugin.MyFirstPlugin
         public Version Version
         {
             get { return new Version("0.1.1.1"); }
+        }
+
+        public string InstalledPath
+        {
+            get { return mInstalledPath; }
+
+            set { mInstalledPath = value; }
         }
 
         public void Init()
@@ -75,6 +83,5 @@ namespace OpenCS.Plugin.MyFirstPlugin
             ActionResult result = mHost.HandleAction(new PropertyAction<string>(toolStripTextBox1.Text));
             MessageBox.Show(result.ToString());
         }
-
     }
 }

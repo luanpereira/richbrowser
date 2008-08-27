@@ -12,13 +12,23 @@ namespace OpenCS.Common.Plugin
     public interface IPluginHost : IActionHandler
     {
         /// <summary>
+        /// 플러그인 호스트(보통 어플리케이션)가 실행 중인 절대경로를 가져오거나 설정한다. 
+        /// 설정은 <c>IPluginHost</c>를 사용하는 객체나 어플리케이션에서 하도록 한다.
+        /// </summary>
+        string ExecutingPath
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// 플러그인 목록을 가져온다.
         /// </summary>
         List<IPlugin> Plugins
         {
             get;
         }
-
+        
         /// <summary>
         /// 플러그인들을 로딩한다.
         /// </summary>

@@ -15,6 +15,8 @@ namespace OpenCS.Common.Plugin
         /// </summary>
         private IPluginHost mHost;
 
+        private string mInstalledPath;
+
         /// <summary>
         /// 생성자
         /// </summary>
@@ -61,6 +63,17 @@ namespace OpenCS.Common.Plugin
         }
 
         /// <summary>
+        /// 설치된 경로를 가져오거나 설정한다. 
+        /// 설정은 <c>IPluginHost</c>에서만 하도록 한다.
+        /// </summary>
+        public string InstalledPath
+        {
+            get { return mInstalledPath; }
+
+            set { mInstalledPath = value; }
+        }
+
+        /// <summary>
         /// 플러그인을 초기화한다.
         /// </summary>
         abstract public void Init();
@@ -71,6 +84,5 @@ namespace OpenCS.Common.Plugin
         abstract public void Deinit();
 
         #endregion
-
     }
 }

@@ -37,6 +37,16 @@ namespace OpenCS.Common.Plugin
         }
 
         /// <summary>
+        /// 설치된 절대경로를 가져오거나 설정한다. 
+        /// 설정은 <c>IPluginHost</c>에서만 하도록 한다.
+        /// </summary>
+        string InstalledPath
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// 플러그인을 초기화한다.
         /// </summary>
         void Init();

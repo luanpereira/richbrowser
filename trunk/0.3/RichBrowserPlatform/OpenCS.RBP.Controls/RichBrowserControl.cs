@@ -23,10 +23,12 @@ namespace OpenCS.RBP.Controls
     {
         #region Fields
 
-        private List<IPlugin> m_plugins = new List<IPlugin>();
-        private DCPlugins m_dcPlugins;
-        private GenericClassFactory<IWebBrowserDockContent> m_wbdcf;
-        private ILogger m_logger = new ConsoleLogger();
+        private string mExecutingPath;
+        private List<IPlugin> mPlugins = new List<IPlugin>();
+
+        private DCPlugins mDCPlugins;
+        private GenericClassFactory<IWebBrowserDockContent> mWbdcf;
+        private ILogger mLogger = new ConsoleLogger();
 
         #endregion Fields
 
@@ -45,7 +47,7 @@ namespace OpenCS.RBP.Controls
 
             InitDockPanel(dockPanelMain);
 
-            m_dcPlugins = new DCPlugins();
+            mDCPlugins = new DCPlugins();
             //m_dcPlugins.Show(dockPanelMain, DockState.DockLeft);
 
             dockPanelMain.ContentAdded += new EventHandler<DockContentEventArgs>(OnContentAdded);
@@ -88,7 +90,7 @@ namespace OpenCS.RBP.Controls
 
         private void toolStripButtonShowPlugins_Click(object sender, EventArgs e)
         {
-            m_dcPlugins.Show(dockPanelMain, DockState.DockLeft);
+            mDCPlugins.Show(dockPanelMain, DockState.DockLeft);
         }
 
         private void OnWebButtonClick(object sender, EventArgs e)
@@ -172,7 +174,7 @@ namespace OpenCS.RBP.Controls
 
         public ActionResult HandleAction(IAction action)
         {
-            foreach (IPlugin plugin in m_plugins)
+            foreach (IPlugin plugin in mPlugins)
             {
                 if (plugin.HandleAction(action) == ActionResult.Failed)
                 {
@@ -192,7 +194,13 @@ namespace OpenCS.RBP.Controls
         /// </summary>
         public List<IPlugin> Plugins
         {
-            get { return m_plugins; }
+            get { return mPlugins; }
+        }
+
+        public string ExecutingPath
+        {
+            get { return mExecutingPath; }
+            set { mExecutingPath = value; }
         }
 
         /// <summary>
@@ -203,7 +211,7 @@ namespace OpenCS.RBP.Controls
         {
             if (Directory.Exists(baseFolder) == false)
             {
-                m_logger.Warn("Plugins folder is not found.");
+                mLogger.Warn("Plugins folder is not found.");
                 return;
             }
 
@@ -218,26 +226,27 @@ namespace OpenCS.RBP.Controls
                         {
                             foreach (Type type in asm.GetTypes())
                             {
-                                m_logger.Debug(type.ToString());
+                                mLogger.Debug(type.ToString());
                                 Type ifType = type.GetInterface(typeof(IPlugin).FullName, false);
                                 if (ifType != null && type.IsAbstract == false)
                                 {
-                                    m_logger.Info("Found plugin: " + type.FullName);
+                                    mLogger.Info("Found plugin: " + type.FullName);
                                     object obj = asm.CreateInstance(type.FullName);
                                     if (obj != null && obj is IPlugin)
                                     {
                                         IPlugin plugin = obj as IPlugin;
-                                        m_logger.Info("Plugin: " + plugin.Title);
+                                        mLogger.Info("Plugin: " + plugin.Title);
                                         plugin.PluginHost = this;
                                         if (plugin is IRbpPlugin)
                                         {
                                             (plugin as IRbpPlugin).RichBrowserControl = this;
                                         }
+                                        plugin.InstalledPath = Path.GetDirectoryName(file);
                                         plugin.Init();
-                                        m_logger.Info("Plugin Inited: " + plugin.Title);
+                                        mLogger.Info("Plugin Inited: " + plugin.Title);
 
-                                        m_plugins.Add(plugin);
-                                        m_dcPlugins.AddPlugin(plugin);
+                                        mPlugins.Add(plugin);
+                                        mDCPlugins.AddPlugin(plugin);
 
                                         if (plugin is IPanelPlugin)
                                         {
@@ -249,8 +258,8 @@ namespace OpenCS.RBP.Controls
                         }
                         catch (ReflectionTypeLoadException ex)
                         {
-                            m_logger.Debug(ex.Message);
-                            m_logger.Warn(ex.Message);
+                            mLogger.Debug(ex.Message);
+                            mLogger.Warn(ex.Message);
                         }
                     }
                 }
@@ -259,10 +268,10 @@ namespace OpenCS.RBP.Controls
 
         public void UnloadPlugins()
         {
-            foreach (IPlugin plugin in m_plugins)
+            foreach (IPlugin plugin in mPlugins)
             {
                 plugin.Deinit();
-                m_logger.Info("Plugin Deinited: " + plugin.Title);
+                mLogger.Info("Plugin Deinited: " + plugin.Title);
             }
         }
 
@@ -279,11 +288,11 @@ namespace OpenCS.RBP.Controls
         {
             get
             {
-                return m_logger;
+                return mLogger;
             }
             set
             {
-                m_logger = value;
+                mLogger = value;
             }
         }
 
@@ -342,16 +351,16 @@ namespace OpenCS.RBP.Controls
         {
             IWebBrowserDockContent wbdc = null;
 
-            if (m_wbdcf != null)
+            if (mWbdcf != null)
             {
-                wbdc = m_wbdcf.CreateClass();
+                wbdc = mWbdcf.CreateClass();
                 wbdc.Show(dockPanelMain, DockState.Document);
                 wbdc.WebBrowser.Navigate(url);
 
                 return wbdc.WebBrowser;
             }
 
-            m_logger.Fatal("Can't found WebBrowserDockContentFactory");
+            mLogger.Fatal("Can't found WebBrowserDockContentFactory");
 
             return null;
         }
@@ -363,7 +372,7 @@ namespace OpenCS.RBP.Controls
 
         public GenericClassFactory<IWebBrowserDockContent> WebBrowserDockContentFactory
         {
-            set { m_wbdcf = value; }
+            set { mWbdcf = value; }
         }
 
         public object AddToolBarButton(string text, IAction action)
@@ -436,9 +445,9 @@ namespace OpenCS.RBP.Controls
         {
             IWebBrowserDockContent wbdc = null;
 
-            if (m_wbdcf != null)
+            if (mWbdcf != null)
             {
-                wbdc = m_wbdcf.CreateClass();
+                wbdc = mWbdcf.CreateClass();
                 wbdc.Show(dockPanelMain, DockState.Document);
             }
 
@@ -465,6 +474,5 @@ namespace OpenCS.RBP.Controls
         }
 
         #endregion
-
     }
 }
