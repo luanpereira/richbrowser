@@ -76,6 +76,35 @@ namespace OpenCS.Common.Xml
         }
 
         /// <summary>
+        /// 텍스트 값을 가진 자식 엘리먼트를 추가한다.
+        /// </summary>
+        /// <param name="parent">부모 노드</param>
+        /// <param name="name">엘리먼트 이름</param>
+        /// <param name="name">텍스트 값</param>
+        /// <returns>추가된 엘리먼트</returns>
+        public XmlElement AppendTextChild(XmlNode parent, string name, string text)
+        {
+            if (name == null)
+            {
+                throw new ArgumentNullException("name");
+            }
+
+            XmlElement xe = m_xmlDoc.CreateElement(name);
+            XmlText xtText = m_xmlDoc.CreateTextNode(text);
+            xe.AppendChild(xtText);
+            if (parent != null)
+            {
+                parent.AppendChild(xe);
+            }
+            else
+            {
+                m_xmlDoc.AppendChild(xe);
+            }
+
+            return xe;
+        }
+
+        /// <summary>
         /// 속성을 추가한다.
         /// </summary>
         /// <param name="element">속성을 추가할 엘리먼트</param>
