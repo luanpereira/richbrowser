@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
@@ -46,6 +47,41 @@ namespace OpenCS.RBP
         IWebBrowser ActiveWebBrowser
         {
             get;
+        }
+
+        [Browsable(true)]
+        bool ShowMenuStrip
+        {
+            get;
+            set;
+        }
+
+        [Browsable(true)]
+        bool ShowWebToolStrip
+        {
+            get;
+            set;
+        }
+
+        [Browsable(true)]
+        bool ShowAddressToolStrip
+        {
+            get;
+            set;
+        }
+
+        [Browsable(true)]
+        bool ShowSearchToolStrip
+        {
+            get;
+            set;
+        }
+
+        [Browsable(true)]
+        bool ShowStatusStrip
+        {
+            get;
+            set;
         }
 
         /// <summary>

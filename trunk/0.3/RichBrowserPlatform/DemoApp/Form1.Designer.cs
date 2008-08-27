@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            OpenCS.Common.Logging.ConsoleLogger consoleLogger1 = new OpenCS.Common.Logging.ConsoleLogger();
             this.richBrowserControl1 = new OpenCS.RBP.Controls.RichBrowserControl();
             this.SuspendLayout();
             // 
@@ -35,7 +36,13 @@
             // 
             this.richBrowserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richBrowserControl1.Location = new System.Drawing.Point(0, 0);
+            this.richBrowserControl1.Logger = consoleLogger1;
             this.richBrowserControl1.Name = "richBrowserControl1";
+            this.richBrowserControl1.ShowAddressToolStrip = true;
+            this.richBrowserControl1.ShowMenuStrip = true;
+            this.richBrowserControl1.ShowSearchToolStrip = false;
+            this.richBrowserControl1.ShowStatusStrip = true;
+            this.richBrowserControl1.ShowWebToolStrip = true;
             this.richBrowserControl1.Size = new System.Drawing.Size(752, 410);
             this.richBrowserControl1.TabIndex = 0;
             // 

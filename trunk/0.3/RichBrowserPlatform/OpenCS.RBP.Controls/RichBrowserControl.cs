@@ -293,6 +293,43 @@ namespace OpenCS.RBP.Controls
 
         }
 
+        public bool ShowMenuStrip
+        {
+            get { return menuStripMain.Visible; }
+            set { menuStripMain.Visible = value; }
+        }
+
+        public bool ShowWebToolStrip
+        {
+            get { return toolStripWeb.Visible; }
+            set { toolStripWeb.Visible = value; }
+        }
+
+        public bool ShowAddressToolStrip
+        {
+            get { return toolStripAddress.Visible; }
+            set { toolStripAddress.Visible = value; }
+        }
+
+        // TODO: search toolstrip
+        public bool ShowSearchToolStrip
+        {
+            get
+            {
+                return false;
+            }
+            set
+            {
+                ;
+            }
+        }
+
+        public bool ShowStatusStrip
+        {
+            get { return statusStripMain.Visible; }
+            set { statusStripMain.Visible = value; }
+        }
+
         public IWebBrowser Navigate(string url)
         {
             IWebBrowserDockContent wbdc = null;
