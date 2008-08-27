@@ -214,35 +214,43 @@ namespace OpenCS.RBP.Controls
                     //if (file.EndsWith("Plugin.dll") == true)
                     {
                         Assembly asm = Assembly.LoadFrom(file);
-                        foreach (Type type in asm.GetTypes())
+                        try
                         {
-                            m_logger.Debug(type.ToString());
-                            Type ifType = type.GetInterface(typeof(IPlugin).FullName, false);
-                            if (ifType != null && type.IsAbstract == false)
+                            foreach (Type type in asm.GetTypes())
                             {
-                                m_logger.Info("Found plugin: " + type.FullName);
-                                object obj = asm.CreateInstance(type.FullName);
-                                if (obj != null && obj is IPlugin)
+                                m_logger.Debug(type.ToString());
+                                Type ifType = type.GetInterface(typeof(IPlugin).FullName, false);
+                                if (ifType != null && type.IsAbstract == false)
                                 {
-                                    IPlugin plugin = obj as IPlugin;
-                                    m_logger.Info("Plugin: " + plugin.Title);
-                                    plugin.PluginHost = this;
-                                    if (plugin is IRbpPlugin)
+                                    m_logger.Info("Found plugin: " + type.FullName);
+                                    object obj = asm.CreateInstance(type.FullName);
+                                    if (obj != null && obj is IPlugin)
                                     {
-                                        (plugin as IRbpPlugin).RichBrowserControl = this;
-                                    }
-                                    plugin.Init();
-                                    m_logger.Info("Plugin Inited: " + plugin.Title);
+                                        IPlugin plugin = obj as IPlugin;
+                                        m_logger.Info("Plugin: " + plugin.Title);
+                                        plugin.PluginHost = this;
+                                        if (plugin is IRbpPlugin)
+                                        {
+                                            (plugin as IRbpPlugin).RichBrowserControl = this;
+                                        }
+                                        plugin.Init();
+                                        m_logger.Info("Plugin Inited: " + plugin.Title);
 
-                                    m_plugins.Add(plugin);
-                                    m_dcPlugins.AddPlugin(plugin);
+                                        m_plugins.Add(plugin);
+                                        m_dcPlugins.AddPlugin(plugin);
 
-                                    if (plugin is IPanelPlugin)
-                                    {
-                                        (plugin as IPanelPlugin).Show(dockPanelMain, DockState.DockLeft);
+                                        if (plugin is IPanelPlugin)
+                                        {
+                                            (plugin as IPanelPlugin).Show(dockPanelMain, DockState.DockLeft);
+                                        }
                                     }
                                 }
                             }
+                        }
+                        catch (ReflectionTypeLoadException ex)
+                        {
+                            m_logger.Debug(ex.Message);
+                            m_logger.Warn(ex.Message);
                         }
                     }
                 }
