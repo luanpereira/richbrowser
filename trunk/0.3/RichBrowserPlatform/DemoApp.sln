@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCS.Common.Test", "OpenC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstToggleableRbpPlugin", "MyFirstToggleableRbpPlugin\MyFirstToggleableRbpPlugin.csproj", "{92F8FD1D-0B0E-4FC1-BD2D-10803BC76C8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCS.Common.Http", "OpenCS.Common.Http\OpenCS.Common.Http.csproj", "{BFEBC65F-31E9-44D2-BCC1-41BB90BE2B93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCS.Common.Worker", "OpenCS.Common.Worker\OpenCS.Common.Worker.csproj", "{C2092D01-1B89-427B-8A5C-12E536EEECB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +77,14 @@ Global
 		{92F8FD1D-0B0E-4FC1-BD2D-10803BC76C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92F8FD1D-0B0E-4FC1-BD2D-10803BC76C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92F8FD1D-0B0E-4FC1-BD2D-10803BC76C8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFEBC65F-31E9-44D2-BCC1-41BB90BE2B93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFEBC65F-31E9-44D2-BCC1-41BB90BE2B93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFEBC65F-31E9-44D2-BCC1-41BB90BE2B93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFEBC65F-31E9-44D2-BCC1-41BB90BE2B93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2092D01-1B89-427B-8A5C-12E536EEECB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2092D01-1B89-427B-8A5C-12E536EEECB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2092D01-1B89-427B-8A5C-12E536EEECB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2092D01-1B89-427B-8A5C-12E536EEECB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
