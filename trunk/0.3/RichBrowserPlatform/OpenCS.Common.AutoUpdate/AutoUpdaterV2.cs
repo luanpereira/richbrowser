@@ -17,11 +17,6 @@ namespace OpenCS.Common.AutoUpdate
 
     public static class AutoUpdaterV2
     {
-        public static UpdateResult Update(IResourceProvider rp, string updateUrl, string tempFolder)
-        {
-            return Update(rp, StaticLogManager.GetLogManager(), updateUrl, tempFolder);
-        }
-
         private static UpdateResult UpdateInternal(IResourceProvider rp, ILogger logger, ApplicationInfo au)
         {
             // remote >  local: 1

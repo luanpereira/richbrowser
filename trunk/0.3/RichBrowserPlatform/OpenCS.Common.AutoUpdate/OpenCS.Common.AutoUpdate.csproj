@@ -51,10 +51,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenCS.Common.Logging\OpenCS.Common.Logging.csproj">
-      <Project>{135F5CEA-5883-4D66-B697-CD0F80D3813B}</Project>
-      <Name>OpenCS.Common.Logging</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OpenCS.Common.WinForms\OpenCS.Common.WinForms.csproj">
       <Project>{058E4A01-9177-4288-B4C2-DA9914D68334}</Project>
       <Name>OpenCS.Common.WinForms</Name>
