@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace OpenCS.Common
 {
@@ -47,5 +48,28 @@ namespace OpenCS.Common
 
             return result;
         }
+
+        /// <summary>
+        /// 현재 시간에 대한 타임스탬프 문자열을 반환한다. 형식은 "[yyyy/MM/dd HH:mm:ss]".
+        /// ref: http://en.csharp-online.net/CSharp_Format_Specifiers%E2%80%94DateTime_Format_Specifiers
+        /// </summary>
+        /// <returns>타임스탬프 문자열</returns>
+        public static string GetTimeStamp()
+        {
+            return DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss", CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
+        /// 현재 시간에 대한 틱값과 함께 타임스탬프 문자열을 반환한다. 형식은 "[yyyy/MM/dd HH:mm:ss 633471568757530000]".
+        /// ref: http://en.csharp-online.net/CSharp_Format_Specifiers%E2%80%94DateTime_Format_Specifiers
+        /// </summary>
+        /// <returns>타임스탬프 문자열</returns>
+        public static string GetTimeStampWithTicks()
+        {
+            DateTime now = DateTime.Now;
+
+            return string.Format(CultureInfo.CurrentCulture, "[{0} {1}]", now.ToString("yyyy/MM/dd HH:mm:ss", CultureInfo.CurrentCulture), now.Ticks);
+        }
+
     }
 }

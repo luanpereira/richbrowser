@@ -10,6 +10,9 @@ namespace OpenCS.Common.Logging
     /// </summary>
     public class ConsoleLogger : ILogger
     {
+        private LogLevelOptions mLevelOptions;
+        private LogUIOption mUIOption;
+
         #region ILogger 멤버
 
         /// <summary>
@@ -55,6 +58,28 @@ namespace OpenCS.Common.Logging
         public void Debug(string message)
         {
             System.Diagnostics.Debug.Print("[DEBUG] " + message);
+        }
+
+        #endregion
+
+        #region ILogger 멤버
+
+        public bool HasUI
+        {
+            get { return false; }
+            set { ; }
+        }
+
+        public LogLevelOptions LevelOptions
+        {
+            get { return mLevelOptions; }
+            set { mLevelOptions = value; }
+        }
+
+        public LogUIOption UIOption
+        {
+            get { return mUIOption; }
+            set { mUIOption = value; }
         }
 
         #endregion
