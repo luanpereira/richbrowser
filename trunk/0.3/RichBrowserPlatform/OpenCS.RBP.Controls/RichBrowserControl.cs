@@ -221,7 +221,8 @@ namespace OpenCS.RBP.Controls
                 {
                     //if (file.EndsWith("Plugin.dll") == true)
                     {
-                        Assembly asm = Assembly.LoadFrom(file);
+                        //Assembly asm = Assembly.LoadFrom(file);
+                        Assembly asm = Assembly.LoadFile(file);
                         try
                         {
                             Type type = asm.GetType(typeof(IPlugin).FullName);
