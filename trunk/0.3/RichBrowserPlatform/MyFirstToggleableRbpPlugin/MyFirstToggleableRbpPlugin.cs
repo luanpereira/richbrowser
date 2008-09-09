@@ -44,7 +44,7 @@ namespace MyFirstToggleableRbpPlugin
             DockContent.Close();
         }
 
-        protected override void ShowDockContent()
+        public override void ShowDockContent()
         {
             DockContent.Show(RichBrowserControl.DockPanel, DockState.DockRight);
         }

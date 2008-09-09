@@ -217,14 +217,15 @@ namespace OpenCS.RBP.Controls
 
             foreach (string pluginFolder in Directory.GetDirectories(baseFolder))
             {
-                foreach (string file in Directory.GetFiles(pluginFolder, "*.dll"))
+                foreach (string file in Directory.GetFiles(pluginFolder, "*Plugin.dll"))
                 {
                     //if (file.EndsWith("Plugin.dll") == true)
                     {
                         Assembly asm = Assembly.LoadFrom(file);
                         try
                         {
-                            foreach (Type type in asm.GetTypes())
+                            Type type = asm.GetType(typeof(IPlugin).FullName);
+                            //foreach (Type type in asm.GetTypes())
                             {
                                 mLogger.Debug(type.ToString());
                                 Type ifType = type.GetInterface(typeof(IPlugin).FullName, false);

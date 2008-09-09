@@ -107,6 +107,6 @@ namespace OpenCS.RBP
         /// <summary>
         /// 도킹 패널을 표시한다.
         /// </summary>
-        abstract protected void ShowDockContent();
+        abstract public void ShowDockContent();
     }
 }
