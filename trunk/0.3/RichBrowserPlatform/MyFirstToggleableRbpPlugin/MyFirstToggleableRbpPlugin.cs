@@ -9,7 +9,7 @@ using OpenCS.RBP;
 
 namespace MyFirstToggleableRbpPlugin
 {
-    public class MyFirstToggleableRbpPlugin: BaseToggleableRbpPlugin
+    public class MyFirstToggleableRbpPlugin : BaseToggleableRbpPlugin
     {
         public override ActionResult HandleAction(IAction action)
         {
@@ -31,22 +31,15 @@ namespace MyFirstToggleableRbpPlugin
         {
             get { return new Version(FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion); }
         }
-        
+
         public override void Init()
         {
-            DockContent = new DockContentTest();
-            InitToggleableResources();
+            InitToggleableResources(new DockContentTest(), DockState.DockRight);
         }
 
         public override void Deinit()
         {
             DeinitToggleableResources();
-            DockContent.Close();
-        }
-
-        public override void ShowDockContent()
-        {
-            DockContent.Show(RichBrowserControl.DockPanel, DockState.DockRight);
         }
     }
 }

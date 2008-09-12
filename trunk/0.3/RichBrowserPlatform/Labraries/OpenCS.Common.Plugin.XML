@@ -4,32 +4,9 @@
         <name>OpenCS.Common.Plugin</name>
     </assembly>
     <members>
-        <member name="T:OpenCS.Common.Plugin.IPluginHost">
+        <member name="T:OpenCS.Common.Plugin.BasePlugin">
             <summary>
-            플러그인 호스트
-            플러그인들 관리하는 주체.
-            </summary>
-        </member>
-        <member name="M:OpenCS.Common.Plugin.IPluginHost.LoadPlugins(System.String)">
-            <summary>
-            플러그인들을 로딩한다.
-            </summary>
-            <param name="baseFolder">플러그인들이 위치한 기본 폴더</param>
-        </member>
-        <member name="M:OpenCS.Common.Plugin.IPluginHost.UnloadPlugins">
-            <summary>
-            플러그인들을 해제한다.
-            </summary>
-        </member>
-        <member name="P:OpenCS.Common.Plugin.IPluginHost.ExecutingPath">
-            <summary>
-            플러그인 호스트(보통 어플리케이션)가 실행 중인 절대경로를 가져오거나 설정한다. 
-            설정은 <c>IPluginHost</c>를 사용하는 객체나 어플리케이션에서 하도록 한다.
-            </summary>
-        </member>
-        <member name="P:OpenCS.Common.Plugin.IPluginHost.Plugins">
-            <summary>
-            플러그인 목록을 가져온다.
+            기본 구현 플러그인
             </summary>
         </member>
         <member name="T:OpenCS.Common.Plugin.IPlugin">
@@ -67,11 +44,6 @@
             <summary>
             설치된 절대경로를 가져오거나 설정한다. 
             설정은 <c>IPluginHost</c>에서만 하도록 한다.
-            </summary>
-        </member>
-        <member name="T:OpenCS.Common.Plugin.BasePlugin">
-            <summary>
-            기본 구현 플러그인
             </summary>
         </member>
         <member name="F:OpenCS.Common.Plugin.BasePlugin.mHost">
@@ -120,6 +92,34 @@
             <summary>
             설치된 경로를 가져오거나 설정한다. 
             설정은 <c>IPluginHost</c>에서만 하도록 한다.
+            </summary>
+        </member>
+        <member name="T:OpenCS.Common.Plugin.IPluginHost">
+            <summary>
+            플러그인 호스트
+            플러그인들 관리하는 주체.
+            </summary>
+        </member>
+        <member name="M:OpenCS.Common.Plugin.IPluginHost.LoadPlugins(System.String)">
+            <summary>
+            플러그인들을 로딩한다.
+            </summary>
+            <param name="baseFolder">플러그인들이 위치한 기본 폴더</param>
+        </member>
+        <member name="M:OpenCS.Common.Plugin.IPluginHost.UnloadPlugins">
+            <summary>
+            플러그인들을 해제한다.
+            </summary>
+        </member>
+        <member name="P:OpenCS.Common.Plugin.IPluginHost.ExecutingPath">
+            <summary>
+            플러그인 호스트(보통 어플리케이션)가 실행 중인 절대경로를 가져오거나 설정한다. 
+            설정은 <c>IPluginHost</c>를 사용하는 객체나 어플리케이션에서 하도록 한다.
+            </summary>
+        </member>
+        <member name="P:OpenCS.Common.Plugin.IPluginHost.Plugins">
+            <summary>
+            플러그인 목록을 가져온다.
             </summary>
         </member>
     </members>

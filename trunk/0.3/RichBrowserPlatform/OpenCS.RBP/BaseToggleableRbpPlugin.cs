@@ -14,17 +14,18 @@ namespace OpenCS.RBP
     /// </summary>
     abstract public class BaseToggleableRbpPlugin : BaseRbpPlugin
     {
-        private DockContent mDc;
+        private IToggleableDockContent mToggleableDC;
         private ToolStripButton mButton;
         private ToolStripMenuItem mMenuItem;
+        private DockState mShowPosition;
 
         /// <summary>
         /// 도킹 패널을 가져오거나 설정한다.
         /// </summary>
-        public DockContent DockContent
+        public IToggleableDockContent ToggleableDockContent
         {
-            get { return mDc; }
-            set { mDc = value; }
+            get { return mToggleableDC; }
+            set { mToggleableDC = value; }
         }
 
         /// <summary>
@@ -46,41 +47,66 @@ namespace OpenCS.RBP
         }
 
         /// <summary>
-        /// 토글 관련 리소스를 설정한다.
-        /// IPlugin.Init() 내에서 DockContent를 초기화한 후 호출한다.
+        /// Gets or Sets ShowPosition
         /// </summary>
-        protected void InitToggleableResources()
+        public DockState ShowPosition
         {
-            mDc.HideOnClose = true;
-
-            mButton = new ToolStripButton(Title);
-            mMenuItem = new ToolStripMenuItem(Title);
-            RichBrowserControl.AddToolBarButton(mButton, new ShowAction(mDc));
-            RichBrowserControl.AddMenuItem(mMenuItem, new ShowAction(mDc));
+            get { return mShowPosition; }
+            set { mShowPosition = value; }
         }
 
         /// <summary>
         /// 토글 관련 리소스를 설정한다.
-        /// IPlugin.Init() 내에서 DockContent를 초기화한 후 호출한다.
         /// </summary>
-        protected void InitToggleableResources(Image image)
+        protected void InitToggleableResources(IToggleableDockContent dockContent, DockState showPosition)
         {
-            mDc.HideOnClose = true;
+            mToggleableDC = dockContent;
+            mShowPosition = showPosition;
+
+            mToggleableDC.Plugin = this;
+            mToggleableDC.RichBrowserControl = RichBrowserControl;
+            mToggleableDC.ActionHandler = RichBrowserControl;
+
+            mToggleableDC.HideOnClose = true;
+
+            mButton = new ToolStripButton(Title);
+            mMenuItem = new ToolStripMenuItem(Title);
+            RichBrowserControl.AddToolBarButton(mButton, new ShowAction(mToggleableDC));
+            RichBrowserControl.AddMenuItem(mMenuItem, new ShowAction(mToggleableDC));
+
+            mToggleableDC.Show(RichBrowserControl.DockPanel, mShowPosition);
+        }
+
+        /// <summary>
+        /// 토글 관련 리소스를 설정한다.
+        /// </summary>
+        protected void InitToggleableResources(IToggleableDockContent dockContent, DockState showPosition, Image image)
+        {
+            mToggleableDC = dockContent;
+            mShowPosition = showPosition;
+
+            mToggleableDC.Plugin = this;
+            mToggleableDC.RichBrowserControl = RichBrowserControl;
+            mToggleableDC.ActionHandler = RichBrowserControl;
+
+            mToggleableDC.HideOnClose = true;
 
             mButton = new ToolStripButton(Title, image);
             mMenuItem = new ToolStripMenuItem(Title, image);
-            RichBrowserControl.AddToolBarButton(mButton, new ShowAction(mDc));
-            RichBrowserControl.AddMenuItem(mMenuItem, new ShowAction(mDc));
+            RichBrowserControl.AddToolBarButton(mButton, new ShowAction(mToggleableDC));
+            RichBrowserControl.AddMenuItem(mMenuItem, new ShowAction(mToggleableDC));
+
+            mToggleableDC.Show(RichBrowserControl.DockPanel, mShowPosition);
         }
 
         /// <summary>
         /// 토글 관련 리소스를 해제한다.
-        /// IPlugin.Deinit() 내에서 DockContent.Close()하기전에 호출한다.
         /// </summary>
         protected void DeinitToggleableResources()
         {
             RichBrowserControl.RemoveToolBarButton(mButton);
             RichBrowserControl.RemoveMenuItem(mMenuItem);
+            mToggleableDC.Close();
         }
 
         /// <summary>
@@ -93,9 +119,9 @@ namespace OpenCS.RBP
             if (action is ShowAction)
             {
                 DockContent dc = (action as ShowAction).ShowingObject as DockContent;
-                if (dc != null && dc == mDc)
+                if (dc != null && dc == mToggleableDC)
                 {
-                    ShowDockContent();
+                    mToggleableDC.Show(RichBrowserControl.DockPanel, mShowPosition);
 
                     return ActionResult.Success;
                 }
@@ -103,10 +129,5 @@ namespace OpenCS.RBP
 
             return ActionResult.NotHandled;
         }
-
-        /// <summary>
-        /// 도킹 패널을 표시한다.
-        /// </summary>
-        abstract public void ShowDockContent();
     }
 }

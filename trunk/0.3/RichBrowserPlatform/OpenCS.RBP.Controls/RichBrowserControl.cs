@@ -221,12 +221,13 @@ namespace OpenCS.RBP.Controls
                 {
                     //if (file.EndsWith("Plugin.dll") == true)
                     {
-                        //Assembly asm = Assembly.LoadFrom(file);
-                        Assembly asm = Assembly.LoadFile(file);
+                        Assembly asm = Assembly.LoadFrom(file);
+                        //Assembly asm = Assembly.LoadFile(file);
                         try
                         {
-                            Type type = asm.GetType(typeof(IPlugin).FullName);
-                            //foreach (Type type in asm.GetTypes())
+                            //Type type = asm.GetType(typeof(IPlugin).FullName);
+                            //if (type != null)
+                            foreach (Type type in asm.GetTypes())
                             {
                                 mLogger.Debug(type.ToString());
                                 Type ifType = type.GetInterface(typeof(IPlugin).FullName, false);
@@ -261,6 +262,10 @@ namespace OpenCS.RBP.Controls
                         catch (ReflectionTypeLoadException ex)
                         {
                             mLogger.Debug(ex.Message);
+                            foreach (Exception le in ex.LoaderExceptions)
+                            {
+                                mLogger.Debug(le.Message);
+                            }
                             mLogger.Warn(ex.Message);
                         }
                     }

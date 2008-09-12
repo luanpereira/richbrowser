@@ -4,134 +4,78 @@
         <name>OpenCS.Common</name>
     </assembly>
     <members>
-        <member name="T:OpenCS.Common.Action.ActionResult">
+        <member name="T:OpenCS.Common.Resource.IResourceManager">
             <summary>
-            액션 처리 결과
+            리소스 관리자 (= 리소스 제공자 + 리소스 변경자)
             </summary>
         </member>
-        <member name="F:OpenCS.Common.Action.ActionResult.NotHandled">
+        <member name="M:OpenCS.Common.Resource.IResourceManager.Init(OpenCS.Common.Resource.IResourceProvider,OpenCS.Common.Logging.ILogger)">
             <summary>
-            처리 하지 않음
-            </summary>
-        </member>
-        <member name="F:OpenCS.Common.Action.ActionResult.Success">
-            <summary>
-            성공적으로 처리함
-            </summary>
-        </member>
-        <member name="F:OpenCS.Common.Action.ActionResult.Failed">
-            <summary>
-            처리에 실패함
-            </summary>
-        </member>
-        <member name="T:OpenCS.Common.Resource.ResourceChanger">
-            <summary>
-            기본 리소스 변경자
-            </summary>
-        </member>
-        <member name="T:OpenCS.Common.Resource.IResourceChanger">
-            <summary>
-            리소스 변경자.
-            </summary>
-        </member>
-        <member name="M:OpenCS.Common.Resource.IResourceChanger.AddFilter(OpenCS.Common.Resource.IResourceChangeFilter)">
-            <summary>
-            리소스 변경 필터를 추가한다.
-            </summary>
-            <param name="filter">리소스 변경 필터</param>
-        </member>
-        <member name="M:OpenCS.Common.Resource.IResourceChanger.Change(System.Object)">
-            <summary>
-            객체의 리소스를 바꾼다. 
-            </summary>
-            <param name="obj">바꿀 객체</param>
-        </member>
-        <member name="M:OpenCS.Common.Resource.IResourceChanger.Change(OpenCS.Common.Resource.IResourceChangeable)">
-            <summary>
-            IResourceChangeable 객체의 리소스를 바꾼다.
-            </summary>
-            <param name="resourceChangeable">IResourceChangeable 객체</param>
-        </member>
-        <member name="P:OpenCS.Common.Resource.IResourceChanger.ResourceProvider">
-            <summary>
-            리소스 제공자를 설정한다.
-            </summary>
-        </member>
-        <member name="M:OpenCS.Common.Resource.ResourceChanger.#ctor(OpenCS.Common.Resource.IResourceProvider,OpenCS.Common.Logging.ILogger)">
-            <summary>
-            생성자
+            리소스 관리자를 초기화한다.
+            리소스 관리자를 사용하기 전에 반드시 초기화해야 한다.
             </summary>
             <param name="rp">리소스 제공자</param>
             <param name="logger">로거</param>
         </member>
-        <member name="M:OpenCS.Common.Resource.ResourceChanger.ChangeCommonTypes(System.Object)">
+        <member name="P:OpenCS.Common.Resource.IResourceManager.ResourceProvider">
             <summary>
-            .NET에서 제공하는 기본 형태에 대해서 리소스를 변경한다.
+            리소스 제공자를 가져온다.
             </summary>
-            <param name="obj">변경할 객체</param>
-            <returns>성공하면 true</returns>
         </member>
-        <member name="M:OpenCS.Common.Resource.ResourceChanger.ChangeText(System.Object)">
+        <member name="P:OpenCS.Common.Resource.IResourceManager.ResourceChanger">
             <summary>
-            객체의 문자열 속성을 변경한다.
+            리소스 변경자를 가져온다.
             </summary>
-            <param name="obj">변경할 객체</param>
         </member>
-        <member name="M:OpenCS.Common.Resource.ResourceChanger.Change(System.Object)">
+        <member name="T:OpenCS.Common.StringUtils">
             <summary>
-            객체의 리소스를 바꾼다. 
+            문자열 관련 유틸 클래스.
             </summary>
-            <param name="obj">바꿀 객체</param>
         </member>
-        <member name="M:OpenCS.Common.Resource.ResourceChanger.Change(OpenCS.Common.Resource.IResourceChangeable)">
+        <member name="M:OpenCS.Common.StringUtils.StripTags(System.String)">
             <summary>
-            IResourceChangeable 객체의 리소스를 바꾼다.
+            HTML 태그를 없앤다. 참고 주소: http://www.developerfusion.co.uk/show/3901/
+            
             </summary>
-            <param name="resourceChangeable">IResourceChangeable 객체</param>
+            <param name="src">원본 문자열</param>
+            <returns>변환된 문자열</returns>
         </member>
-        <member name="M:OpenCS.Common.Resource.ResourceChanger.AddFilter(OpenCS.Common.Resource.IResourceChangeFilter)">
+        <member name="M:OpenCS.Common.StringUtils.GrabString(System.String,System.String,System.String)">
             <summary>
-            리소스 변경 필터를 추가한다.
+            태그와 태그사이의 문자열을 구한다. 태그를 찾지 못하면 원본 문자열과 동일한 문자열을 반환한다.
             </summary>
-            <param name="filter">리소스 변경 필터</param>
+            <param name="src">원본 문자열</param>
+            <param name="startTag">시작 태그</param>
+            <param name="endTag">종료 태그</param>
+            <returns>사이의 문자열</returns>
         </member>
-        <member name="P:OpenCS.Common.Resource.ResourceChanger.ResourceProvider">
+        <member name="M:OpenCS.Common.StringUtils.GetTimeStamp">
+            <summary>
+            현재 시간에 대한 타임스탬프 문자열을 반환한다. 형식은 "[yyyy/MM/dd HH:mm:ss]".
+            ref: http://en.csharp-online.net/CSharp_Format_Specifiers%E2%80%94DateTime_Format_Specifiers
+            </summary>
+            <returns>타임스탬프 문자열</returns>
+        </member>
+        <member name="M:OpenCS.Common.StringUtils.GetTimeStampWithTicks">
+            <summary>
+            현재 시간에 대한 틱값과 함께 타임스탬프 문자열을 반환한다. 형식은 "[yyyy/MM/dd HH:mm:ss 633471568757530000]".
+            ref: http://en.csharp-online.net/CSharp_Format_Specifiers%E2%80%94DateTime_Format_Specifiers
+            </summary>
+            <returns>타임스탬프 문자열</returns>
+        </member>
+        <member name="T:OpenCS.Common.Resource.IResourceProvidable">
+            <summary>
+            리소스 제공자를 사용하는 객체
+            </summary>
+        </member>
+        <member name="P:OpenCS.Common.Resource.IResourceProvidable.ResourceProvider">
             <summary>
             리소스 제공자를 설정한다.
             </summary>
         </member>
-        <member name="T:OpenCS.Common.Resource.IResourceChangeFilter">
+        <member name="T:OpenCS.Common.Logging.ConsoleLogger">
             <summary>
-            리소스 변경 필터
-            </summary>
-        </member>
-        <member name="M:OpenCS.Common.Resource.IResourceChangeFilter.Filter(OpenCS.Common.Resource.IResourceChanger,System.Object)">
-            <summary>
-            리소스 변경에 대해 필터링한다.
-            </summary>
-            <param name="rc">리소스 변경자</param>
-            <param name="obj">변경할 객체</param>
-            <returns>변경이 될 객체이면 true</returns>
-        </member>
-        <member name="T:OpenCS.Common.IMessageDialogFactory">
-            <summary>
-            메시지 다이얼로그(IMessageDialogFactory) 공장
-            </summary>
-        </member>
-        <member name="M:OpenCS.Common.IMessageDialogFactory.CreateMessageDialog">
-            <summary>
-            메시지 다이얼로그를 생성한다.
-            </summary>
-            <returns>생성된 메시지 다이얼로그</returns>
-        </member>
-        <member name="T:OpenCS.Common.Logging.ILoggable">
-            <summary>
-            로그를 남기는 객체
-            </summary>
-        </member>
-        <member name="P:OpenCS.Common.Logging.ILoggable.Logger">
-            <summary>
-            로거를 설정한다.
+            콘솔로 메시지를 남기는 로거
             </summary>
         </member>
         <member name="T:OpenCS.Common.Logging.ILogger">
@@ -184,65 +128,157 @@
             UI에 따른 활성화 여부를 가져오거나 설정한다.
             </summary>
         </member>
-        <member name="T:OpenCS.Common.Logging.LogLevelOptions">
+        <member name="M:OpenCS.Common.Logging.ConsoleLogger.Fatal(System.String)">
             <summary>
-            로그 표시 레벨 옵션 플래그
+            심각한 오류 메시지를 남긴다.
+            </summary>
+            <param name="message">메시지</param>
+        </member>
+        <member name="M:OpenCS.Common.Logging.ConsoleLogger.Error(System.String)">
+            <summary>
+            오류 메시지를 남긴다.
+            </summary>
+            <param name="message">메시지</param>
+        </member>
+        <member name="M:OpenCS.Common.Logging.ConsoleLogger.Warn(System.String)">
+            <summary>
+            경고 메시지를 남긴다.
+            </summary>
+            <param name="message">메시지</param>
+        </member>
+        <member name="M:OpenCS.Common.Logging.ConsoleLogger.Info(System.String)">
+            <summary>
+            정보 메시지를 남긴다.
+            </summary>
+            <param name="message">메시지</param>
+        </member>
+        <member name="M:OpenCS.Common.Logging.ConsoleLogger.Debug(System.String)">
+            <summary>
+            디버깅 메시지를 남긴다.
+            </summary>
+            <param name="message">메시지</param>
+        </member>
+        <member name="T:OpenCS.Common.Resource.ResourceManager">
+            <summary>
+            기본 리소스 관리자
             </summary>
         </member>
-        <member name="F:OpenCS.Common.Logging.LogLevelOptions.None">
+        <member name="F:OpenCS.Common.Resource.ResourceManager.mRp">
             <summary>
-            아무것도 남기지 않음
+            리소스 제공자
             </summary>
         </member>
-        <member name="F:OpenCS.Common.Logging.LogLevelOptions.Fatal">
+        <member name="F:OpenCS.Common.Resource.ResourceManager.mRc">
             <summary>
-            심각한 오류
+            리소스 변경자
             </summary>
         </member>
-        <member name="F:OpenCS.Common.Logging.LogLevelOptions.Error">
+        <member name="M:OpenCS.Common.Resource.ResourceManager.#ctor">
             <summary>
-            일반 오류
+            생성자
+            Singleton을 쓰려면 인자 없는 생성자가 필요하다.
             </summary>
         </member>
-        <member name="F:OpenCS.Common.Logging.LogLevelOptions.Info">
+        <member name="M:OpenCS.Common.Resource.ResourceManager.#ctor(OpenCS.Common.Resource.IResourceProvider,OpenCS.Common.Resource.IResourceChanger)">
             <summary>
-            정보
+            생성자
+            </summary>
+            <param name="rp">리소스 제공자</param>
+            <param name="rc">리소스 변경자</param>
+        </member>
+        <member name="M:OpenCS.Common.Resource.ResourceManager.#ctor(OpenCS.Common.Resource.IResourceProvider,OpenCS.Common.Logging.ILogger)">
+            <summary>
+            생성자
+            </summary>
+            <param name="rp">리소스 제공자</param>
+            <param name="logger">로거</param>
+        </member>
+        <member name="M:OpenCS.Common.Resource.ResourceManager.Init(OpenCS.Common.Resource.IResourceProvider,OpenCS.Common.Logging.ILogger)">
+            <summary>
+            리소스 관리자를 초기화한다.
+            리소스 관리자를 사용하기 전에 반드시 초기화해야 한다.
+            </summary>
+            <param name="rp">리소스 제공자</param>
+            <param name="logger">로거</param>
+        </member>
+        <member name="P:OpenCS.Common.Resource.ResourceManager.ResourceProvider">
+            <summary>
+            리소스 제공자를 가져온다.
             </summary>
         </member>
-        <member name="F:OpenCS.Common.Logging.LogLevelOptions.Warn">
+        <member name="P:OpenCS.Common.Resource.ResourceManager.ResourceChanger">
             <summary>
-            경고
+            리소스 변경자를 가져온다.
             </summary>
         </member>
-        <member name="F:OpenCS.Common.Logging.LogLevelOptions.Debug">
+        <member name="T:OpenCS.Common.Logging.ILoggable">
             <summary>
-            디버깅용 정보
+            로그를 남기는 객체
             </summary>
         </member>
-        <member name="F:OpenCS.Common.Logging.LogLevelOptions.All">
+        <member name="P:OpenCS.Common.Logging.ILoggable.Logger">
             <summary>
-            모두 남김
+            로거를 설정한다.
             </summary>
         </member>
-        <member name="T:OpenCS.Common.Logging.LogUIOption">
+        <member name="T:OpenCS.Common.IMessageDialog">
             <summary>
-            로거의 UI에 따른 활성화 옵션
+            메시지를 표시하는 다이얼로그
             </summary>
         </member>
-        <member name="F:OpenCS.Common.Logging.LogUIOption.All">
+        <member name="M:OpenCS.Common.IMessageDialog.ShowInfo(System.String)">
             <summary>
-            모두 활성화
+            정보 메시지를 표시한다.
+            </summary>
+            <param name="msg">메시지</param>
+        </member>
+        <member name="M:OpenCS.Common.IMessageDialog.ShowWarn(System.String)">
+            <summary>
+            경고 메시지를 표시한다.
+            </summary>
+            <param name="msg">메시지</param>
+        </member>
+        <member name="M:OpenCS.Common.IMessageDialog.ShowError(System.String)">
+            <summary>
+            오류 메시지를 표시한다.
+            </summary>
+            <param name="msg">메시지</param>
+        </member>
+        <member name="M:OpenCS.Common.IMessageDialog.ShowQuestion(System.String)">
+            <summary>
+            질문을 메시지를 표시하고, 답변을 받는다.
+            </summary>
+            <param name="msg">메시지</param>
+            <returns>답변</returns>
+        </member>
+        <member name="M:OpenCS.Common.IMessageDialog.ShowQuestion(System.String,System.Windows.Forms.MessageBoxButtons)">
+            <summary>
+            질문을 메시지를 표시하고, 답변을 받는다.
+            </summary>
+            <param name="msg">메시지</param>
+            <param name="buttons">메시지 버튼 형식</param>
+            <returns>답변</returns>
+        </member>
+        <member name="M:OpenCS.Common.IMessageDialog.ShowQuestion(System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxDefaultButton)">
+            <summary>
+            질문을 메시지를 표시하고, 답변을 받는다.
+            </summary>
+            <param name="msg">메시지</param>
+            <param name="buttons">메시지 버튼 형식</param>
+            <param name="defaultButton">기본적으로 선택한 버튼</param>
+            <returns>답변</returns>
+        </member>
+        <member name="T:OpenCS.Common.Action.IActionHandler">
+            <summary>
+            액션 처리기
             </summary>
         </member>
-        <member name="F:OpenCS.Common.Logging.LogUIOption.NoUI">
+        <member name="M:OpenCS.Common.Action.IActionHandler.HandleAction(OpenCS.Common.Action.IAction)">
             <summary>
-            UI를 가지지 않은 로거만 활성화
+            액션을 처리한다.
             </summary>
-        </member>
-        <member name="F:OpenCS.Common.Logging.LogUIOption.UIOnly">
-            <summary>
-            UI를 가진 로거만 활성화
-            </summary>
+            <param name="action">액션</param>
+            <returns>처리 결과</returns>
         </member>
         <member name="T:OpenCS.Common.Xml.XmlDocumenter">
             <summary>
@@ -313,16 +349,242 @@
             최상위 엘리먼트를 가져온다.
             </summary>
         </member>
-        <member name="T:OpenCS.Common.Action.PropertyAction`1">
+        <member name="T:OpenCS.Common.Resource.IResourceChanger">
             <summary>
-            속성값을 가져오거나 설정하는 액션
+            리소스 변경자.
             </summary>
-            <typeparam name="T">속성값 형태</typeparam>
+        </member>
+        <member name="M:OpenCS.Common.Resource.IResourceChanger.AddFilter(OpenCS.Common.Resource.IResourceChangeFilter)">
+            <summary>
+            리소스 변경 필터를 추가한다.
+            </summary>
+            <param name="filter">리소스 변경 필터</param>
+        </member>
+        <member name="M:OpenCS.Common.Resource.IResourceChanger.Change(System.Object)">
+            <summary>
+            객체의 리소스를 바꾼다. 
+            </summary>
+            <param name="obj">바꿀 객체</param>
+        </member>
+        <member name="M:OpenCS.Common.Resource.IResourceChanger.Change(OpenCS.Common.Resource.IResourceChangeable)">
+            <summary>
+            IResourceChangeable 객체의 리소스를 바꾼다.
+            </summary>
+            <param name="resourceChangeable">IResourceChangeable 객체</param>
+        </member>
+        <member name="P:OpenCS.Common.Resource.IResourceChanger.ResourceProvider">
+            <summary>
+            리소스 제공자를 설정한다.
+            </summary>
+        </member>
+        <member name="T:OpenCS.Common.Resource.ResourceChanger">
+            <summary>
+            기본 리소스 변경자
+            </summary>
+        </member>
+        <member name="M:OpenCS.Common.Resource.ResourceChanger.#ctor(OpenCS.Common.Resource.IResourceProvider,OpenCS.Common.Logging.ILogger)">
+            <summary>
+            생성자
+            </summary>
+            <param name="rp">리소스 제공자</param>
+            <param name="logger">로거</param>
+        </member>
+        <member name="M:OpenCS.Common.Resource.ResourceChanger.ChangeCommonTypes(System.Object)">
+            <summary>
+            .NET에서 제공하는 기본 형태에 대해서 리소스를 변경한다.
+            </summary>
+            <param name="obj">변경할 객체</param>
+            <returns>성공하면 true</returns>
+        </member>
+        <member name="M:OpenCS.Common.Resource.ResourceChanger.ChangeText(System.Object)">
+            <summary>
+            객체의 문자열 속성을 변경한다.
+            </summary>
+            <param name="obj">변경할 객체</param>
+        </member>
+        <member name="M:OpenCS.Common.Resource.ResourceChanger.Change(System.Object)">
+            <summary>
+            객체의 리소스를 바꾼다. 
+            </summary>
+            <param name="obj">바꿀 객체</param>
+        </member>
+        <member name="M:OpenCS.Common.Resource.ResourceChanger.Change(OpenCS.Common.Resource.IResourceChangeable)">
+            <summary>
+            IResourceChangeable 객체의 리소스를 바꾼다.
+            </summary>
+            <param name="resourceChangeable">IResourceChangeable 객체</param>
+        </member>
+        <member name="M:OpenCS.Common.Resource.ResourceChanger.AddFilter(OpenCS.Common.Resource.IResourceChangeFilter)">
+            <summary>
+            리소스 변경 필터를 추가한다.
+            </summary>
+            <param name="filter">리소스 변경 필터</param>
+        </member>
+        <member name="P:OpenCS.Common.Resource.ResourceChanger.ResourceProvider">
+            <summary>
+            리소스 제공자를 설정한다.
+            </summary>
+        </member>
+        <member name="T:OpenCS.Common.Resource.IResourceProvider">
+            <summary>
+            리소스 제공자
+            </summary>
+        </member>
+        <member name="M:OpenCS.Common.Resource.IResourceProvider.GetString(System.String)">
+            <summary>
+            문자열 리소스를 가져온다.
+            </summary>
+            <param name="resourceId">리소스 아이디</param>
+            <returns>가져온 문자열 리소스</returns>
         </member>
         <member name="T:OpenCS.Common.Action.IAction">
             <summary>
             액션
             </summary>
+        </member>
+        <member name="T:OpenCS.Common.Singleton`1">
+            <summary>
+            A Generic Singleton Pattern in C#
+            ref: http://sanity-free.org/132/generic_singleton_pattern_in_csharp.html
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:OpenCS.Common.Singleton`1.Instance">
+            <summary>
+            Get Singleton Class Instance
+            </summary>
+        </member>
+        <member name="T:OpenCS.Common.Resource.IResourceChangeFilter">
+            <summary>
+            리소스 변경 필터
+            </summary>
+        </member>
+        <member name="M:OpenCS.Common.Resource.IResourceChangeFilter.Filter(OpenCS.Common.Resource.IResourceChanger,System.Object)">
+            <summary>
+            리소스 변경에 대해 필터링한다.
+            </summary>
+            <param name="rc">리소스 변경자</param>
+            <param name="obj">변경할 객체</param>
+            <returns>변경이 될 객체이면 true</returns>
+        </member>
+        <member name="T:OpenCS.Common.IMessageDialogFactory">
+            <summary>
+            메시지 다이얼로그(IMessageDialogFactory) 공장
+            </summary>
+        </member>
+        <member name="M:OpenCS.Common.IMessageDialogFactory.CreateMessageDialog">
+            <summary>
+            메시지 다이얼로그를 생성한다.
+            </summary>
+            <returns>생성된 메시지 다이얼로그</returns>
+        </member>
+        <member name="T:OpenCS.Common.Resource.IResourceChangeable">
+            <summary>
+            리소스가 변경가능한 객체
+            </summary>
+        </member>
+        <member name="P:OpenCS.Common.Resource.IResourceChangeable.Text">
+            <summary>
+            텍스트를 가져오거나 설정한다.
+            </summary>
+        </member>
+        <member name="T:OpenCS.Common.Logging.LogLevelOptions">
+            <summary>
+            로그 표시 레벨 옵션 플래그
+            </summary>
+        </member>
+        <member name="F:OpenCS.Common.Logging.LogLevelOptions.None">
+            <summary>
+            아무것도 남기지 않음
+            </summary>
+        </member>
+        <member name="F:OpenCS.Common.Logging.LogLevelOptions.Fatal">
+            <summary>
+            심각한 오류
+            </summary>
+        </member>
+        <member name="F:OpenCS.Common.Logging.LogLevelOptions.Error">
+            <summary>
+            일반 오류
+            </summary>
+        </member>
+        <member name="F:OpenCS.Common.Logging.LogLevelOptions.Info">
+            <summary>
+            정보
+            </summary>
+        </member>
+        <member name="F:OpenCS.Common.Logging.LogLevelOptions.Warn">
+            <summary>
+            경고
+            </summary>
+        </member>
+        <member name="F:OpenCS.Common.Logging.LogLevelOptions.Debug">
+            <summary>
+            디버깅용 정보
+            </summary>
+        </member>
+        <member name="F:OpenCS.Common.Logging.LogLevelOptions.All">
+            <summary>
+            모두 남김
+            </summary>
+        </member>
+        <member name="T:OpenCS.Common.Logging.LogUIOption">
+            <summary>
+            로거의 UI에 따른 활성화 옵션
+            </summary>
+        </member>
+        <member name="F:OpenCS.Common.Logging.LogUIOption.All">
+            <summary>
+            모두 활성화
+            </summary>
+        </member>
+        <member name="F:OpenCS.Common.Logging.LogUIOption.NoUI">
+            <summary>
+            UI를 가지지 않은 로거만 활성화
+            </summary>
+        </member>
+        <member name="F:OpenCS.Common.Logging.LogUIOption.UIOnly">
+            <summary>
+            UI를 가진 로거만 활성화
+            </summary>
+        </member>
+        <member name="T:OpenCS.Common.Action.ActionResult">
+            <summary>
+            액션 처리 결과
+            </summary>
+        </member>
+        <member name="F:OpenCS.Common.Action.ActionResult.NotHandled">
+            <summary>
+            처리 하지 않음
+            </summary>
+        </member>
+        <member name="F:OpenCS.Common.Action.ActionResult.Success">
+            <summary>
+            성공적으로 처리함
+            </summary>
+        </member>
+        <member name="F:OpenCS.Common.Action.ActionResult.Failed">
+            <summary>
+            처리에 실패함
+            </summary>
+        </member>
+        <member name="T:OpenCS.Common.GenericClassFactory`1">
+            <summary>
+            일반화된 공장
+            </summary>
+            <typeparam name="T">클래스 형태</typeparam>
+        </member>
+        <member name="M:OpenCS.Common.GenericClassFactory`1.CreateClass">
+            <summary>
+            클래스를 생성한다.
+            </summary>
+            <returns>생성된 클래스</returns>
+        </member>
+        <member name="T:OpenCS.Common.Action.PropertyAction`1">
+            <summary>
+            속성값을 가져오거나 설정하는 액션
+            </summary>
+            <typeparam name="T">속성값 형태</typeparam>
         </member>
         <member name="M:OpenCS.Common.Action.PropertyAction`1.#ctor">
             <summary>
@@ -338,268 +600,6 @@
         <member name="P:OpenCS.Common.Action.PropertyAction`1.Property">
             <summary>
             속성값ㅇ르 가져오거나 설정한다.
-            </summary>
-        </member>
-        <member name="T:OpenCS.Common.Resource.ResourceManager">
-            <summary>
-            기본 리소스 관리자
-            </summary>
-        </member>
-        <member name="T:OpenCS.Common.Resource.IResourceManager">
-            <summary>
-            리소스 관리자 (= 리소스 제공자 + 리소스 변경자)
-            </summary>
-        </member>
-        <member name="M:OpenCS.Common.Resource.IResourceManager.Init(OpenCS.Common.Resource.IResourceProvider,OpenCS.Common.Logging.ILogger)">
-            <summary>
-            리소스 관리자를 초기화한다.
-            리소스 관리자를 사용하기 전에 반드시 초기화해야 한다.
-            </summary>
-            <param name="rp">리소스 제공자</param>
-            <param name="logger">로거</param>
-        </member>
-        <member name="P:OpenCS.Common.Resource.IResourceManager.ResourceProvider">
-            <summary>
-            리소스 제공자를 가져온다.
-            </summary>
-        </member>
-        <member name="P:OpenCS.Common.Resource.IResourceManager.ResourceChanger">
-            <summary>
-            리소스 변경자를 가져온다.
-            </summary>
-        </member>
-        <member name="F:OpenCS.Common.Resource.ResourceManager.mRp">
-            <summary>
-            리소스 제공자
-            </summary>
-        </member>
-        <member name="F:OpenCS.Common.Resource.ResourceManager.mRc">
-            <summary>
-            리소스 변경자
-            </summary>
-        </member>
-        <member name="M:OpenCS.Common.Resource.ResourceManager.#ctor">
-            <summary>
-            생성자
-            Singleton을 쓰려면 인자 없는 생성자가 필요하다.
-            </summary>
-        </member>
-        <member name="M:OpenCS.Common.Resource.ResourceManager.#ctor(OpenCS.Common.Resource.IResourceProvider,OpenCS.Common.Resource.IResourceChanger)">
-            <summary>
-            생성자
-            </summary>
-            <param name="rp">리소스 제공자</param>
-            <param name="rc">리소스 변경자</param>
-        </member>
-        <member name="M:OpenCS.Common.Resource.ResourceManager.#ctor(OpenCS.Common.Resource.IResourceProvider,OpenCS.Common.Logging.ILogger)">
-            <summary>
-            생성자
-            </summary>
-            <param name="rp">리소스 제공자</param>
-            <param name="logger">로거</param>
-        </member>
-        <member name="M:OpenCS.Common.Resource.ResourceManager.Init(OpenCS.Common.Resource.IResourceProvider,OpenCS.Common.Logging.ILogger)">
-            <summary>
-            리소스 관리자를 초기화한다.
-            리소스 관리자를 사용하기 전에 반드시 초기화해야 한다.
-            </summary>
-            <param name="rp">리소스 제공자</param>
-            <param name="logger">로거</param>
-        </member>
-        <member name="P:OpenCS.Common.Resource.ResourceManager.ResourceProvider">
-            <summary>
-            리소스 제공자를 가져온다.
-            </summary>
-        </member>
-        <member name="P:OpenCS.Common.Resource.ResourceManager.ResourceChanger">
-            <summary>
-            리소스 변경자를 가져온다.
-            </summary>
-        </member>
-        <member name="T:OpenCS.Common.Logging.ConsoleLogger">
-            <summary>
-            콘솔로 메시지를 남기는 로거
-            </summary>
-        </member>
-        <member name="M:OpenCS.Common.Logging.ConsoleLogger.Fatal(System.String)">
-            <summary>
-            심각한 오류 메시지를 남긴다.
-            </summary>
-            <param name="message">메시지</param>
-        </member>
-        <member name="M:OpenCS.Common.Logging.ConsoleLogger.Error(System.String)">
-            <summary>
-            오류 메시지를 남긴다.
-            </summary>
-            <param name="message">메시지</param>
-        </member>
-        <member name="M:OpenCS.Common.Logging.ConsoleLogger.Warn(System.String)">
-            <summary>
-            경고 메시지를 남긴다.
-            </summary>
-            <param name="message">메시지</param>
-        </member>
-        <member name="M:OpenCS.Common.Logging.ConsoleLogger.Info(System.String)">
-            <summary>
-            정보 메시지를 남긴다.
-            </summary>
-            <param name="message">메시지</param>
-        </member>
-        <member name="M:OpenCS.Common.Logging.ConsoleLogger.Debug(System.String)">
-            <summary>
-            디버깅 메시지를 남긴다.
-            </summary>
-            <param name="message">메시지</param>
-        </member>
-        <member name="T:OpenCS.Common.IMessageDialog">
-            <summary>
-            메시지를 표시하는 다이얼로그
-            </summary>
-        </member>
-        <member name="M:OpenCS.Common.IMessageDialog.ShowInfo(System.String)">
-            <summary>
-            정보 메시지를 표시한다.
-            </summary>
-            <param name="msg">메시지</param>
-        </member>
-        <member name="M:OpenCS.Common.IMessageDialog.ShowWarn(System.String)">
-            <summary>
-            경고 메시지를 표시한다.
-            </summary>
-            <param name="msg">메시지</param>
-        </member>
-        <member name="M:OpenCS.Common.IMessageDialog.ShowError(System.String)">
-            <summary>
-            오류 메시지를 표시한다.
-            </summary>
-            <param name="msg">메시지</param>
-        </member>
-        <member name="M:OpenCS.Common.IMessageDialog.ShowQuestion(System.String)">
-            <summary>
-            질문을 메시지를 표시하고, 답변을 받는다.
-            </summary>
-            <param name="msg">메시지</param>
-            <returns>답변</returns>
-        </member>
-        <member name="M:OpenCS.Common.IMessageDialog.ShowQuestion(System.String,System.Windows.Forms.MessageBoxButtons)">
-            <summary>
-            질문을 메시지를 표시하고, 답변을 받는다.
-            </summary>
-            <param name="msg">메시지</param>
-            <param name="buttons">메시지 버튼 형식</param>
-            <returns>답변</returns>
-        </member>
-        <member name="M:OpenCS.Common.IMessageDialog.ShowQuestion(System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxDefaultButton)">
-            <summary>
-            질문을 메시지를 표시하고, 답변을 받는다.
-            </summary>
-            <param name="msg">메시지</param>
-            <param name="buttons">메시지 버튼 형식</param>
-            <param name="defaultButton">기본적으로 선택한 버튼</param>
-            <returns>답변</returns>
-        </member>
-        <member name="T:OpenCS.Common.Resource.IResourceProvider">
-            <summary>
-            리소스 제공자
-            </summary>
-        </member>
-        <member name="M:OpenCS.Common.Resource.IResourceProvider.GetString(System.String)">
-            <summary>
-            문자열 리소스를 가져온다.
-            </summary>
-            <param name="resourceId">리소스 아이디</param>
-            <returns>가져온 문자열 리소스</returns>
-        </member>
-        <member name="T:OpenCS.Common.Resource.IResourceChangeable">
-            <summary>
-            리소스가 변경가능한 객체
-            </summary>
-        </member>
-        <member name="P:OpenCS.Common.Resource.IResourceChangeable.Text">
-            <summary>
-            텍스트를 가져오거나 설정한다.
-            </summary>
-        </member>
-        <member name="T:OpenCS.Common.GenericClassFactory`1">
-            <summary>
-            일반화된 공장
-            </summary>
-            <typeparam name="T">클래스 형태</typeparam>
-        </member>
-        <member name="M:OpenCS.Common.GenericClassFactory`1.CreateClass">
-            <summary>
-            클래스를 생성한다.
-            </summary>
-            <returns>생성된 클래스</returns>
-        </member>
-        <member name="T:OpenCS.Common.Action.IActionHandler">
-            <summary>
-            액션 처리기
-            </summary>
-        </member>
-        <member name="M:OpenCS.Common.Action.IActionHandler.HandleAction(OpenCS.Common.Action.IAction)">
-            <summary>
-            액션을 처리한다.
-            </summary>
-            <param name="action">액션</param>
-            <returns>처리 결과</returns>
-        </member>
-        <member name="T:OpenCS.Common.StringUtils">
-            <summary>
-            문자열 관련 유틸 클래스.
-            </summary>
-        </member>
-        <member name="M:OpenCS.Common.StringUtils.StripTags(System.String)">
-            <summary>
-            HTML 태그를 없앤다. 참고 주소: http://www.developerfusion.co.uk/show/3901/
-            
-            </summary>
-            <param name="src">원본 문자열</param>
-            <returns>변환된 문자열</returns>
-        </member>
-        <member name="M:OpenCS.Common.StringUtils.GrabString(System.String,System.String,System.String)">
-            <summary>
-            태그와 태그사이의 문자열을 구한다. 태그를 찾지 못하면 원본 문자열과 동일한 문자열을 반환한다.
-            </summary>
-            <param name="src">원본 문자열</param>
-            <param name="startTag">시작 태그</param>
-            <param name="endTag">종료 태그</param>
-            <returns>사이의 문자열</returns>
-        </member>
-        <member name="M:OpenCS.Common.StringUtils.GetTimeStamp">
-            <summary>
-            현재 시간에 대한 타임스탬프 문자열을 반환한다. 형식은 "[yyyy/MM/dd HH:mm:ss]".
-            ref: http://en.csharp-online.net/CSharp_Format_Specifiers%E2%80%94DateTime_Format_Specifiers
-            </summary>
-            <returns>타임스탬프 문자열</returns>
-        </member>
-        <member name="M:OpenCS.Common.StringUtils.GetTimeStampWithTicks">
-            <summary>
-            현재 시간에 대한 틱값과 함께 타임스탬프 문자열을 반환한다. 형식은 "[yyyy/MM/dd HH:mm:ss 633471568757530000]".
-            ref: http://en.csharp-online.net/CSharp_Format_Specifiers%E2%80%94DateTime_Format_Specifiers
-            </summary>
-            <returns>타임스탬프 문자열</returns>
-        </member>
-        <member name="T:OpenCS.Common.Resource.IResourceProvidable">
-            <summary>
-            리소스 제공자를 사용하는 객체
-            </summary>
-        </member>
-        <member name="P:OpenCS.Common.Resource.IResourceProvidable.ResourceProvider">
-            <summary>
-            리소스 제공자를 설정한다.
-            </summary>
-        </member>
-        <member name="T:OpenCS.Common.Singleton`1">
-            <summary>
-            A Generic Singleton Pattern in C#
-            ref: http://sanity-free.org/132/generic_singleton_pattern_in_csharp.html
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="P:OpenCS.Common.Singleton`1.Instance">
-            <summary>
-            Get Singleton Class Instance
             </summary>
         </member>
     </members>

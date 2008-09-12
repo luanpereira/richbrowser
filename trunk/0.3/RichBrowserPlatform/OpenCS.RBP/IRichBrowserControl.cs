@@ -49,6 +49,9 @@ namespace OpenCS.RBP
             get;
         }
 
+        /// <summary>
+        /// Gets or Sets MenuStrip visibility.
+        /// </summary>
         [Browsable(true)]
         bool ShowMenuStrip
         {
@@ -56,6 +59,9 @@ namespace OpenCS.RBP
             set;
         }
 
+        /// <summary>
+        /// Gets or Sets WebToolStrip visibility.
+        /// </summary>
         [Browsable(true)]
         bool ShowWebToolStrip
         {
@@ -63,6 +69,9 @@ namespace OpenCS.RBP
             set;
         }
 
+        /// <summary>
+        /// Gets or Sets AddressToolStrip visibility.
+        /// </summary>
         [Browsable(true)]
         bool ShowAddressToolStrip
         {
@@ -70,6 +79,9 @@ namespace OpenCS.RBP
             set;
         }
 
+        /// <summary>
+        /// Gets or Sets SearchToolStrip visibility.
+        /// </summary>
         [Browsable(true)]
         bool ShowSearchToolStrip
         {
@@ -77,6 +89,9 @@ namespace OpenCS.RBP
             set;
         }
 
+        /// <summary>
+        /// Gets or Sets StatusStrip visibility.
+        /// </summary>
         [Browsable(true)]
         bool ShowStatusStrip
         {
