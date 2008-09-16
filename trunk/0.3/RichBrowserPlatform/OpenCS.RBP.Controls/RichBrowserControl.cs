@@ -30,6 +30,8 @@ namespace OpenCS.RBP.Controls
         private GenericClassFactory<IWebBrowserDockContent> mWbdcf;
         private ILogger mLogger = new ConsoleLogger();
 
+        private NotifyIcon mNotifyIcon = new NotifyIcon();
+
         #endregion Fields
 
         #region Properties
@@ -382,6 +384,24 @@ namespace OpenCS.RBP.Controls
             set { mWbdcf = value; }
         }
 
+
+        public Icon NotifyIconResource
+        {
+            get { return mNotifyIcon.Icon; }
+            set { mNotifyIcon.Icon = value; }
+        }
+
+        public ContextMenu NotifyIconContextMenu
+        {
+            get { return mNotifyIcon.ContextMenu; }
+            set { mNotifyIcon.ContextMenu = value; }
+        }
+
+        public bool ShowNotifyIcon
+        {
+            get { return mNotifyIcon.Visible; }
+            set { mNotifyIcon.Visible = value; }
+        }
         public object AddToolBarButton(string text, IAction action)
         {
             ToolStripButton button = new ToolStripButton(text);
@@ -478,6 +498,11 @@ namespace OpenCS.RBP.Controls
             string pluginsFolder = appPath + @"\Plugins";
 
             LoadPlugins(pluginsFolder);
+        }
+
+        public void ShowBalloonTip(int timeout, string tipTitle, string tipText, ToolTipIcon tipIcon)
+        {
+            mNotifyIcon.ShowBalloonTip(timeout, tipTitle, tipText, tipIcon);
         }
 
         #endregion

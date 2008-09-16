@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using OpenCS.Common;
-using OpenCS.Common.Plugin;
 using OpenCS.Common.Action;
 using OpenCS.Common.Logging;
+using OpenCS.Common.Plugin;
 
 namespace OpenCS.RBP
 {
@@ -99,6 +100,29 @@ namespace OpenCS.RBP
             set;
         }
 
+        Icon NotifyIconResource
+        {
+            get;
+            set;
+        }
+
+        ContextMenu NotifyIconContextMenu
+        {
+            get;
+            set;
+        }
+
+        bool ShowNotifyIcon
+        {
+            get;
+            set;
+        }
+
+        Form ParentForm
+        {
+            get;
+        }
+
         /// <summary>
         /// 웹 브라우저를 새로 연다.
         /// </summary>
@@ -164,5 +188,7 @@ namespace OpenCS.RBP
         /// 현재 실행되고 있는 어플리케이션 폴더 밑의 Plugins 폴더로부터 플러그인을 읽어 온다.
         /// </summary>
         void LoadPlugins();
+
+        void ShowBalloonTip(int timeout, string tipTitle, string tipText, ToolTipIcon tipIcon);
     }
 }
