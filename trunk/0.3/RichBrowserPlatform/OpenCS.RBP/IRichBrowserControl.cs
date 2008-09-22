@@ -15,7 +15,7 @@ namespace OpenCS.RBP
     /// <summary>
     /// 리치 브라우저 콘트롤
     /// </summary>
-    public interface IRichBrowserControl : IPluginHost
+    public interface IRichBrowserControl : IPluginHost, IDisposable
     {
         /// <summary>
         /// 로거를 가져오거나 설정한다.

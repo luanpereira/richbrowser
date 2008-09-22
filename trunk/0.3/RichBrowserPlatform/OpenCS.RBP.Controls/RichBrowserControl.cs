@@ -54,6 +54,8 @@ namespace OpenCS.RBP.Controls
 
             dockPanelMain.ContentAdded += new EventHandler<DockContentEventArgs>(OnContentAdded);
             dockPanelMain.ContentRemoved += new EventHandler<DockContentEventArgs>(OnContentRemoved);
+
+            this.Disposed += new EventHandler(OnDisposed);
         }
 
         #endregion Constructors
@@ -72,6 +74,12 @@ namespace OpenCS.RBP.Controls
         #region Event handling
 
         #region Form
+
+        void OnDisposed(object sender, EventArgs e)
+        {
+            mNotifyIcon.Dispose();
+            mNotifyIcon = null;
+        }
 
         #endregion Form
 
