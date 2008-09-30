@@ -100,24 +100,36 @@ namespace OpenCS.RBP
             set;
         }
 
+        /// <summary>
+        /// Gets or sets notify icon resource.
+        /// </summary>
         Icon NotifyIconResource
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Gets or sets notify icon context menu.
+        /// </summary>
         ContextMenu NotifyIconContextMenu
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Gets or sets notify icon visibility.
+        /// </summary>
         bool ShowNotifyIcon
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Gets parent form.
+        /// </summary>
         Form ParentForm
         {
             get;
@@ -184,11 +196,19 @@ namespace OpenCS.RBP
         /// </summary>
         /// <param name="menuItem">메뉴 아이템 객체</param>
         void RemoveMenuItem(object menuItem);
+
         /// <summary>
         /// 현재 실행되고 있는 어플리케이션 폴더 밑의 Plugins 폴더로부터 플러그인을 읽어 온다.
         /// </summary>
         void LoadPlugins();
 
+        /// <summary>
+        /// Show balloon tip on tray
+        /// </summary>
+        /// <param name="timeout">timeout (miliseconds)</param>
+        /// <param name="tipTitle">title of tip</param>
+        /// <param name="tipText">text of tip</param>
+        /// <param name="tipIcon">icon of tip</param>
         void ShowBalloonTip(int timeout, string tipTitle, string tipText, ToolTipIcon tipIcon);
     }
 }

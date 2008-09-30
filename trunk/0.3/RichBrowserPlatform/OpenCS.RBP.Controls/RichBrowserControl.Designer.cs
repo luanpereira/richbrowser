@@ -33,7 +33,11 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolbarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addressBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pluginsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainerMain = new System.Windows.Forms.ToolStripContainer();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
@@ -57,11 +61,13 @@
             this.toolStripLabelAddress = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBoxUrl = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonGo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripStatusLabelMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStripMain.SuspendLayout();
             this.toolStripContainerMain.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainerMain.ContentPanel.SuspendLayout();
             this.toolStripContainerMain.TopToolStripPanel.SuspendLayout();
             this.toolStripContainerMain.SuspendLayout();
+            this.statusStripMain.SuspendLayout();
             this.toolStripWeb.SuspendLayout();
             this.toolStripPlugins.SuspendLayout();
             this.toolStripAddress.SuspendLayout();
@@ -92,12 +98,14 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnMenuItemClick);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolbarsToolStripMenuItem});
+            this.toolbarsToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.statusBarToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.viewToolStripMenuItem.Text = "&View";
@@ -105,19 +113,50 @@
             // toolbarsToolStripMenuItem
             // 
             this.toolbarsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.webBarToolStripMenuItem,
+            this.addressBarToolStripMenuItem,
             this.pluginsToolStripMenuItem});
             this.toolbarsToolStripMenuItem.Name = "toolbarsToolStripMenuItem";
-            this.toolbarsToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.toolbarsToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.toolbarsToolStripMenuItem.Text = "Toolbars";
+            // 
+            // webBarToolStripMenuItem
+            // 
+            this.webBarToolStripMenuItem.CheckOnClick = true;
+            this.webBarToolStripMenuItem.Name = "webBarToolStripMenuItem";
+            this.webBarToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.webBarToolStripMenuItem.Text = "Web";
+            this.webBarToolStripMenuItem.Click += new System.EventHandler(this.OnMenuItemCheckedChanged);
+            // 
+            // addressBarToolStripMenuItem
+            // 
+            this.addressBarToolStripMenuItem.CheckOnClick = true;
+            this.addressBarToolStripMenuItem.Name = "addressBarToolStripMenuItem";
+            this.addressBarToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.addressBarToolStripMenuItem.Text = "Address";
+            this.addressBarToolStripMenuItem.Click += new System.EventHandler(this.OnMenuItemCheckedChanged);
             // 
             // pluginsToolStripMenuItem
             // 
             this.pluginsToolStripMenuItem.CheckOnClick = true;
             this.pluginsToolStripMenuItem.Image = global::OpenCS.RBP.Controls.Properties.Resources.plugin;
             this.pluginsToolStripMenuItem.Name = "pluginsToolStripMenuItem";
-            this.pluginsToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.pluginsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.pluginsToolStripMenuItem.Text = "Plugins";
-            this.pluginsToolStripMenuItem.CheckedChanged += new System.EventHandler(this.pluginsToolStripMenuItem_CheckedChanged);
+            this.pluginsToolStripMenuItem.Click += new System.EventHandler(this.OnMenuItemCheckedChanged);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(121, 6);
+            // 
+            // statusBarToolStripMenuItem
+            // 
+            this.statusBarToolStripMenuItem.CheckOnClick = true;
+            this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
+            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.statusBarToolStripMenuItem.Text = "StatusBar";
+            this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.OnMenuItemCheckedChanged);
             // 
             // toolsToolStripMenuItem
             // 
@@ -152,6 +191,8 @@
             // statusStripMain
             // 
             this.statusStripMain.Dock = System.Windows.Forms.DockStyle.None;
+            this.statusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelMessage});
             this.statusStripMain.Location = new System.Drawing.Point(0, 0);
             this.statusStripMain.Name = "statusStripMain";
             this.statusStripMain.Size = new System.Drawing.Size(824, 22);
@@ -338,6 +379,12 @@
             this.toolStripButtonGo.Text = "Go";
             this.toolStripButtonGo.Click += new System.EventHandler(this.toolStripButtonGo_Click);
             // 
+            // toolStripStatusLabelMessage
+            // 
+            this.toolStripStatusLabelMessage.Name = "toolStripStatusLabelMessage";
+            this.toolStripStatusLabelMessage.Size = new System.Drawing.Size(42, 17);
+            this.toolStripStatusLabelMessage.Text = "Ready.";
+            // 
             // RichBrowserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -355,6 +402,8 @@
             this.toolStripContainerMain.TopToolStripPanel.PerformLayout();
             this.toolStripContainerMain.ResumeLayout(false);
             this.toolStripContainerMain.PerformLayout();
+            this.statusStripMain.ResumeLayout(false);
+            this.statusStripMain.PerformLayout();
             this.toolStripWeb.ResumeLayout(false);
             this.toolStripWeb.PerformLayout();
             this.toolStripPlugins.ResumeLayout(false);
@@ -397,5 +446,10 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxUrl;
         private System.Windows.Forms.ToolStripButton toolStripButtonGo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem statusBarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem webBarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addressBarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelMessage;
     }
 }

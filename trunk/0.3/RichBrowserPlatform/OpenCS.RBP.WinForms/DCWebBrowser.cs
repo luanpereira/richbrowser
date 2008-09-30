@@ -17,8 +17,17 @@ namespace OpenCS.RBP.WinForms
 
             rbpWebBrowserMain.DocumentTitleChanged += new EventHandler(rbpWebBrowserMain_DocumentTitleChanged);
             rbpWebBrowserMain.NewWindow += new CancelEventHandler(rbpWebBrowserMain_NewWindow);
+            rbpWebBrowserMain.StatusTextChanged += new EventHandler(rbpWebBrowserMain_StatusTextChanged);
 
             this.TabText = "(Untitled)";
+        }
+
+        void rbpWebBrowserMain_StatusTextChanged(object sender, EventArgs e)
+        {
+            if (WebBrowserStatusTextChanged != null)
+            {
+                WebBrowserStatusTextChanged(this, new WebBrowserStatusTextChangedEventArgs(rbpWebBrowserMain.StatusText));
+            }
         }
 
         void rbpWebBrowserMain_DocumentTitleChanged(object sender, EventArgs e)
@@ -43,6 +52,8 @@ namespace OpenCS.RBP.WinForms
         }
 
         public event EventHandler<NewWindowEventArgs> NewWindow;
+
+        public event EventHandler<WebBrowserStatusTextChangedEventArgs> WebBrowserStatusTextChanged;
 
         #endregion
     }

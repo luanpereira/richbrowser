@@ -35,11 +35,18 @@
             // richBrowserControl1
             // 
             this.richBrowserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richBrowserControl1.ExecutingPath = null;
             this.richBrowserControl1.Location = new System.Drawing.Point(0, 0);
+            consoleLogger1.HasUI = false;
+            consoleLogger1.LevelOptions = OpenCS.Common.Logging.LogLevelOptions.None;
+            consoleLogger1.UIOption = OpenCS.Common.Logging.LogUIOption.All;
             this.richBrowserControl1.Logger = consoleLogger1;
             this.richBrowserControl1.Name = "richBrowserControl1";
+            this.richBrowserControl1.NotifyIconContextMenu = null;
+            this.richBrowserControl1.NotifyIconResource = null;
             this.richBrowserControl1.ShowAddressToolStrip = true;
             this.richBrowserControl1.ShowMenuStrip = true;
+            this.richBrowserControl1.ShowNotifyIcon = false;
             this.richBrowserControl1.ShowSearchToolStrip = false;
             this.richBrowserControl1.ShowStatusStrip = true;
             this.richBrowserControl1.ShowWebToolStrip = true;
@@ -53,7 +60,7 @@
             this.ClientSize = new System.Drawing.Size(752, 410);
             this.Controls.Add(this.richBrowserControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Rich Browser Platform Demo Application";
             this.ResumeLayout(false);
 
         }

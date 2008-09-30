@@ -56,6 +56,8 @@ namespace OpenCS.RBP.Controls
             dockPanelMain.ContentRemoved += new EventHandler<DockContentEventArgs>(OnContentRemoved);
 
             this.Disposed += new EventHandler(OnDisposed);
+
+            SyncToMenuItems();
         }
 
         #endregion Constructors
@@ -132,9 +134,14 @@ namespace OpenCS.RBP.Controls
 
         #region Menus
 
-        private void pluginsToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        private void OnMenuItemCheckedChanged(object sender, EventArgs e)
         {
-            toolStripPlugins.Visible = pluginsToolStripMenuItem.Checked;
+            SyncFromMenuItems();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ParentForm.Close();
         }
 
         #endregion Menus
@@ -156,6 +163,7 @@ namespace OpenCS.RBP.Controls
             {
                 IWebBrowserDockContent wbdc = e.Content as IWebBrowserDockContent;
                 wbdc.NewWindow += new EventHandler<NewWindowEventArgs>(OnNewWindow);
+                wbdc.WebBrowserStatusTextChanged += new EventHandler<WebBrowserStatusTextChangedEventArgs>(OnWebBrowserStatusTextChanged);
             }
         }
 
@@ -165,10 +173,27 @@ namespace OpenCS.RBP.Controls
             {
                 IWebBrowserDockContent wbdc = e.Content as IWebBrowserDockContent;
                 wbdc.NewWindow -= OnNewWindow;
+                wbdc.WebBrowserStatusTextChanged -= OnWebBrowserStatusTextChanged;
             }
         }
 
         #endregion Event handling
+
+        private void SyncToMenuItems()
+        {
+            pluginsToolStripMenuItem.Checked = toolStripPlugins.Visible;
+            webBarToolStripMenuItem.Checked = toolStripWeb.Visible;
+            addressBarToolStripMenuItem.Checked = toolStripAddress.Visible;
+            statusBarToolStripMenuItem.Checked = statusStripMain.Visible;
+        }
+
+        private void SyncFromMenuItems()
+        {
+            toolStripPlugins.Visible = pluginsToolStripMenuItem.Checked;
+            toolStripWeb.Visible = webBarToolStripMenuItem.Checked;
+            toolStripAddress.Visible = addressBarToolStripMenuItem.Checked;
+            statusStripMain.Visible = statusBarToolStripMenuItem.Checked;
+        }
 
         #endregion Private Functions
 
@@ -370,8 +395,7 @@ namespace OpenCS.RBP.Controls
 
             if (mWbdcf != null)
             {
-                wbdc = mWbdcf.CreateClass();
-                wbdc.Show(dockPanelMain, DockState.Document);
+                wbdc = NewWebBrowser();
                 wbdc.WebBrowser.Navigate(url);
 
                 return wbdc.WebBrowser;
@@ -385,6 +409,17 @@ namespace OpenCS.RBP.Controls
         void OnNewWindow(object sender, NewWindowEventArgs e)
         {
             Navigate(e.Url);
+        }
+
+        void OnWebBrowserStatusTextChanged(object sender, WebBrowserStatusTextChangedEventArgs e)
+        {
+            if (sender is IWebBrowserDockContent)
+            {
+                if (dockPanelMain.ActiveDocument == sender)
+                {
+                    toolStripStatusLabelMessage.Text = e.StatusText;
+                }
+            }
         }
 
         public GenericClassFactory<IWebBrowserDockContent> WebBrowserDockContentFactory
@@ -514,5 +549,6 @@ namespace OpenCS.RBP.Controls
         }
 
         #endregion
+
     }
 }

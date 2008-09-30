@@ -22,5 +22,7 @@ namespace OpenCS.RBP
         /// 새 창을 띄우려고 할 때 발생한다. WebBrowser가 새창을 띄우지 않고, RBP가 다른 탭으로 띄우게 한다.
         /// </summary>
         event EventHandler<NewWindowEventArgs> NewWindow;
+
+        event EventHandler<WebBrowserStatusTextChangedEventArgs> WebBrowserStatusTextChanged;
     }
 }
