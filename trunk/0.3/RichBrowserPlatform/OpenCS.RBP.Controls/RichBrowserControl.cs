@@ -54,6 +54,7 @@ namespace OpenCS.RBP.Controls
 
             dockPanelMain.ContentAdded += new EventHandler<DockContentEventArgs>(OnContentAdded);
             dockPanelMain.ContentRemoved += new EventHandler<DockContentEventArgs>(OnContentRemoved);
+            dockPanelMain.ActiveContentChanged += new EventHandler(OnActiveContentChanged);
 
             this.Disposed += new EventHandler(OnDisposed);
 
@@ -174,6 +175,15 @@ namespace OpenCS.RBP.Controls
                 IWebBrowserDockContent wbdc = e.Content as IWebBrowserDockContent;
                 wbdc.NewWindow -= OnNewWindow;
                 wbdc.WebBrowserStatusTextChanged -= OnWebBrowserStatusTextChanged;
+            }
+        }
+
+        void OnActiveContentChanged(object sender, EventArgs e)
+        {
+            if (dockPanelMain.ActiveContent is IWebBrowserDockContent)
+            {
+                IWebBrowserDockContent wbdc = dockPanelMain.ActiveContent as IWebBrowserDockContent;
+                toolStripStatusLabelMessage.Text = wbdc.WebBrowser.StatusText;
             }
         }
 
@@ -355,19 +365,31 @@ namespace OpenCS.RBP.Controls
         public bool ShowMenuStrip
         {
             get { return menuStripMain.Visible; }
-            set { menuStripMain.Visible = value; }
+            set
+            {
+                menuStripMain.Visible = value;
+                SyncToMenuItems();
+            }
         }
 
         public bool ShowWebToolStrip
         {
             get { return toolStripWeb.Visible; }
-            set { toolStripWeb.Visible = value; }
+            set
+            {
+                toolStripWeb.Visible = value;
+                SyncToMenuItems();
+            }
         }
 
         public bool ShowAddressToolStrip
         {
             get { return toolStripAddress.Visible; }
-            set { toolStripAddress.Visible = value; }
+            set
+            {
+                toolStripAddress.Visible = value;
+                SyncToMenuItems();
+            }
         }
 
         // TODO: search toolstrip
@@ -386,7 +408,11 @@ namespace OpenCS.RBP.Controls
         public bool ShowStatusStrip
         {
             get { return statusStripMain.Visible; }
-            set { statusStripMain.Visible = value; }
+            set
+            {
+                statusStripMain.Visible = value;
+                SyncToMenuItems();
+            }
         }
 
         public IWebBrowser Navigate(string url)
