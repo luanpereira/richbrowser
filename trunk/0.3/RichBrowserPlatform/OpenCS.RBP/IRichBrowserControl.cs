@@ -9,6 +9,7 @@ using OpenCS.Common;
 using OpenCS.Common.Action;
 using OpenCS.Common.Logging;
 using OpenCS.Common.Plugin;
+using OpenCS.Common.Resource;
 
 namespace OpenCS.RBP
 {
@@ -21,6 +22,24 @@ namespace OpenCS.RBP
         /// 로거를 가져오거나 설정한다.
         /// </summary>
         ILogger Logger
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets <c>IResourceProvider</c>.
+        /// </summary>
+        IResourceProvider ResourceProvider
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets <c>IResourceChanger</c>.
+        /// </summary>
+        IResourceChanger ResourceChanger
         {
             get;
             set;

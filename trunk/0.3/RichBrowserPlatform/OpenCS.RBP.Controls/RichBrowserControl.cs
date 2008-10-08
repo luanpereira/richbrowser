@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
-using System.Reflection;
-using System.IO;
 using WeifenLuo.WinFormsUI.Docking;
 using OpenCS.Common;
-using OpenCS.Common.Plugin;
 using OpenCS.Common.Action;
 using OpenCS.Common.Logging;
+using OpenCS.Common.Plugin;
+using OpenCS.Common.Resource;
 using OpenCS.RBP.Actions;
 
 namespace OpenCS.RBP.Controls
@@ -29,6 +30,8 @@ namespace OpenCS.RBP.Controls
         private DCPlugins mDCPlugins;
         private GenericClassFactory<IWebBrowserDockContent> mWbdcf;
         private ILogger mLogger = new ConsoleLogger();
+        private IResourceProvider mRP;
+        private IResourceChanger mRC;
 
         private NotifyIcon mNotifyIcon = new NotifyIcon();
 
@@ -471,6 +474,19 @@ namespace OpenCS.RBP.Controls
             get { return mNotifyIcon.Visible; }
             set { mNotifyIcon.Visible = value; }
         }
+
+        public IResourceProvider ResourceProvider
+        {
+            get { return mRP; }
+            set { mRP = value; }
+        }
+
+        public IResourceChanger ResourceChanger
+        {
+            get { return mRC; }
+            set { mRC = value; }
+        }
+
         public object AddToolBarButton(string text, IAction action)
         {
             ToolStripButton button = new ToolStripButton(text);
@@ -575,6 +591,5 @@ namespace OpenCS.RBP.Controls
         }
 
         #endregion
-
     }
 }

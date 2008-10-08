@@ -33,6 +33,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Labraries\OpenCS.Common.dll</HintPath>
     </Reference>
+    <Reference Include="OpenCS.Common.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Labraries\OpenCS.Common.Logging.dll</HintPath>
+    </Reference>
     <Reference Include="OpenCS.Common.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Labraries\OpenCS.Common.Plugin.dll</HintPath>

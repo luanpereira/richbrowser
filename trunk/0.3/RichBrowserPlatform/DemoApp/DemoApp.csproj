@@ -32,9 +32,37 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Labraries\OpenCS.Common.dll</HintPath>
     </Reference>
+    <Reference Include="OpenCS.Common.AutoUpdate, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Labraries\OpenCS.Common.AutoUpdate.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCS.Common.Http, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Labraries\OpenCS.Common.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCS.Common.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Labraries\OpenCS.Common.Logging.dll</HintPath>
+    </Reference>
     <Reference Include="OpenCS.Common.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Labraries\OpenCS.Common.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCS.Common.Test, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Labraries\OpenCS.Common.Test.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCS.Common.WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Labraries\OpenCS.Common.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCS.Common.Worker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Labraries\OpenCS.Common.Worker.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCS.Common.Worker.WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Labraries\OpenCS.Common.Worker.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -80,6 +108,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MyFirstPanelPlugin\MyFirstPanelPlugin.csproj">
+      <Project>{EA6ADE43-80D9-4879-A60B-D28F20E29441}</Project>
+      <Name>MyFirstPanelPlugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyFirstPlugin\MyFirstPlugin.csproj">
+      <Project>{028D5F84-9CCE-49B6-90FF-D8BA92E3629E}</Project>
+      <Name>MyFirstPlugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyFirstRBPPlugin\MyFirstRBPPlugin.csproj">
+      <Project>{5EAD57CF-5960-4A46-8017-13C46E8D6BC4}</Project>
+      <Name>MyFirstRBPPlugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyFirstToggleableRbpPlugin\MyFirstToggleableRbpPlugin.csproj">
+      <Project>{92F8FD1D-0B0E-4FC1-BD2D-10803BC76C8C}</Project>
+      <Name>MyFirstToggleableRbpPlugin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenCS.RBP.Controls\OpenCS.RBP.Controls.csproj">
       <Project>{070551B2-AB6F-4687-9BAF-B0403EB4DF0E}</Project>
       <Name>OpenCS.RBP.Controls</Name>
